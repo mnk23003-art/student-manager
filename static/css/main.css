@@ -2257,6 +2257,38 @@ textarea.form-control {
   opacity: 0.35;
 }
 
+.calendar-day.weekend {
+  background-color: var(--danger-light);
+}
+
+.calendar-day.weekend:hover {
+  background-color: var(--danger-light);
+}
+
+.calendar-day.weekend.today {
+  background-color: var(--danger-light);
+  outline: 2px solid var(--danger);
+}
+
+.weekend-notice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-sm);
+  padding: var(--sp-lg);
+  margin-bottom: var(--sp-lg);
+  background: var(--danger-light);
+  border: 1px solid var(--danger);
+  border-radius: var(--radius-lg);
+  color: var(--danger-dark);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-base);
+}
+
+.calendar-header .weekend {
+  color: var(--danger-dark);
+}
+
 .calendar-day-number {
   font-size: var(--fs-sm);
   font-weight: var(--fw-medium);

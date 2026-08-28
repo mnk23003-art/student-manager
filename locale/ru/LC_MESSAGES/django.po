@@ -4655,3 +4655,7 @@ msgstr ""
 
 #~ msgid "Subsequent"
 #~ msgstr "Последующий"
+
+#: templates/calendar/calendar.html
+msgid "Сегодня не занятий"
+msgstr "Сегодня не занятий"

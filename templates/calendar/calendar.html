@@ -13,11 +13,16 @@
 </div>
 <div class="card">
     <div class="card-body">
+        {% if today.weekday >= 5 %}
+        <div class="weekend-notice">
+            <i class="fas fa-calendar-day"></i> {% trans "Сегодня не занятий" %}
+        </div>
+        {% endif %}
         <div class="calendar-grid">
-            <div class="calendar-header"><span>{% trans "Пн" %}</span><span>{% trans "Вт" %}</span><span>{% trans "Ср" %}</span><span>{% trans "Чт" %}</span><span>{% trans "Пт" %}</span><span>{% trans "Сб" %}</span><span>{% trans "Вс" %}</span></div>
+            <div class="calendar-header"><span>{% trans "Пн" %}</span><span>{% trans "Вт" %}</span><span>{% trans "Ср" %}</span><span>{% trans "Чт" %}</span><span>{% trans "Пт" %}</span><span class="weekend">{% trans "Сб" %}</span><span class="weekend">{% trans "Вс" %}</span></div>
             <div class="calendar-body">
                 {% for day in calendar_days %}
-                <div class="calendar-day {% if not day.is_current_month %}other-month{% endif %} {% if day.is_today %}today{% endif %}">
+                <div class="calendar-day {% if not day.is_current_month %}other-month{% endif %} {% if day.is_today %}today{% endif %} {% if day.is_weekend %}weekend{% endif %}">
                     <div class="calendar-date">{{ day.date|date:"d" }}</div>
                     {% for event in day.events %}
                     <div class="calendar-event" style="background: {{ event.color }}20; color: {{ event.color }}">{{ event.title|truncatechars:15 }}</div>

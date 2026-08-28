@@ -54,14 +54,17 @@ def calendar_view(request):
 
     cal_days = []
     current = first_day - timedelta(days=first_day.weekday())
+    today = timezone.now().date()
     while current <= last_day + timedelta(days=6):
         day_events = events.filter(date=current)
         day_tasks = tasks.filter(deadline__date=current)
         day_exams = exams.filter(date=current)
+        is_weekend = current.weekday() >= 5  # 5=Сб, 6=Вс
         cal_days.append({
             'date': current,
             'is_current_month': first_day.month == current.month,
-            'is_today': current == timezone.now().date(),
+            'is_today': current == today,
+            'is_weekend': is_weekend,
             'events': day_events,
             'tasks': day_tasks,
             'exams': day_exams,
