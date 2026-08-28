@@ -22,18 +22,6 @@ A comprehensive personal student management system built with Django.
 - **Responsive** - Works on desktop, tablet, and mobile
 - **i18n** - English and Russian language support
 
-## Tech Stack
-
-- Python 3.12+
-- Django 5.x
-- SQLite
-- Django Templates + HTMX
-- CSS3 with CSS Variables
-- JavaScript (minimal)
-
-
-
-
 
 ## Project Structure
 
