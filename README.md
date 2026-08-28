@@ -31,49 +31,9 @@ A comprehensive personal student management system built with Django.
 - CSS3 with CSS Variables
 - JavaScript (minimal)
 
-## Quick Start
 
-### 1. Clone and setup
 
-```bash
-cd student_manager
-python -m venv .venv
-source .venv/bin/activate  # macOS/Linux
-# .venv\Scripts\activate  # Windows
-pip install -r requirements.txt
-```
 
-### 2. Configure environment
-
-```bash
-cp .env.example .env
-```
-
-Edit `.env` and set:
-- `SECRET_KEY` - Generate a random secret key
-- `DEBUG` - Set to `True` for development
-
-### 3. Initialize database
-
-```bash
-python manage.py migrate
-```
-
-### 4. Create demo data (optional)
-
-```bash
-python manage.py seed_demo
-```
-
-Demo credentials: `demo` / `demo1234`
-
-### 5. Run development server
-
-```bash
-python manage.py runserver
-```
-
-Open http://127.0.0.1:8000/
 
 ## Project Structure
 
@@ -109,15 +69,6 @@ student_manager/
 └── README.md
 ```
 
-## Management Commands
-
-```bash
-# Create demo data
-python manage.py seed_demo
-
-# Clear demo data
-python manage.py clear_demo
-```
 
 ## Features Detail
 
@@ -137,27 +88,4 @@ Tracks estimated time for tasks and shows daily/weekly workload.
 ### Focus Mode
 Pomodoro timer with customizable durations and session tracking.
 
-## Testing
 
-```bash
-pytest
-```
-
-## Production Deployment
-
-```bash
-# Set environment variables
-export DEBUG=False
-export SECRET_KEY=your-secure-secret-key
-export ALLOWED_HOSTS=yourdomain.com
-
-# Collect static files
-python manage.py collectstatic
-
-# Run with gunicorn
-gunicorn config.wsgi:application
-```
-
-## License
-
-MIT License
