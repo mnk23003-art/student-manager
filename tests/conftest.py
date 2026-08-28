@@ -17,6 +17,17 @@ from datetime import date, time, timedelta
 from django.utils import timezone
 
 
+@pytest.fixture(autouse=True)
+def _reset_rate_limiters():
+    """Reset rate limit stores between tests."""
+    from apps.core.rate_limit import _global_store, _login_store
+    _global_store._data.clear()
+    _login_store._data.clear()
+    yield
+    _global_store._data.clear()
+    _login_store._data.clear()
+
+
 @pytest.fixture
 def user(db):
     u = User.objects.create_user(

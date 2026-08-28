@@ -63,6 +63,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'apps.core.middleware.SemesterMiddleware',
+    'apps.core.rate_limit.GlobalRateLimitMiddleware',
+    'apps.core.rate_limit.RequestTimeoutMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -176,7 +178,7 @@ SECURE_CONTENT_SECURITY_POLICY = "default-src 'self'; script-src 'self' 'unsafe-
 SECURE_PERMISSIONS_POLICY = "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
 
 # Cookies
-SESSION_COOKIE_AGE = 86400  # 1 day (was 2 weeks)
+SESSION_COOKIE_AGE = 86400  # 1 day
 SESSION_COOKIE_HTTPONLY = True
 SESSION_COOKIE_SAMESITE = 'Lax'
 SESSION_COOKIE_SECURE = not DEBUG
@@ -191,14 +193,17 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_SAVE_EVERY_REQUEST = False
 
 # File Uploads
-FILE_UPLOAD_MAX_MEMORY_SIZE = 2097152  # 2MB
-DATA_UPLOAD_MAX_MEMORY_SIZE = 2097152  # 2MB
+FILE_UPLOAD_MAX_MEMORY_SIZE = 1048576  # 1MB
+DATA_UPLOAD_MAX_MEMORY_SIZE = 1048576  # 1MB
 
-# Password hashing
+# Request size limits (Nginx enforces, this is defense-in-depth)
+DATA_UPLOAD_MAX_NUMBER_FILES = 10
+
+# Password hashing (Argon2 first — best for GPU resistance)
 PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
     'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
-    'django.contrib.auth.hashers.Argon2PasswordHasher',
     'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
 ]
 
@@ -209,6 +214,62 @@ AUTHENTICATION_BACKENDS = [
 
 # Logout on password change
 LOGOUT_ON_PASSWORD_CHANGE = True
+
+# Account lockout after failed attempts (defense-in-depth)
+AUTH_MAX_FAILED_ATTEMPTS = 5
+
+# ============================================================
+# LOGGING
+# ============================================================
+LOG_DIR = BASE_DIR / 'logs'
+LOG_DIR.mkdir(exist_ok=True)
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '[{asctime}] {levelname} {name} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'security_file': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': BASE_DIR / 'logs' / 'security.log',
+            'formatter': 'verbose',
+        },
+        'request_file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': BASE_DIR / 'logs' / 'requests.log',
+            'formatter': 'verbose',
+        },
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+    },
+    'loggers': {
+        'django.security': {
+            'handlers': ['security_file', 'console'],
+            'level': 'WARNING',
+            'propagate': True,
+        },
+        'django.request': {
+            'handlers': ['request_file', 'console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'apps.core.rate_limit': {
+            'handlers': ['security_file', 'console'],
+            'level': 'WARNING',
+            'propagate': False,
+        },
+    },
+}
 
 # Messages
 from django.contrib.messages import constants as messages

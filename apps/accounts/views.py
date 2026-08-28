@@ -7,7 +7,7 @@ from django.urls import reverse_lazy, resolve
 from django.views import View
 from django.utils.decorators import method_decorator
 from django.views.decorators.http import require_POST
-from apps.core.rate_limit import RateLimitMiddleware
+from apps.core.rate_limit import LoginRateLimitMiddleware
 from .forms import (
     UserRegistrationForm, UserLoginForm, UserUpdateForm,
     ProfileUpdateForm, UserSettingsForm, CustomPasswordChangeForm
@@ -57,22 +57,21 @@ class LoginView(View):
     def post(self, request):
         ip = self._get_client_ip(request)
         
-        if RateLimitMiddleware.is_rate_limited(ip):
-            remaining = RateLimitMiddleware.get_remaining_time(request)
-            messages.error(request, f'Sлишком много попыток. Попробуйте через {remaining // 60} мин.')
+        if LoginRateLimitMiddleware.is_rate_limited(ip):
+            messages.error(request, 'Слишком много попыток входа. Подождите.')
             return render(request, 'accounts/login.html', {'form': UserLoginForm()})
         
         form = UserLoginForm(request, data=request.POST)
         if form.is_valid():
             user = form.get_user()
-            RateLimitMiddleware.clear_attempts(ip)
+            LoginRateLimitMiddleware.reset(ip)
             login(request, user)
             next_url = request.GET.get('next', '')
             if _is_safe_url(next_url):
                 return redirect(next_url)
             return redirect('dashboard:index')
         else:
-            RateLimitMiddleware.record_failed_attempt(ip)
+            LoginRateLimitMiddleware.record_failed(ip)
         return render(request, 'accounts/login.html', {'form': form})
     
     def _get_client_ip(self, request):
