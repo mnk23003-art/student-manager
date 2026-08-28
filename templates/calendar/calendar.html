@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Календарь" %} - Student Manager{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h1>{% trans "Календарь" %}</h1>
+    <div class="page-actions">
+        <a href="?year={{ prev_year }}&month={{ prev_month }}" class="btn btn-outline"><i class="fas fa-chevron-left"></i></a>
+        <span class="calendar-title">{{ month_name }}</span>
+        <a href="?year={{ next_year }}&month={{ next_month }}" class="btn btn-outline"><i class="fas fa-chevron-right"></i></a>
+        <a href="{% url 'calendar:event_create' %}" class="btn btn-primary"><i class="fas fa-plus"></i> {% trans "Событие" %}</a>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <div class="calendar-grid">
+            <div class="calendar-header"><span>{% trans "Пн" %}</span><span>{% trans "Вт" %}</span><span>{% trans "Ср" %}</span><span>{% trans "Чт" %}</span><span>{% trans "Пт" %}</span><span>{% trans "Сб" %}</span><span>{% trans "Вс" %}</span></div>
+            <div class="calendar-body">
+                {% for day in calendar_days %}
+                <div class="calendar-day {% if not day.is_current_month %}other-month{% endif %} {% if day.is_today %}today{% endif %}">
+                    <div class="calendar-date">{{ day.date|date:"d" }}</div>
+                    {% for event in day.events %}
+                    <div class="calendar-event" style="background: {{ event.color }}20; color: {{ event.color }}">{{ event.title|truncatechars:15 }}</div>
+                    {% endfor %}
+                    {% for task in day.tasks %}
+                    <div class="calendar-event calendar-task">{{ task.title|truncatechars:15 }}</div>
+                    {% endfor %}
+                    {% for exam in day.exams %}
+                    <div class="calendar-event calendar-exam">{{ exam.title|truncatechars:15 }}</div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

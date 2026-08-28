@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{{ action }} {% trans "задачу" %} - Student Manager{% endblock %}
+{% block content %}
+<div class="page-header"><h1>{{ action }} {% trans "задачу" %}</h1></div>
+<div class="card"><div class="card-body">
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="form-group">
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {% if field.errors %}<span class="form-error">{{ field.errors.0 }}</span>{% endif %}
+        </div>
+        {% endfor %}
+        <div class="form-actions">
+            <a href="{% url 'tasks:list' %}" class="btn btn-secondary">{% trans "Отмена" %}</a>
+            <button type="submit" class="btn btn-primary">{{ action }} {% trans "задачу" %}</button>
+        </div>
+    </form>
+</div></div>
+{% endblock %}

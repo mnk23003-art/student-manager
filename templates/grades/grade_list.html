@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Оценки" %} - Student Manager{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h1>{% trans "Оценки" %}</h1>
+    <div class="page-actions">
+        <a href="{% url 'grades:prediction' %}" class="btn btn-outline"><i class="fas fa-calculator"></i> {% trans "Прогноз оценки" %}</a>
+        <a href="{% url 'grades:create' %}" class="btn btn-primary"><i class="fas fa-plus"></i> {% trans "Новая оценка" %}</a>
+    </div>
+</div>
+<div class="stats-grid">
+    {% include 'components/stat_card.html' with icon='chart-line' value=avg_grade|default:'—' label='Средний' color='#3B82F6' %}
+    {% include 'components/stat_card.html' with icon='balance-scale' value=weighted_avg|default:'—' label='Взвешенный' color='#10B981' %}
+    {% include 'components/stat_card.html' with icon='graduation-cap' value=gpa|default:'—' label=grading_system color='#8B5CF6' %}
+</div>
+{% if subject_grades %}
+<div class="card">
+    <div class="card-header"><h3>{% trans "Оценки по предметам" %}</h3></div>
+    <div class="card-body">
+        {% for sg in subject_grades %}
+        <div class="list-item">
+            <span>{{ sg.subject.name }}</span>
+            <span class="badge {% if sg.average >= 80 %}badge-success{% elif sg.average >= 60 %}badge-warning{% else %}badge-danger{% endif %}">{{ sg.average|default:'—' }}%</span>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+<div class="card">
+    <div class="card-header"><h3>{% trans "Все оценки" %}</h3></div>
+    <div class="card-body">
+        {% if grades %}
+        <div class="table-responsive">
+            <table class="table">
+                <thead><tr><th>{% trans "Название" %}</th><th>{% trans "Предмет" %}</th><th>{% trans "Тип" %}</th><th>{% trans "Балл" %}</th><th>{% trans "Вес" %}</th><th>{% trans "Дата" %}</th><th></th></tr></thead>
+                <tbody>
+                {% for grade in grades %}
+                <tr>
+                    <td>{{ grade.title }}</td>
+                    <td><span class="badge" style="background: {{ grade.subject.color }}20; color: {{ grade.subject.color }}">{{ grade.subject.name }}</span></td>
+                    <td>{{ grade.get_grade_type_display }}</td>
+                    <td>{{ grade.score }}/{{ grade.max_score }}</td>
+                    <td>{{ grade.weight }}%</td>
+                    <td>{{ grade.date|date:"M d" }}</td>
+                    <td>
+                        <a href="{% url 'grades:update' grade.pk %}" class="btn btn-sm btn-outline"><i class="fas fa-edit"></i></a>
+                        <a href="{% url 'grades:delete' grade.pk %}" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        {% include 'components/empty_state.html' with icon='award' title='Нет оценок' text='Добавьте первую оценку.' action_url='/grades/create/' action_text='Добавить оценку' %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

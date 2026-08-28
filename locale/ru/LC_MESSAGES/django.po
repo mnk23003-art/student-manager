@@ -1,0 +1,4657 @@
+# Russian translations for Student Manager
+msgid ""
+msgstr ""
+"Project-Id-Version: student_manager\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-28 13:56+0000\n"
+"PO-Revision-Date: 2026-08-28 12:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: apps/accounts/models.py:6
+#, fuzzy
+#| msgid "Address"
+msgid "email address"
+msgstr "Адрес"
+
+#: apps/accounts/models.py:9
+#, fuzzy
+#| msgid "Superuser"
+msgid "user"
+msgstr "Суперпользователь"
+
+#: apps/accounts/models.py:10
+msgid "users"
+msgstr ""
+
+#: apps/accounts/models.py:23 templates/accounts/onboarding.html:24
+msgid "University"
+msgstr "Университет"
+
+#: apps/accounts/models.py:24 templates/accounts/onboarding.html:25
+msgid "Faculty"
+msgstr "Факультет"
+
+#: apps/accounts/models.py:25 templates/accounts/onboarding.html:26
+msgid "Specialization"
+msgstr "Специализация"
+
+#: apps/accounts/models.py:26 templates/accounts/onboarding.html:27
+msgid "Course"
+msgstr "Курс"
+
+#: apps/accounts/models.py:27 apps/semesters/models.py:10
+#: templates/accounts/onboarding.html:28 templates/accounts/onboarding.html:34
+msgid "Academic Year"
+msgstr "Учебный год"
+
+#: apps/accounts/models.py:28
+msgid "Phone"
+msgstr "Телефон"
+
+#: apps/accounts/models.py:31 templates/accounts/onboarding.html:20
+msgid "Student Profile"
+msgstr "Профиль студента"
+
+#: apps/accounts/models.py:32
+#, fuzzy
+#| msgid "Student Profile"
+msgid "Student Profiles"
+msgstr "Профиль студента"
+
+#: apps/accounts/models.py:69 apps/accounts/models.py:70
+#, fuzzy
+#| msgid "Save Settings"
+msgid "User Settings"
+msgstr "Сохранить настройки"
+
+#: apps/attendance/models.py:9
+msgid "Present"
+msgstr "Присутствовал"
+
+#: apps/attendance/models.py:10
+msgid "Absent"
+msgstr "Отсутствовал"
+
+#: apps/attendance/models.py:11
+msgid "Late"
+msgstr "Опоздал"
+
+#: apps/attendance/models.py:12
+msgid "Excused"
+msgstr "Уважительная"
+
+#: apps/attendance/models.py:18 apps/calendar/models.py:20
+#: apps/exams/models.py:12 apps/grades/models.py:26
+#: templates/exams/exam_detail.html:20
+msgid "Date"
+msgstr "Дата"
+
+#: apps/attendance/models.py:19 apps/goals/models.py:22 apps/tasks/models.py:27
+msgid "Status"
+msgstr "Статус"
+
+#: apps/attendance/models.py:20 apps/exams/models.py:16 apps/notes/models.py:19
+#: apps/schedule/models.py:33 templates/exams/exam_detail.html:24
+#: templates/subjects/subject_detail.html:39
+msgid "Notes"
+msgstr "Заметки"
+
+#: apps/attendance/models.py:24 templates/attendance/attendance_form.html:3
+#: templates/attendance/attendance_form.html:5
+#: templates/attendance/attendance_form.html:18
+msgid "Attendance"
+msgstr "Посещаемость"
+
+#: apps/attendance/models.py:25
+#, fuzzy
+#| msgid "Attendance"
+msgid "Attendances"
+msgstr "Посещаемость"
+
+#: apps/calendar/models.py:9
+msgid "Class"
+msgstr "Занятие"
+
+#: apps/calendar/models.py:10 apps/tasks/models.py:35
+#, fuzzy
+#| msgid "Tasks"
+msgid "Task"
+msgstr "Задачи"
+
+#: apps/calendar/models.py:11 apps/exams/models.py:20 apps/grades/models.py:13
+msgid "Exam"
+msgstr "Экзамен"
+
+#: apps/calendar/models.py:12 templates/calendar/event_form.html:3
+#: templates/calendar/event_form.html:5 templates/calendar/event_form.html:18
+msgid "Event"
+msgstr "Событие"
+
+#: apps/calendar/models.py:13 apps/grades/models.py:15
+#: apps/schedule/models.py:21
+msgid "Other"
+msgstr "Другое"
+
+#: apps/calendar/models.py:18 apps/exams/models.py:11 apps/goals/models.py:17
+#: apps/grades/models.py:21 apps/notes/models.py:11
+#: apps/notifications/models.py:18 apps/tasks/models.py:23
+msgid "Title"
+msgstr "Название"
+
+#: apps/calendar/models.py:19 apps/exams/models.py:15 apps/goals/models.py:18
+#: apps/subjects/models.py:15 apps/tasks/models.py:24
+#: templates/exams/exam_detail.html:23
+msgid "Description"
+msgstr "Описание"
+
+#: apps/calendar/models.py:21 apps/productivity/models.py:10
+#: apps/schedule/models.py:28
+msgid "Start Time"
+msgstr "Время начала"
+
+#: apps/calendar/models.py:22 apps/productivity/models.py:11
+#: apps/schedule/models.py:29
+msgid "End Time"
+msgstr "Время окончания"
+
+#: apps/calendar/models.py:23
+#, fuzzy
+#| msgid "Event"
+msgid "Event Type"
+msgstr "Событие"
+
+#: apps/calendar/models.py:24 apps/subjects/models.py:14
+msgid "Color"
+msgstr ""
+
+#: apps/calendar/models.py:25
+msgid "All Day"
+msgstr "Весь день"
+
+#: apps/calendar/models.py:29
+#, fuzzy
+#| msgid "Calendar"
+msgid "Calendar Event"
+msgstr "Календарь"
+
+#: apps/calendar/models.py:30
+#, fuzzy
+#| msgid "Calendar"
+msgid "Calendar Events"
+msgstr "Календарь"
+
+#: apps/dashboard/views.py:15
+msgid "Доброе утро"
+msgstr ""
+
+#: apps/dashboard/views.py:17
+msgid "Добрый день"
+msgstr ""
+
+#: apps/dashboard/views.py:19
+msgid "Добрый вечер"
+msgstr ""
+
+#: apps/exams/models.py:13 templates/exams/exam_detail.html:21
+msgid "Time"
+msgstr "Время"
+
+#: apps/exams/models.py:14 templates/exams/exam_detail.html:22
+msgid "Location"
+msgstr "Место проведения"
+
+#: apps/exams/models.py:21
+msgid "Exams"
+msgstr "Экзамены"
+
+#: apps/goals/models.py:9
+#, fuzzy
+#| msgid "Start"
+msgid "Not Started"
+msgstr "Старт"
+
+#: apps/goals/models.py:10 apps/tasks/models.py:16
+msgid "In Progress"
+msgstr "В работе"
+
+#: apps/goals/models.py:11 apps/productivity/models.py:13
+#: apps/tasks/models.py:17 templates/tasks/task_detail.html:29
+msgid "Completed"
+msgstr "Выполнено"
+
+#: apps/goals/models.py:12
+msgid "Failed"
+msgstr "Ошибка"
+
+#: apps/goals/models.py:19
+msgid "Target"
+msgstr "Цель"
+
+#: apps/goals/models.py:20
+#, fuzzy
+#| msgid "Progress"
+msgid "Progress (%)"
+msgstr "Прогресс"
+
+#: apps/goals/models.py:21 apps/tasks/models.py:25
+#: templates/tasks/task_detail.html:25
+msgid "Deadline"
+msgstr "Крайний срок"
+
+#: apps/goals/models.py:27 templates/goals/goal_form.html:3
+#: templates/goals/goal_form.html:5 templates/goals/goal_form.html:18
+#, fuzzy
+#| msgid "Goals"
+msgid "Goal"
+msgstr "Цели"
+
+#: apps/goals/models.py:28
+msgid "Goals"
+msgstr "Цели"
+
+#: apps/grades/models.py:9
+msgid "Homework"
+msgstr "Домашнее задание"
+
+#: apps/grades/models.py:10
+msgid "Quiz"
+msgstr "Контрольная"
+
+#: apps/grades/models.py:11
+msgid "Test"
+msgstr "Тест"
+
+#: apps/grades/models.py:12
+msgid "Midterm"
+msgstr "Зачёт"
+
+#: apps/grades/models.py:14
+msgid "Project"
+msgstr "Проект"
+
+#: apps/grades/models.py:22
+#, fuzzy
+#| msgid "Grade"
+msgid "Grade Type"
+msgstr "Оценка"
+
+#: apps/grades/models.py:23
+msgid "Score"
+msgstr "Балл"
+
+#: apps/grades/models.py:24
+#, fuzzy
+#| msgid "Score"
+msgid "Max Score"
+msgstr "Балл"
+
+#: apps/grades/models.py:25
+#, fuzzy
+#| msgid "Weight"
+msgid "Weight (%)"
+msgstr "Вес"
+
+#: apps/grades/models.py:27
+#, fuzzy
+#| msgid "Common"
+msgid "Comment"
+msgstr "Обычный"
+
+#: apps/grades/models.py:31
+msgid "Grade"
+msgstr "Оценка"
+
+#: apps/grades/models.py:32
+msgid "Grades"
+msgstr "Оценки"
+
+#: apps/notes/models.py:12
+#, fuzzy
+#| msgid "Note Content"
+msgid "Content"
+msgstr "Содержание заметки"
+
+#: apps/notes/models.py:13
+msgid "Tags"
+msgstr "Теги"
+
+#: apps/notes/models.py:18
+#, fuzzy
+#| msgid "Notes"
+msgid "Note"
+msgstr "Заметки"
+
+#: apps/notifications/models.py:9
+#, fuzzy
+#| msgid "Deadline"
+msgid "Task Deadline"
+msgstr "Крайний срок"
+
+#: apps/notifications/models.py:10
+#, fuzzy
+#| msgid "Exam Period"
+msgid "Exam Reminder"
+msgstr "Экзаменационный период"
+
+#: apps/notifications/models.py:11
+#, fuzzy
+#| msgid "Schedule Overview"
+msgid "Schedule Reminder"
+msgstr "Обзор расписания"
+
+#: apps/notifications/models.py:12
+#, fuzzy
+#| msgid "Overdue Tasks"
+msgid "Overdue Task"
+msgstr "Просроченные задачи"
+
+#: apps/notifications/models.py:13
+#, fuzzy
+#| msgid "Goal Name"
+msgid "Goal Reminder"
+msgstr "Название цели"
+
+#: apps/notifications/models.py:14
+#, fuzzy
+#| msgid "Basic Information"
+msgid "Information"
+msgstr "Основная информация"
+
+#: apps/notifications/models.py:19
+#, fuzzy
+#| msgid "Messy"
+msgid "Message"
+msgstr "Неряшливый"
+
+#: apps/notifications/models.py:20
+msgid "Type"
+msgstr "Тип"
+
+#: apps/notifications/models.py:21
+#, fuzzy
+#| msgid "Ready"
+msgid "Is Read"
+msgstr "Готово"
+
+#: apps/notifications/models.py:22
+msgid "Link"
+msgstr ""
+
+#: apps/notifications/models.py:26
+msgid "Notification"
+msgstr "Уведомление"
+
+#: apps/notifications/models.py:27
+msgid "Notifications"
+msgstr "Уведомления"
+
+#: apps/productivity/models.py:12
+#, fuzzy
+#| msgid "Duration"
+msgid "Duration (seconds)"
+msgstr "Длительность"
+
+#: apps/productivity/models.py:17
+#, fuzzy
+#| msgid "Focus session complete!"
+msgid "Focus Session"
+msgstr "Сеанс фокуса завершён!"
+
+#: apps/productivity/models.py:18
+#, fuzzy
+#| msgid "Total Sessions"
+msgid "Focus Sessions"
+msgstr "Всего сеансов"
+
+#: apps/productivity/models.py:38
+#, fuzzy
+#| msgid "Focus Duration"
+msgid "Focus Duration (minutes)"
+msgstr "Длительность фокуса"
+
+#: apps/productivity/models.py:39
+#, fuzzy
+#| msgid "Short Break"
+msgid "Short Break (minutes)"
+msgstr "Короткий перерыв"
+
+#: apps/productivity/models.py:40
+#, fuzzy
+#| msgid "Long Break"
+msgid "Long Break (minutes)"
+msgstr "Длинный перерыв"
+
+#: apps/productivity/models.py:41
+msgid "Sessions Before Long Break"
+msgstr ""
+
+#: apps/productivity/models.py:44 apps/productivity/models.py:45
+#: templates/productivity/pomodoro_settings.html:3
+#: templates/productivity/pomodoro_settings.html:5
+msgid "Pomodoro Settings"
+msgstr "Настройки Помодоро"
+
+#: apps/schedule/models.py:8
+msgid "Monday"
+msgstr "Понедельник"
+
+#: apps/schedule/models.py:9
+msgid "Tuesday"
+msgstr "Вторник"
+
+#: apps/schedule/models.py:10
+msgid "Wednesday"
+msgstr "Среда"
+
+#: apps/schedule/models.py:11
+msgid "Thursday"
+msgstr "Четверг"
+
+#: apps/schedule/models.py:12
+msgid "Friday"
+msgstr "Пятница"
+
+#: apps/schedule/models.py:13
+msgid "Saturday"
+msgstr "Суббота"
+
+#: apps/schedule/models.py:14
+msgid "Sunday"
+msgstr "Воскресенье"
+
+#: apps/schedule/models.py:17
+msgid "Lecture"
+msgstr "Лекция"
+
+#: apps/schedule/models.py:18
+msgid "Seminar"
+msgstr "Семинар"
+
+#: apps/schedule/models.py:19
+#, fuzzy
+#| msgid "Elaborate"
+msgid "Laboratory"
+msgstr "Детальный"
+
+#: apps/schedule/models.py:20
+#, fuzzy
+#| msgid "Practical"
+msgid "Practice"
+msgstr "Практическая"
+
+#: apps/schedule/models.py:27
+#, fuzzy
+#| msgid "Start of Week"
+msgid "Day of Week"
+msgstr "Начало недели"
+
+#: apps/schedule/models.py:30
+#, fuzzy
+#| msgid "Class Type"
+msgid "Lesson Type"
+msgstr "Тип занятия"
+
+#: apps/schedule/models.py:31 apps/subjects/models.py:10
+msgid "Teacher"
+msgstr "Преподаватель"
+
+#: apps/schedule/models.py:32 apps/subjects/models.py:11
+msgid "Room"
+msgstr "Аудитория"
+
+#: apps/schedule/models.py:37 templates/schedule/schedule_form.html:5
+#, fuzzy
+#| msgid "Schedule"
+msgid "Schedule Item"
+msgstr "Расписание"
+
+#: apps/schedule/models.py:38
+#, fuzzy
+#| msgid "Schedule"
+msgid "Schedule Items"
+msgstr "Расписание"
+
+#: apps/semesters/forms.py:22
+msgid "End date must be after start date."
+msgstr ""
+
+#: apps/semesters/models.py:9
+msgid "Semester Name"
+msgstr "Название семестра"
+
+#: apps/semesters/models.py:11
+msgid "Start Date"
+msgstr "Дата начала"
+
+#: apps/semesters/models.py:12
+msgid "End Date"
+msgstr "Дата окончания"
+
+#: apps/semesters/models.py:13
+#, fuzzy
+#| msgid "Active"
+msgid "Is Active"
+msgstr "Активный"
+
+#: apps/semesters/models.py:18 templates/semesters/semester_form.html:3
+#: templates/semesters/semester_form.html:6
+#: templates/semesters/semester_form.html:21
+msgid "Semester"
+msgstr "Семестр"
+
+#: apps/semesters/models.py:19
+msgid "Semesters"
+msgstr "Семестры"
+
+#: apps/subjects/models.py:9
+#, fuzzy
+#| msgid "Subject"
+msgid "Subject Name"
+msgstr "Предмет"
+
+#: apps/subjects/models.py:12
+#, fuzzy
+#| msgid "credits"
+msgid "Credits"
+msgstr "кредитов"
+
+#: apps/subjects/models.py:13
+#, fuzzy
+#| msgid "Hour"
+msgid "Hours"
+msgstr "Час"
+
+#: apps/subjects/models.py:20 templates/exams/exam_detail.html:19
+msgid "Subject"
+msgstr "Предмет"
+
+#: apps/subjects/models.py:21
+msgid "Subjects"
+msgstr "Предметы"
+
+#: apps/tasks/models.py:9
+msgid "Low"
+msgstr "Низкий"
+
+#: apps/tasks/models.py:10
+msgid "Medium"
+msgstr "Средний"
+
+#: apps/tasks/models.py:11
+msgid "High"
+msgstr "Высокий"
+
+#: apps/tasks/models.py:12
+msgid "Urgent"
+msgstr "Срочный"
+
+#: apps/tasks/models.py:15
+msgid "To Do"
+msgstr "К выполнению"
+
+#: apps/tasks/models.py:26
+msgid "Priority"
+msgstr "Приоритет"
+
+#: apps/tasks/models.py:28
+msgid "Estimated Time (minutes)"
+msgstr ""
+
+#: apps/tasks/models.py:29
+msgid "Actual Time (minutes)"
+msgstr ""
+
+#: apps/tasks/models.py:36
+msgid "Tasks"
+msgstr "Задачи"
+
+#: templates/accounts/login.html:3
+msgid "Вход"
+msgstr ""
+
+#: templates/accounts/login.html:11
+msgid "Войдите в свой аккаунт"
+msgstr ""
+
+#: templates/accounts/login.html:24 templates/accounts/register.html:27
+msgid "Войти"
+msgstr ""
+
+#: templates/accounts/login.html:27
+msgid "Забыли пароль?"
+msgstr ""
+
+#: templates/accounts/login.html:28
+msgid "Нет аккаунта?"
+msgstr ""
+
+#: templates/accounts/login.html:28
+msgid "Создать"
+msgstr ""
+
+#: templates/accounts/onboarding.html:3
+msgid "Welcome"
+msgstr ""
+
+#: templates/accounts/onboarding.html:14
+msgid "Welcome to Student Manager!"
+msgstr "Добро пожаловать в Student Manager!"
+
+#: templates/accounts/onboarding.html:15
+msgid "Your personal academic management system."
+msgstr "Ваша персональная система управления учёбой."
+
+#: templates/accounts/onboarding.html:16
+msgid "Let's set up your profile in a few simple steps."
+msgstr ""
+
+#: templates/accounts/onboarding.html:21
+msgid "Tell us about yourself."
+msgstr ""
+
+#: templates/accounts/onboarding.html:29 templates/accounts/onboarding.html:38
+msgid "Continue"
+msgstr "Далее"
+
+#: templates/accounts/onboarding.html:35
+msgid "This helps organize your semesters."
+msgstr ""
+
+#: templates/accounts/onboarding.html:37
+msgid "You can set this up later in Semesters."
+msgstr ""
+
+#: templates/accounts/onboarding.html:43
+#, fuzzy
+#| msgid "Edit Semester"
+msgid "Create First Semester"
+msgstr "Редактировать семестр"
+
+#: templates/accounts/onboarding.html:44
+#, fuzzy
+#| msgid "New Semester"
+msgid "Create Semester"
+msgstr "Новый семестр"
+
+#: templates/accounts/onboarding.html:45 templates/accounts/onboarding.html:51
+msgid "Skip for now"
+msgstr ""
+
+#: templates/accounts/onboarding.html:49
+#, fuzzy
+#| msgid "Add Subject"
+msgid "Add Subjects"
+msgstr "Добавить предмет"
+
+#: templates/accounts/onboarding.html:50
+msgid "Add Subject"
+msgstr "Добавить предмет"
+
+#: templates/accounts/onboarding.html:55
+msgid "You're All Set!"
+msgstr "Всё готово!"
+
+#: templates/accounts/onboarding.html:56
+msgid "Welcome aboard! Let's start managing your academic life."
+msgstr ""
+
+#: templates/accounts/onboarding.html:57
+msgid "Go to Dashboard"
+msgstr "Перейти на главную"
+
+#: templates/accounts/onboarding.html:62
+msgid "Back"
+msgstr "Назад"
+
+#: templates/accounts/onboarding.html:63
+msgid "Skip"
+msgstr "Пропустить"
+
+#: templates/accounts/password_change.html:3
+#: templates/accounts/password_change.html:5
+#: templates/accounts/password_change.html:18
+#: templates/accounts/profile.html:45
+msgid "Change Password"
+msgstr "Изменить пароль"
+
+#: templates/accounts/password_change.html:17
+#: templates/attendance/attendance_confirm_delete.html:9
+#: templates/attendance/attendance_form.html:17
+#: templates/calendar/event_confirm_delete.html:9
+#: templates/calendar/event_form.html:17
+#: templates/components/confirm_dialog.html:14
+#: templates/exams/exam_confirm_delete.html:9
+#: templates/goals/goal_confirm_delete.html:9 templates/goals/goal_form.html:17
+#: templates/grades/grade_confirm_delete.html:9
+#: templates/notes/note_confirm_delete.html:9
+#: templates/productivity/pomodoro_settings.html:16
+#: templates/schedule/schedule_confirm_delete.html:9
+#: templates/schedule/schedule_form.html:17
+#: templates/semesters/semester_confirm_delete.html:10
+#: templates/semesters/semester_form.html:20
+#: templates/subjects/subject_confirm_delete.html:9
+#: templates/tasks/task_confirm_delete.html:9
+msgid "Cancel"
+msgstr "Отмена"
+
+#: templates/accounts/password_reset.html:3
+#: templates/accounts/password_reset.html:8
+msgid "Reset Password"
+msgstr "Сброс пароля"
+
+#: templates/accounts/password_reset.html:9
+msgid "Enter your email to receive reset instructions"
+msgstr ""
+
+#: templates/accounts/password_reset.html:19
+msgid "Send Reset Link"
+msgstr ""
+
+#: templates/accounts/password_reset.html:22
+#: templates/accounts/password_reset_done.html:12
+msgid "Back to Login"
+msgstr "Вернуться к входу"
+
+#: templates/accounts/password_reset_confirm.html:3
+#: templates/accounts/password_reset_confirm.html:8
+msgid "Set New Password"
+msgstr "Установить новый пароль"
+
+#: templates/accounts/password_reset_confirm.html:19
+#, fuzzy
+#| msgid "Set New Password"
+msgid "Set Password"
+msgstr "Установить новый пароль"
+
+#: templates/accounts/password_reset_done.html:3
+#, fuzzy
+#| msgid "Email Settings"
+msgid "Email Sent"
+msgstr "Настройки почты"
+
+#: templates/accounts/password_reset_done.html:8
+msgid "Check Your Email"
+msgstr "Проверьте почту"
+
+#: templates/accounts/password_reset_done.html:9
+msgid "We've sent password reset instructions to your email."
+msgstr "Мы отправили инструкции по сбросу пароля на вашу почту."
+
+#: templates/accounts/profile.html:3 templates/accounts/profile.html:6
+msgid "Profile"
+msgstr "Профиль"
+
+#: templates/accounts/profile.html:10
+msgid "Personal Information"
+msgstr "Личная информация"
+
+#: templates/accounts/profile.html:28
+msgid "Student Details"
+msgstr "Данные студента"
+
+#: templates/accounts/profile.html:37
+msgid "Save Changes"
+msgstr "Сохранить изменения"
+
+#: templates/accounts/profile.html:43
+msgid "Security"
+msgstr "Безопасность"
+
+#: templates/accounts/register.html:3
+msgid "Регистрация"
+msgstr ""
+
+#: templates/accounts/register.html:11
+msgid "Создайте свой аккаунт"
+msgstr ""
+
+#: templates/accounts/register.html:24
+msgid "Создать аккаунт"
+msgstr ""
+
+#: templates/accounts/register.html:27
+msgid "Уже есть аккаунт?"
+msgstr ""
+
+#: templates/accounts/settings.html:3 templates/accounts/settings.html:6
+#: templates/components/sidebar.html:78 templates/components/sidebar.html:80
+#: templates/components/topbar.html:73
+msgid "Настройки"
+msgstr ""
+
+#: templates/accounts/settings.html:9
+msgid "Предпочтения"
+msgstr ""
+
+#: templates/accounts/settings.html:21
+msgid "Сохранить настройки"
+msgstr ""
+
+#: templates/attendance/attendance_confirm_delete.html:3
+#: templates/attendance/attendance_confirm_delete.html:5
+#, fuzzy
+#| msgid "Save Attendance"
+msgid "Delete Attendance"
+msgstr "Сохранить посещаемость"
+
+#: templates/attendance/attendance_confirm_delete.html:7
+#, fuzzy
+#| msgid "No attendance records."
+msgid "Delete this attendance record?"
+msgstr "Нет записей посещаемости."
+
+#: templates/attendance/attendance_confirm_delete.html:10
+#: templates/calendar/event_confirm_delete.html:7
+#: templates/calendar/event_confirm_delete.html:10
+#: templates/exams/exam_confirm_delete.html:10
+#: templates/goals/goal_confirm_delete.html:7
+#: templates/goals/goal_confirm_delete.html:10
+#: templates/grades/grade_confirm_delete.html:10
+#: templates/notes/note_confirm_delete.html:7
+#: templates/notes/note_confirm_delete.html:10
+#: templates/schedule/schedule_confirm_delete.html:10
+#: templates/semesters/semester_confirm_delete.html:11
+#: templates/subjects/subject_confirm_delete.html:10
+#: templates/subjects/subject_detail.html:12
+#: templates/tasks/task_confirm_delete.html:10
+#: templates/tasks/task_detail.html:16
+msgid "Delete"
+msgstr "Удалить"
+
+#: templates/attendance/attendance_list.html:3
+#: templates/attendance/attendance_list.html:6
+#: templates/components/sidebar.html:42 templates/components/sidebar.html:44
+msgid "Посещаемость"
+msgstr ""
+
+#: templates/attendance/attendance_list.html:7
+msgid "Отметить посещаемость"
+msgstr ""
+
+#: templates/attendance/attendance_list.html:19
+msgid "По предметам"
+msgstr ""
+
+#: templates/attendance/attendance_list.html:33
+msgid "Записи"
+msgstr ""
+
+#: templates/attendance/attendance_list.html:38
+#: templates/dashboard/index.html:197 templates/grades/grade_list.html:36
+msgid "Предмет"
+msgstr ""
+
+#: templates/attendance/attendance_list.html:38
+#: templates/grades/grade_list.html:36
+msgid "Дата"
+msgstr ""
+
+#: templates/attendance/attendance_list.html:38
+msgid "Статус"
+msgstr ""
+
+#: templates/calendar/calendar.html:3 templates/calendar/calendar.html:6
+#: templates/components/sidebar.html:54 templates/components/sidebar.html:56
+msgid "Календарь"
+msgstr ""
+
+#: templates/calendar/calendar.html:11 templates/dashboard/index.html:209
+msgid "Событие"
+msgstr ""
+
+#: templates/calendar/calendar.html:17
+msgid "Пн"
+msgstr ""
+
+#: templates/calendar/calendar.html:17
+msgid "Вт"
+msgstr ""
+
+#: templates/calendar/calendar.html:17
+msgid "Ср"
+msgstr ""
+
+#: templates/calendar/calendar.html:17
+msgid "Чт"
+msgstr ""
+
+#: templates/calendar/calendar.html:17
+msgid "Пт"
+msgstr ""
+
+#: templates/calendar/calendar.html:17
+msgid "Сб"
+msgstr ""
+
+#: templates/calendar/calendar.html:17
+msgid "Вс"
+msgstr ""
+
+#: templates/calendar/event_confirm_delete.html:3
+#: templates/calendar/event_confirm_delete.html:5
+#, fuzzy
+#| msgid "Delete Account"
+msgid "Delete Event"
+msgstr "Удалить аккаунт"
+
+#: templates/components/confirm_dialog.html:5
+msgid "Confirm Action"
+msgstr "Подтвердите действие"
+
+#: templates/components/sidebar.html:17
+msgid "Главное"
+msgstr ""
+
+#: templates/components/sidebar.html:18 templates/components/sidebar.html:20
+#: templates/dashboard/index.html:3
+msgid "Панель управления"
+msgstr ""
+
+#: templates/components/sidebar.html:22 templates/components/sidebar.html:24
+#: templates/schedule/schedule.html:3 templates/schedule/schedule.html:6
+msgid "Расписание"
+msgstr ""
+
+#: templates/components/sidebar.html:26 templates/components/sidebar.html:28
+#: templates/core/import_export.html:31 templates/tasks/task_list.html:3
+#: templates/tasks/task_list.html:7
+msgid "Задачи"
+msgstr ""
+
+#: templates/components/sidebar.html:30 templates/components/sidebar.html:32
+#: templates/subjects/subject_list.html:3
+#: templates/subjects/subject_list.html:6
+msgid "Предметы"
+msgstr ""
+
+#: templates/components/sidebar.html:37
+msgid "Учёба"
+msgstr ""
+
+#: templates/components/sidebar.html:38 templates/components/sidebar.html:40
+#: templates/core/import_export.html:32 templates/grades/grade_list.html:3
+#: templates/grades/grade_list.html:6
+msgid "Оценки"
+msgstr ""
+
+#: templates/components/sidebar.html:46 templates/components/sidebar.html:48
+#: templates/exams/exam_list.html:3 templates/exams/exam_list.html:6
+msgid "Экзамены"
+msgstr ""
+
+#: templates/components/sidebar.html:53
+msgid "Инструменты"
+msgstr ""
+
+#: templates/components/sidebar.html:58 templates/components/sidebar.html:60
+#: templates/notes/note_list.html:3 templates/notes/note_list.html:6
+msgid "Заметки"
+msgstr ""
+
+#: templates/components/sidebar.html:62 templates/components/sidebar.html:64
+#: templates/goals/goal_list.html:3 templates/goals/goal_list.html:6
+msgid "Цели"
+msgstr ""
+
+#: templates/components/sidebar.html:66 templates/components/sidebar.html:68
+msgid "Фокус"
+msgstr ""
+
+#: templates/components/sidebar.html:73
+msgid "Система"
+msgstr ""
+
+#: templates/components/sidebar.html:74 templates/components/sidebar.html:76
+#: templates/semesters/semester_list.html:3
+#: templates/semesters/semester_list.html:6
+msgid "Семестры"
+msgstr ""
+
+#: templates/components/topbar.html:19
+msgid "Поиск..."
+msgstr ""
+
+#: templates/components/topbar.html:27 templates/components/topbar.html:87
+msgid "Быстрое добавление"
+msgstr ""
+
+#: templates/components/topbar.html:33
+#: templates/notifications/notification_list.html:3
+#: templates/notifications/notification_list.html:6
+msgid "Уведомления"
+msgstr ""
+
+#: templates/components/topbar.html:44
+msgid "Тема"
+msgstr ""
+
+#: templates/components/topbar.html:47
+msgid "Язык"
+msgstr ""
+
+#: templates/components/topbar.html:55
+msgid "Меню пользователя"
+msgstr ""
+
+#: templates/components/topbar.html:70
+msgid "Профиль"
+msgstr ""
+
+#: templates/components/topbar.html:77
+msgid "Выйти"
+msgstr ""
+
+#: templates/components/topbar.html:91 templates/tasks/task_list.html:11
+msgid "Новая задача"
+msgstr ""
+
+#: templates/components/topbar.html:92
+msgid "Добавить задачу в список"
+msgstr ""
+
+#: templates/components/topbar.html:98 templates/grades/grade_list.html:9
+msgid "Новая оценка"
+msgstr ""
+
+#: templates/components/topbar.html:99
+msgid "Добавить оценку за работу"
+msgstr ""
+
+#: templates/components/topbar.html:105 templates/subjects/subject_list.html:7
+msgid "Новый предмет"
+msgstr ""
+
+#: templates/components/topbar.html:106
+msgid "Добавить предмет в расписание"
+msgstr ""
+
+#: templates/components/topbar.html:112 templates/exams/exam_list.html:7
+msgid "Новый экзамен"
+msgstr ""
+
+#: templates/components/topbar.html:113
+msgid "Добавить экзамен или зачёт"
+msgstr ""
+
+#: templates/components/topbar.html:119 templates/notes/note_list.html:7
+msgid "Новая заметка"
+msgstr ""
+
+#: templates/components/topbar.html:120
+msgid "Быстрая заметка или идея"
+msgstr ""
+
+#: templates/components/topbar.html:126
+msgid "Новое событие"
+msgstr ""
+
+#: templates/components/topbar.html:127
+msgid "Добавить событие в календарь"
+msgstr ""
+
+#: templates/core/backup_list.html:3
+msgid "Резервные копии"
+msgstr ""
+
+#: templates/core/backup_list.html:6
+msgid "Резервные копии базы данных"
+msgstr ""
+
+#: templates/core/backup_list.html:9
+msgid "Создать резервную копию"
+msgstr ""
+
+#: templates/core/backup_list.html:19
+msgid "Файл"
+msgstr ""
+
+#: templates/core/backup_list.html:20
+msgid "Создан"
+msgstr ""
+
+#: templates/core/backup_list.html:21
+msgid "Размер"
+msgstr ""
+
+#: templates/core/backup_list.html:22
+msgid "Действия"
+msgstr ""
+
+#: templates/core/backup_list.html:34
+msgid "Восстановить"
+msgstr ""
+
+#: templates/core/backup_list.html:38
+msgid "Удалить"
+msgstr ""
+
+#: templates/core/import_export.html:3 templates/core/import_export.html:5
+msgid "Импорт / Экспорт"
+msgstr ""
+
+#: templates/core/import_export.html:8
+msgid "Экспорт данных"
+msgstr ""
+
+#: templates/core/import_export.html:10
+msgid "Экспортируйте данные в CSV, XLSX или PDF."
+msgstr ""
+
+#: templates/core/import_export.html:12
+msgid "Задачи (CSV)"
+msgstr ""
+
+#: templates/core/import_export.html:13
+msgid "Задачи (XLSX)"
+msgstr ""
+
+#: templates/core/import_export.html:14
+msgid "Оценки (CSV)"
+msgstr ""
+
+#: templates/core/import_export.html:15
+msgid "Оценки (XLSX)"
+msgstr ""
+
+#: templates/core/import_export.html:16
+msgid "Оценки (PDF)"
+msgstr ""
+
+#: templates/core/import_export.html:17
+msgid "Посещаемость (CSV)"
+msgstr ""
+
+#: templates/core/import_export.html:18
+msgid "Расписание (CSV)"
+msgstr ""
+
+#: templates/core/import_export.html:23
+msgid "Импорт данных"
+msgstr ""
+
+#: templates/core/import_export.html:25
+msgid "Импортируйте данные из CSV файлов."
+msgstr ""
+
+#: templates/core/import_export.html:29
+msgid "Тип данных"
+msgstr ""
+
+#: templates/core/import_export.html:36
+msgid "CSV файл"
+msgstr ""
+
+#: templates/core/import_export.html:39
+msgid "Импортировать"
+msgstr ""
+
+#: templates/core/import_export.html:42
+msgid "Формат CSV"
+msgstr ""
+
+#: templates/core/import_export.html:43
+msgid ""
+"Задачи: title, subject, deadline (YYYY-MM-DD HH:MM), priority, status, "
+"estimated_time"
+msgstr ""
+
+#: templates/core/import_export.html:44
+msgid ""
+"Оценки: title, subject, grade_type, score, max_score, weight, date (YYYY-MM-"
+"DD)"
+msgstr ""
+
+#: templates/core/search.html:3 templates/core/search.html:5
+#: templates/core/search.html:10 templates/notes/note_list.html:13
+msgid "Поиск"
+msgstr ""
+
+#: templates/core/search.html:9
+msgid "Поиск по всему..."
+msgstr ""
+
+#: templates/core/search.html:22
+msgid "Ничего не найдено."
+msgstr ""
+
+#: templates/dashboard/index.html:9
+msgid "Вот что происходит с вашими учёбой сегодня."
+msgstr ""
+
+#: templates/dashboard/index.html:33
+msgid "Расписание на сегодня"
+msgstr ""
+
+#: templates/dashboard/index.html:59
+msgid "Сегодня нет занятий. Наслаждайтесь свободным временем!"
+msgstr ""
+
+#: templates/dashboard/index.html:68
+msgid "Просроченные задачи"
+msgstr ""
+
+#: templates/dashboard/index.html:78 templates/tasks/task_list.html:67
+msgid "Просрочено"
+msgstr ""
+
+#: templates/dashboard/index.html:88
+msgid "Ближайшие задачи"
+msgstr ""
+
+#: templates/dashboard/index.html:89
+msgid "Все задачи"
+msgstr ""
+
+#: templates/dashboard/index.html:102
+msgid "Сегодня"
+msgstr ""
+
+#: templates/dashboard/index.html:103 templates/exams/exam_list.html:21
+msgid "Завтра"
+msgstr ""
+
+#: templates/dashboard/index.html:112
+msgid "Нет ближайших задач. Отличная работа!"
+msgstr ""
+
+#: templates/dashboard/index.html:121
+msgid "Динамика оценок"
+msgstr ""
+
+#: templates/dashboard/index.html:135 templates/exams/exam_list.html:10
+msgid "Ближайшие экзамены"
+msgstr ""
+
+#: templates/dashboard/index.html:147 templates/exams/exam_list.html:21
+msgid "дн."
+msgstr ""
+
+#: templates/dashboard/index.html:158
+msgid "Выполнение задач"
+msgstr ""
+
+#: templates/dashboard/index.html:169
+msgid "Семестр"
+msgstr ""
+
+#: templates/dashboard/index.html:177 templates/semesters/semester_list.html:22
+msgid "дней осталось"
+msgstr ""
+
+#: templates/dashboard/index.html:183
+msgid "Быстрые действия"
+msgstr ""
+
+#: templates/dashboard/index.html:189
+msgid "Задача"
+msgstr ""
+
+#: templates/dashboard/index.html:193
+msgid "Оценка"
+msgstr ""
+
+#: templates/dashboard/index.html:201
+msgid "Экзамен"
+msgstr ""
+
+#: templates/dashboard/index.html:205
+msgid "Заметка"
+msgstr ""
+
+#: templates/dashboard/index.html:233
+msgid "Средний балл"
+msgstr ""
+
+#: templates/dashboard/index.html:273 templates/goals/goal_list.html:11
+#: templates/tasks/task_list.html:20
+msgid "Выполнено"
+msgstr ""
+
+#: templates/dashboard/index.html:273 templates/goals/goal_list.html:10
+#: templates/tasks/task_list.html:19
+msgid "В процессе"
+msgstr ""
+
+#: templates/dashboard/index.html:273 templates/tasks/task_list.html:18
+msgid "К выполнению"
+msgstr ""
+
+#: templates/exams/exam_confirm_delete.html:3
+#: templates/exams/exam_confirm_delete.html:5
+#, fuzzy
+#| msgid "Delete"
+msgid "Delete Exam"
+msgstr "Удалить"
+
+#: templates/exams/exam_confirm_delete.html:7
+#: templates/semesters/semester_confirm_delete.html:7
+#: templates/subjects/subject_confirm_delete.html:7
+#: templates/tasks/task_confirm_delete.html:7
+#, fuzzy
+#| msgid "Are you sure you want to proceed?"
+msgid "Are you sure you want to delete"
+msgstr "Вы уверены, что хотите продолжить?"
+
+#: templates/exams/exam_detail.html:9
+msgid "days left"
+msgstr "дней осталось"
+
+#: templates/exams/exam_form.html:3 templates/exams/exam_form.html:5
+#: templates/exams/exam_form.html:18
+msgid "экзамен"
+msgstr ""
+
+#: templates/exams/exam_form.html:17 templates/grades/grade_form.html:17
+#: templates/notes/note_form.html:17 templates/subjects/subject_form.html:17
+#: templates/tasks/task_form.html:17
+msgid "Отмена"
+msgstr ""
+
+#: templates/exams/exam_list.html:21
+msgid "Сегодня!"
+msgstr ""
+
+#: templates/exams/exam_list.html:32
+msgid "Прошедшие экзамены"
+msgstr ""
+
+#: templates/goals/goal_confirm_delete.html:3
+#: templates/goals/goal_confirm_delete.html:5
+#, fuzzy
+#| msgid "Create Goal"
+msgid "Delete Goal"
+msgstr "Создать цель"
+
+#: templates/goals/goal_detail.html:17
+#, fuzzy
+#| msgid "Target"
+msgid "Target:"
+msgstr "Цель"
+
+#: templates/goals/goal_detail.html:19
+#, fuzzy
+#| msgid "Deadline"
+msgid "Deadline:"
+msgstr "Крайний срок"
+
+#: templates/goals/goal_detail.html:19
+#, fuzzy
+#| msgid "days left"
+msgid "left"
+msgstr "дней осталось"
+
+#: templates/goals/goal_detail.html:19
+msgid "days"
+msgstr "дней"
+
+#: templates/goals/goal_list.html:7
+msgid "Новая цель"
+msgstr ""
+
+#: templates/grades/grade_confirm_delete.html:3
+#: templates/grades/grade_confirm_delete.html:5
+#, fuzzy
+#| msgid "Delete"
+msgid "Delete Grade"
+msgstr "Удалить"
+
+#: templates/grades/grade_confirm_delete.html:7
+#, fuzzy
+#| msgid "Are you sure you want to delete your account?"
+msgid "Are you sure you want to delete this grade?"
+msgstr "Вы уверены, что хотите удалить свой аккаунт?"
+
+#: templates/grades/grade_form.html:3 templates/grades/grade_form.html:5
+#: templates/grades/grade_form.html:18
+msgid "оценку"
+msgstr ""
+
+#: templates/grades/grade_list.html:8
+msgid "Прогноз оценки"
+msgstr ""
+
+#: templates/grades/grade_list.html:19
+msgid "Оценки по предметам"
+msgstr ""
+
+#: templates/grades/grade_list.html:31
+msgid "Все оценки"
+msgstr ""
+
+#: templates/grades/grade_list.html:36
+msgid "Название"
+msgstr ""
+
+#: templates/grades/grade_list.html:36
+msgid "Тип"
+msgstr ""
+
+#: templates/grades/grade_list.html:36
+msgid "Балл"
+msgstr ""
+
+#: templates/grades/grade_list.html:36
+msgid "Вес"
+msgstr ""
+
+#: templates/grades/grade_prediction.html:3
+#: templates/grades/grade_prediction.html:5
+msgid "Grade Prediction"
+msgstr "Предсказание оценки"
+
+#: templates/grades/grade_prediction.html:7
+msgid ""
+"Calculate what grade you need on your next assignment to reach your target."
+msgstr ""
+
+#: templates/grades/grade_prediction.html:17
+msgid "Calculate"
+msgstr "Рассчитать"
+
+#: templates/grades/grade_prediction.html:24
+msgid "You need"
+msgstr "Вам нужно"
+
+#: templates/grades/grade_prediction.html:24
+#, fuzzy
+#| msgid "on your next assessment"
+msgid "on your next assessment."
+msgstr "на следующей работе"
+
+#: templates/notes/note_confirm_delete.html:3
+#: templates/notes/note_confirm_delete.html:5
+#, fuzzy
+#| msgid "Create Note"
+msgid "Delete Note"
+msgstr "Создать заметку"
+
+#: templates/notes/note_form.html:3 templates/notes/note_form.html:5
+#: templates/notes/note_form.html:18
+msgid "заметку"
+msgstr ""
+
+#: templates/notes/note_list.html:12
+msgid "Поиск заметок..."
+msgstr ""
+
+#: templates/notifications/notification_list.html:10
+msgid "Отметить все как прочитанные"
+msgstr ""
+
+#: templates/notifications/notification_list.html:25
+msgid "назад"
+msgstr ""
+
+#: templates/productivity/pomodoro_settings.html:11
+msgid "minutes"
+msgstr "минут"
+
+#: templates/productivity/pomodoro_settings.html:17
+msgid "Save"
+msgstr "Сохранить"
+
+#: templates/productivity/productivity.html:3
+#: templates/productivity/productivity.html:6
+msgid "Режим фокусировки"
+msgstr ""
+
+#: templates/productivity/productivity.html:25
+msgid "Старт"
+msgstr ""
+
+#: templates/productivity/productivity.html:26
+msgid "Пауза"
+msgstr ""
+
+#: templates/productivity/productivity.html:27
+msgid "Стоп"
+msgstr ""
+
+#: templates/productivity/productivity.html:33
+msgid "Последние сессии"
+msgstr ""
+
+#: templates/productivity/productivity.html:40
+msgid "Пока нет сессий."
+msgstr ""
+
+#: templates/schedule/schedule.html:7
+msgid "Добавить занятие"
+msgstr ""
+
+#: templates/schedule/schedule.html:33
+msgid "Нет занятий"
+msgstr ""
+
+#: templates/schedule/schedule_confirm_delete.html:3
+#: templates/schedule/schedule_confirm_delete.html:5
+#, fuzzy
+#| msgid "Weekly Schedule"
+msgid "Delete Schedule Item"
+msgstr "Расписание на неделю"
+
+#: templates/schedule/schedule_confirm_delete.html:7
+msgid "Delete this schedule item?"
+msgstr ""
+
+#: templates/schedule/schedule_form.html:3
+msgid "Schedule"
+msgstr "Расписание"
+
+#: templates/schedule/schedule_form.html:18
+msgid "Item"
+msgstr ""
+
+#: templates/semesters/semester_confirm_delete.html:3
+#: templates/semesters/semester_confirm_delete.html:5
+#, fuzzy
+#| msgid "New Semester"
+msgid "Delete Semester"
+msgstr "Новый семестр"
+
+#: templates/semesters/semester_confirm_delete.html:8
+msgid ""
+"This will also delete all related subjects, tasks, grades, and other data."
+msgstr ""
+
+#: templates/semesters/semester_list.html:7
+msgid "Новый семестр"
+msgstr ""
+
+#: templates/semesters/semester_list.html:17
+msgid "Активный"
+msgstr ""
+
+#: templates/semesters/semester_list.html:25
+msgid "Сделать активным"
+msgstr ""
+
+#: templates/subjects/subject_confirm_delete.html:3
+#: templates/subjects/subject_confirm_delete.html:5
+#, fuzzy
+#| msgid "Select Subject"
+msgid "Delete Subject"
+msgstr "Выберите предмет"
+
+#: templates/subjects/subject_detail.html:11
+#: templates/tasks/task_detail.html:15
+msgid "Edit"
+msgstr "Редактировать"
+
+#: templates/subjects/subject_detail.html:23
+#, fuzzy
+#| msgid "Recent"
+msgid "Recent Tasks"
+msgstr "Недавний"
+
+#: templates/subjects/subject_detail.html:27
+#, fuzzy
+#| msgid "tasks"
+msgid "No tasks"
+msgstr "задачи"
+
+#: templates/subjects/subject_detail.html:31
+#, fuzzy
+#| msgid "Predict Grade"
+msgid "Recent Grades"
+msgstr "Предсказать оценку"
+
+#: templates/subjects/subject_detail.html:35
+#, fuzzy
+#| msgid "Grades"
+msgid "No grades"
+msgstr "Оценки"
+
+#: templates/subjects/subject_detail.html:43
+#, fuzzy
+#| msgid "No Notes"
+msgid "No notes"
+msgstr "Нет заметок"
+
+#: templates/subjects/subject_form.html:3
+#: templates/subjects/subject_form.html:5
+#: templates/subjects/subject_form.html:18
+msgid "предмет"
+msgstr ""
+
+#: templates/subjects/subject_list.html:19
+msgid "кредитов"
+msgstr ""
+
+#: templates/tasks/task_confirm_delete.html:3
+#: templates/tasks/task_confirm_delete.html:5
+#, fuzzy
+#| msgid "Delete Backup"
+msgid "Delete Task"
+msgstr "Удалить резервную копию"
+
+#: templates/tasks/task_detail.html:21
+#, fuzzy
+#| msgid "Detailed"
+msgid "Details"
+msgstr "Детальный"
+
+#: templates/tasks/task_detail.html:26
+#, fuzzy
+#| msgid "Start Time"
+msgid "Estimated Time"
+msgstr "Время начала"
+
+#: templates/tasks/task_detail.html:27
+#, fuzzy
+#| msgid "Start Time"
+msgid "Actual Time"
+msgstr "Время начала"
+
+#: templates/tasks/task_detail.html:28
+#, fuzzy
+#| msgid "Creative"
+msgid "Created"
+msgstr "Творческая"
+
+#: templates/tasks/task_form.html:3 templates/tasks/task_form.html:5
+#: templates/tasks/task_form.html:18
+msgid "задачу"
+msgstr ""
+
+#: templates/tasks/task_list.html:8
+msgid "Управляйте своими заданиями и делами"
+msgstr ""
+
+#: templates/tasks/task_list.html:16
+msgid "Все"
+msgstr ""
+
+#: templates/tasks/task_list.html:17
+msgid "Просроченные"
+msgstr ""
+
+#: templates/tasks/task_list.html:28
+msgid "Поиск задач..."
+msgstr ""
+
+#: templates/tasks/task_list.html:31
+msgid "Все приоритеты"
+msgstr ""
+
+#: templates/tasks/task_list.html:32
+msgid "Низкий"
+msgstr ""
+
+#: templates/tasks/task_list.html:33
+msgid "Средний"
+msgstr ""
+
+#: templates/tasks/task_list.html:34
+msgid "Высокий"
+msgstr ""
+
+#: templates/tasks/task_list.html:35
+msgid "Срочный"
+msgstr ""
+
+#: templates/tasks/task_list.html:37
+msgid "Фильтр"
+msgstr ""
+
+#~ msgid "Dashboard"
+#~ msgstr "Главная"
+
+#~ msgid "Focus"
+#~ msgstr "Фокус"
+
+#~ msgid "Settings"
+#~ msgstr "Настройки"
+
+#~ msgid "Main"
+#~ msgstr "Основное"
+
+#~ msgid "Academic"
+#~ msgstr "Учёба"
+
+#~ msgid "Tools"
+#~ msgstr "Инструменты"
+
+#~ msgid "System"
+#~ msgstr "Система"
+
+#~ msgid "Logout"
+#~ msgstr "Выйти"
+
+#~ msgid "Login"
+#~ msgstr "Войти"
+
+#~ msgid "Register"
+#~ msgstr "Регистрация"
+
+#~ msgid "Search"
+#~ msgstr "Поиск"
+
+#~ msgid "Search everything..."
+#~ msgstr "Поиск..."
+
+#~ msgid "Quick Add"
+#~ msgstr "Быстрое добавление"
+
+#~ msgid "Here's what's happening with your studies today."
+#~ msgstr "Вот что происходит с вашими учёбными делами сегодня."
+
+#~ msgid "Average Grade"
+#~ msgstr "Средний балл"
+
+#~ msgid "Focus Today"
+#~ msgstr "Фокус сегодня"
+
+#~ msgid "Days Left"
+#~ msgstr "Дней осталось"
+
+#~ msgid "Today's Schedule"
+#~ msgstr "Расписание на сегодня"
+
+#~ msgid "Upcoming Tasks"
+#~ msgstr "Ближайшие задачи"
+
+#~ msgid "Upcoming Exams"
+#~ msgstr "Ближайшие экзамены"
+
+#~ msgid "Task Progress"
+#~ msgstr "Прогресс задач"
+
+#~ msgid "completion rate"
+#~ msgstr "процент выполнения"
+
+#~ msgid "days remaining"
+#~ msgstr "дней осталось"
+
+#~ msgid "Quick Actions"
+#~ msgstr "Быстрые действия"
+
+#~ msgid "No classes today. Enjoy your free time!"
+#~ msgstr "Сегодня нет занятий. Наслаждайтесь свободным временем!"
+
+#~ msgid "No upcoming tasks. Great job!"
+#~ msgstr "Нет предстоящих задач. Отлично!"
+
+#~ msgid "No tasks yet."
+#~ msgstr "Пока нет задач."
+
+#~ msgid "Create your first task."
+#~ msgstr "Создайте первую задачу."
+
+#~ msgid "View All"
+#~ msgstr "Посмотреть всё"
+
+#~ msgid "No exams scheduled."
+#~ msgstr "Нет запланированных экзаменов."
+
+#~ msgid "On track"
+#~ msgstr "В норме"
+
+#~ msgid "behind schedule"
+#~ msgstr "отстаёт от графика"
+
+#~ msgid "ahead of schedule"
+#~ msgstr "опережает график"
+
+#~ msgid "Sign in to your account"
+#~ msgstr "Войдите в свой аккаунт"
+
+#~ msgid "Don't have an account?"
+#~ msgstr "Нет аккаунта?"
+
+#~ msgid "Create one"
+#~ msgstr "Создать"
+
+#~ msgid "Sign in"
+#~ msgstr "Войти"
+
+#~ msgid "Forgot password?"
+#~ msgstr "Забыли пароль?"
+
+#~ msgid "Sign In"
+#~ msgstr "Войти"
+
+#~ msgid "Email"
+#~ msgstr "Электронная почта"
+
+#~ msgid "Password"
+#~ msgstr "Пароль"
+
+#~ msgid "Remember me"
+#~ msgstr "Запомнить меня"
+
+#~ msgid "Create your account"
+#~ msgstr "Создайте аккаунт"
+
+#~ msgid "Already have an account?"
+#~ msgstr "Уже есть аккаунт?"
+
+#~ msgid "Create Account"
+#~ msgstr "Создать аккаунт"
+
+#~ msgid "First name"
+#~ msgstr "Имя"
+
+#~ msgid "Last name"
+#~ msgstr "Фамилия"
+
+#~ msgid "Confirm password"
+#~ msgstr "Подтвердите пароль"
+
+#~ msgid "New password"
+#~ msgstr "Новый пароль"
+
+#~ msgid "Manage your assignments and to-dos"
+#~ msgstr "Управляйте заданиями и задачами"
+
+#~ msgid "New Task"
+#~ msgstr "Новая задача"
+
+#~ msgid "All"
+#~ msgstr "Все"
+
+#~ msgid "Overdue"
+#~ msgstr "Просрочено"
+
+#~ msgid "Search tasks..."
+#~ msgstr "Поиск задач..."
+
+#~ msgid "All Priority"
+#~ msgstr "Все приоритеты"
+
+#~ msgid "Filter"
+#~ msgstr "Фильтр"
+
+#~ msgid "Today"
+#~ msgstr "Сегодня"
+
+#~ msgid "Tomorrow"
+#~ msgstr "Завтра"
+
+#~ msgid "Create Task"
+#~ msgstr "Создать задачу"
+
+#~ msgid "Due Date"
+#~ msgstr "Срок выполнения"
+
+#~ msgid "Actions"
+#~ msgstr "Действия"
+
+#~ msgid "Due"
+#~ msgstr "Срок"
+
+#~ msgid "No tasks found."
+#~ msgstr "Задачи не найдены."
+
+#~ msgid "task"
+#~ msgstr "задача"
+
+#~ msgid "overdue"
+#~ msgstr "просрочено"
+
+#~ msgid "New Subject"
+#~ msgstr "Новый предмет"
+
+#~ msgid "Edit Subject"
+#~ msgstr "Редактировать предмет"
+
+#~ msgid "No subjects yet."
+#~ msgstr "Пока нет предметов."
+
+#~ msgid "Create your first subject."
+#~ msgstr "Создайте первый предмет."
+
+#~ msgid "Lectures"
+#~ msgstr "Лекции"
+
+#~ msgid "Labs"
+#~ msgstr "Лабораторные"
+
+#~ msgid "Seminars"
+#~ msgstr "Семинары"
+
+#~ msgid "hours per week"
+#~ msgstr "часов в неделю"
+
+#~ msgid "New Grade"
+#~ msgstr "Новая оценка"
+
+#~ msgid "Weighted Avg"
+#~ msgstr "Взвешенный средний"
+
+#~ msgid "Grades by Subject"
+#~ msgstr "Оценки по предметам"
+
+#~ msgid "All Grades"
+#~ msgstr "Все оценки"
+
+#~ msgid "Calculate what grade you need..."
+#~ msgstr "Рассчитайте, какую оценку вам нужно получить..."
+
+#~ msgid "Your target is currently unreachable."
+#~ msgstr "Ваша цель сейчас недостижима."
+
+#~ msgid "Add Grade"
+#~ msgstr "Добавить оценку"
+
+#~ msgid "Final"
+#~ msgstr "Итоговая"
+
+#~ msgid "Coursework"
+#~ msgstr "Курсовая работа"
+
+#~ msgid "Presentation"
+#~ msgstr "Презентация"
+
+#~ msgid "No grades recorded."
+#~ msgstr "Нет записанных оценок."
+
+#~ msgid "Out of"
+#~ msgstr "Из"
+
+#~ msgid "points"
+#~ msgstr "баллов"
+
+#~ msgid "Record Attendance"
+#~ msgstr "Отметить посещаемость"
+
+#~ msgid "Attendance Rate"
+#~ msgstr "Процент посещаемости"
+
+#~ msgid "By Subject"
+#~ msgstr "По предметам"
+
+#~ msgid "Records"
+#~ msgstr "Записи"
+
+#~ msgid "Total Classes"
+#~ msgstr "Всего занятий"
+
+#~ msgid "Classes Attended"
+#~ msgstr "Посещено занятий"
+
+#~ msgid "Classes Missed"
+#~ msgstr "Пропущено занятий"
+
+#~ msgid "Select Date"
+#~ msgstr "Выберите дату"
+
+#~ msgid "New Exam"
+#~ msgstr "Новый экзамен"
+
+#~ msgid "Past Exams"
+#~ msgstr "Прошедшие экзамены"
+
+#~ msgid "Add Exam"
+#~ msgstr "Добавить экзамен"
+
+#~ msgid "Exam Name"
+#~ msgstr "Название экзамена"
+
+#~ msgid "Exam Date"
+#~ msgstr "Дата экзамена"
+
+#~ msgid "Study Progress"
+#~ msgstr "Прогресс подготовки"
+
+#~ msgid "Preparation Status"
+#~ msgstr "Статус подготовки"
+
+#~ msgid "Mon"
+#~ msgstr "Пн"
+
+#~ msgid "Tue"
+#~ msgstr "Вт"
+
+#~ msgid "Wed"
+#~ msgstr "Ср"
+
+#~ msgid "Thu"
+#~ msgstr "Чт"
+
+#~ msgid "Fri"
+#~ msgstr "Пт"
+
+#~ msgid "Sat"
+#~ msgstr "Сб"
+
+#~ msgid "Sun"
+#~ msgstr "Вс"
+
+#~ msgid "Add Event"
+#~ msgstr "Добавить событие"
+
+#~ msgid "No events"
+#~ msgstr "Нет событий"
+
+#~ msgid "Month"
+#~ msgstr "Месяц"
+
+#~ msgid "Week"
+#~ msgstr "Неделя"
+
+#~ msgid "Day"
+#~ msgstr "День"
+
+#~ msgid "Previous"
+#~ msgstr "Предыдущий"
+
+#~ msgid "Next"
+#~ msgstr "Следующий"
+
+#~ msgid "New Note"
+#~ msgstr "Новая заметка"
+
+#~ msgid "Search notes..."
+#~ msgstr "Поиск заметок..."
+
+#~ msgid "Create your first note."
+#~ msgstr "Создайте первую заметку."
+
+#~ msgid "Last updated"
+#~ msgstr "Последнее обновление"
+
+#~ msgid "Note Title"
+#~ msgstr "Заголовок заметки"
+
+#~ msgid "New Goal"
+#~ msgstr "Новая цель"
+
+#~ msgid "Goal Description"
+#~ msgstr "Описание цели"
+
+#~ msgid "Target Date"
+#~ msgstr "Целевая дата"
+
+#~ msgid "No goals set."
+#~ msgstr "Нет установленных целей."
+
+#~ msgid "Create your first goal."
+#~ msgstr "Создайте первую цель."
+
+#~ msgid "On Track"
+#~ msgstr "В норме"
+
+#~ msgid "Behind"
+#~ msgstr "Отстаёт"
+
+#~ msgid "Ahead"
+#~ msgstr "Опережает"
+
+#~ msgid "Focus Mode"
+#~ msgstr "Режим фокуса"
+
+#~ msgid "This Week"
+#~ msgstr "На этой неделе"
+
+#~ msgid "Sessions Today"
+#~ msgstr "Сеансов сегодня"
+
+#~ msgid "Week Sessions"
+#~ msgstr "Сеансов за неделю"
+
+#~ msgid "Pause"
+#~ msgstr "Пауза"
+
+#~ msgid "Stop"
+#~ msgstr "Стоп"
+
+#~ msgid "Total Focus Time"
+#~ msgstr "Общее время фокуса"
+
+#~ msgid "Sessions Completed"
+#~ msgstr "Завершённые сеансы"
+
+#~ msgid "Break"
+#~ msgstr "Перерыв"
+
+#~ msgid "Work"
+#~ msgstr "Работа"
+
+#~ msgid "Session History"
+#~ msgstr "История сеансов"
+
+#~ msgid "Mark All Read"
+#~ msgstr "Отметить все как прочитанные"
+
+#~ msgid "No Notifications"
+#~ msgstr "Нет уведомлений"
+
+#~ msgid "You are all caught up!"
+#~ msgstr "Вы всё прочитали!"
+
+#~ msgid "Delete notification"
+#~ msgstr "Удалить уведомление"
+
+#~ msgid "Mark as read"
+#~ msgstr "Отметить как прочитанное"
+
+#~ msgid "Mark as unread"
+#~ msgstr "Отметить как непрочитанное"
+
+#~ msgid "Notification preferences"
+#~ msgstr "Настройки уведомлений"
+
+#~ msgid "Email notifications"
+#~ msgstr "Уведомления по почте"
+
+#~ msgid "Push notifications"
+#~ msgstr "Push-уведомления"
+
+#~ msgid "Enable all"
+#~ msgstr "Включить все"
+
+#~ msgid "Disable all"
+#~ msgstr "Отключить все"
+
+#~ msgid "Set Active"
+#~ msgstr "Сделать активным"
+
+#~ msgid "No Semesters"
+#~ msgstr "Нет семестров"
+
+#~ msgid "Create your first semester to get started."
+#~ msgstr "Создайте первый семестр для начала."
+
+#~ msgid "Semester Details"
+#~ msgstr "Детали семестра"
+
+#~ msgid "Add Semester"
+#~ msgstr "Добавить семестр"
+
+#~ msgid "Current"
+#~ msgstr "Текущий"
+
+#~ msgid "Import / Export"
+#~ msgstr "Импорт / Экспорт"
+
+#~ msgid "Export Data"
+#~ msgstr "Экспорт данных"
+
+#~ msgid "Import Data"
+#~ msgstr "Импорт данных"
+
+#~ msgid "Data Type"
+#~ msgstr "Тип данных"
+
+#~ msgid "CSV File"
+#~ msgstr "CSV файл"
+
+#~ msgid "Download"
+#~ msgstr "Скачать"
+
+#~ msgid "Upload"
+#~ msgstr "Загрузить"
+
+#~ msgid "Export Grades"
+#~ msgstr "Экспорт оценок"
+
+#~ msgid "Export Attendance"
+#~ msgstr "Экспорт посещаемости"
+
+#~ msgid "Export Tasks"
+#~ msgstr "Экспорт задач"
+
+#~ msgid "Export Notes"
+#~ msgstr "Экспорт заметок"
+
+#~ msgid "Export Goals"
+#~ msgstr "Экспорт целей"
+
+#~ msgid "Import Grades"
+#~ msgstr "Импорт оценок"
+
+#~ msgid "Import Attendance"
+#~ msgstr "Импорт посещаемости"
+
+#~ msgid "Import Tasks"
+#~ msgstr "Импорт задач"
+
+#~ msgid "Import Notes"
+#~ msgstr "Импорт заметок"
+
+#~ msgid "Import Goals"
+#~ msgstr "Импорт целей"
+
+#~ msgid "All Data"
+#~ msgstr "Все данные"
+
+#~ msgid "Backup & Restore"
+#~ msgstr "Резервное копирование и восстановление"
+
+#~ msgid "Last export"
+#~ msgstr "Последний экспорт"
+
+#~ msgid "File format"
+#~ msgstr "Формат файла"
+
+#~ msgid "Select data to export"
+#~ msgstr "Выберите данные для экспорта"
+
+#~ msgid "Database Backups"
+#~ msgstr "Резервные копии"
+
+#~ msgid "Create Backup"
+#~ msgstr "Создать резервную копию"
+
+#~ msgid "Restore"
+#~ msgstr "Восстановить"
+
+#~ msgid "No Backups"
+#~ msgstr "Нет резервных копий"
+
+#~ msgid "Create your first backup."
+#~ msgstr "Создайте первую резервную копию."
+
+#~ msgid "Backup Name"
+#~ msgstr "Название резервной копии"
+
+#~ msgid "Backup Size"
+#~ msgstr "Размер резервной копии"
+
+#~ msgid "Auto Backup"
+#~ msgstr "Автоматическое резервное копирование"
+
+#~ msgid "Manual Backup"
+#~ msgstr "Ручное резервное копирование"
+
+#~ msgid "Download Backup"
+#~ msgstr "Скачать резервную копию"
+
+#~ msgid "Restore from Backup"
+#~ msgstr "Восстановить из резервной копии"
+
+#~ msgid "Are you sure you want to restore from this backup?"
+#~ msgstr "Вы уверены, что хотите восстановить из этой резервной копии?"
+
+#~ msgid "This action cannot be undone."
+#~ msgstr "Это действие не может быть отменено."
+
+#~ msgid "Preferences"
+#~ msgstr "Настройки"
+
+#~ msgid "Appearance"
+#~ msgstr "Внешний вид"
+
+#~ msgid "Language"
+#~ msgstr "Язык"
+
+#~ msgid "English"
+#~ msgstr "English"
+
+#~ msgid "Russian"
+#~ msgstr "Русский"
+
+#~ msgid "Dark Mode"
+#~ msgstr "Тёмная тема"
+
+#~ msgid "Light Mode"
+#~ msgstr "Светлая тема"
+
+#~ msgid "Auto"
+#~ msgstr "Авто"
+
+#~ msgid "Theme"
+#~ msgstr "Тема"
+
+#~ msgid "Font Size"
+#~ msgstr "Размер шрифта"
+
+#~ msgid "Small"
+#~ msgstr "Маленький"
+
+#~ msgid "Large"
+#~ msgstr "Большой"
+
+#~ msgid "Timezone"
+#~ msgstr "Часовой пояс"
+
+#~ msgid "Date Format"
+#~ msgstr "Формат даты"
+
+#~ msgid "Time Format"
+#~ msgstr "Формат времени"
+
+#~ msgid "24-hour"
+#~ msgstr "24-часовой"
+
+#~ msgid "12-hour"
+#~ msgstr "12-часовой"
+
+#~ msgid "Academic Settings"
+#~ msgstr "Настройки учёбы"
+
+#~ msgid "Default Grade Scale"
+#~ msgstr "Шкала оценок по умолчанию"
+
+#~ msgid "Passing Grade"
+#~ msgstr "Проходной балл"
+
+#~ msgid "Notification Settings"
+#~ msgstr "Настройки уведомлений"
+
+#~ msgid "Privacy Settings"
+#~ msgstr "Настройки конфиденциальности"
+
+#~ msgid "Export Settings"
+#~ msgstr "Настройки экспорта"
+
+#~ msgid "Import Settings"
+#~ msgstr "Настройки импорта"
+
+#~ msgid "Reset to Defaults"
+#~ msgstr "Сбросить настройки"
+
+#~ msgid "Are you sure you want to reset all settings to defaults?"
+#~ msgstr "Вы уверены, что хотите сбросить все настройки?"
+
+#~ msgid "Update Profile"
+#~ msgstr "Обновить профиль"
+
+#~ msgid "Change Avatar"
+#~ msgstr "Изменить аватар"
+
+#~ msgid "Bio"
+#~ msgstr "О себе"
+
+#~ msgid "Phone Number"
+#~ msgstr "Номер телефона"
+
+#~ msgid "Date of Birth"
+#~ msgstr "Дата рождения"
+
+#~ msgid "Emergency Contact"
+#~ msgstr "Экстренный контакт"
+
+#~ msgid "Student ID"
+#~ msgstr "Студенческий билет"
+
+#~ msgid "Enrollment Date"
+#~ msgstr "Дата зачисления"
+
+#~ msgid "Expected Graduation"
+#~ msgstr "Планируемое окончание"
+
+#~ msgid "Current GPA"
+#~ msgstr "Текущий средний балл"
+
+#~ msgid "Total Credits"
+#~ msgstr "Всего кредитов"
+
+#~ msgid "Two-Factor Authentication"
+#~ msgstr "Двухфакторная аутентификация"
+
+#~ msgid "Active Sessions"
+#~ msgstr "Активные сессии"
+
+#~ msgid "Change Email"
+#~ msgstr "Изменить почту"
+
+#~ msgid "This will permanently delete all your data."
+#~ msgstr "Это навсегда удалит все ваши данные."
+
+#~ msgid "Step 1 of 3"
+#~ msgstr "Шаг 1 из 3"
+
+#~ msgid "Step 2 of 3"
+#~ msgstr "Шаг 2 из 3"
+
+#~ msgid "Step 3 of 3"
+#~ msgstr "Шаг 3 из 3"
+
+#~ msgid "Academic Information"
+#~ msgstr "Учебная информация"
+
+#~ msgid "Finish"
+#~ msgstr "Завершить"
+
+#~ msgid "Main Menu"
+#~ msgstr "Главное меню"
+
+#~ msgid "Toggle Sidebar"
+#~ msgstr "Переключить боковую панель"
+
+#~ msgid "Close"
+#~ msgstr "Закрыть"
+
+#~ msgid "Open"
+#~ msgstr "Открыть"
+
+#~ msgid "Expand"
+#~ msgstr "Развернуть"
+
+#~ msgid "Collapse"
+#~ msgstr "Свернуть"
+
+#~ msgid "Help"
+#~ msgstr "Помощь"
+
+#~ msgid "About"
+#~ msgstr "О программе"
+
+#~ msgid "Version"
+#~ msgstr "Версия"
+
+#~ msgid "Dark"
+#~ msgstr "Тёмная"
+
+#~ msgid "Light"
+#~ msgstr "Светлая"
+
+#~ msgid "Keyboard Shortcuts"
+#~ msgstr "Горячие клавиши"
+
+#~ msgid "Feedback"
+#~ msgstr "Обратная связь"
+
+#~ msgid "Report a Bug"
+#~ msgstr "Сообщить об ошибке"
+
+#~ msgid "Documentation"
+#~ msgstr "Документация"
+
+#~ msgid "Add Class"
+#~ msgstr "Добавить занятие"
+
+#~ msgid "Edit Class"
+#~ msgstr "Редактировать занятие"
+
+#~ msgid "Classes"
+#~ msgstr "Занятия"
+
+#~ msgid "Repeats"
+#~ msgstr "Повторяется"
+
+#~ msgid "Weekly"
+#~ msgstr "Еженедельно"
+
+#~ msgid "Biweekly"
+#~ msgstr "Раз в две недели"
+
+#~ msgid "Monthly"
+#~ msgstr "Ежемесячно"
+
+#~ msgid "No classes scheduled."
+#~ msgstr "Нет запланированных занятий."
+
+#~ msgid "Add your first class."
+#~ msgstr "Добавьте первое занятие."
+
+#~ msgid "Building"
+#~ msgstr "Корпус"
+
+#~ msgid "Floor"
+#~ msgstr "Этаж"
+
+#~ msgid "Building/Room"
+#~ msgstr "Корпус/Аудитория"
+
+#~ msgid "Slot"
+#~ msgstr "Слот"
+
+#~ msgid "Period"
+#~ msgstr "Период"
+
+#~ msgid "Cycle"
+#~ msgstr "Цикл"
+
+#~ msgid "Week A"
+#~ msgstr "Неделя А"
+
+#~ msgid "Week B"
+#~ msgstr "Неделя Б"
+
+#~ msgid "Odd Weeks"
+#~ msgstr "Нечётные недели"
+
+#~ msgid "Even Weeks"
+#~ msgstr "Чётные недели"
+
+#~ msgid "Today's Classes"
+#~ msgstr "Сегодняшние занятия"
+
+#~ msgid "Upcoming Classes"
+#~ msgstr "Ближайшие занятия"
+
+#~ msgid "No classes today"
+#~ msgstr "Нет занятий сегодня"
+
+#~ msgid "Next class"
+#~ msgstr "Следующее занятие"
+
+#~ msgid "hours"
+#~ msgstr "часов"
+
+#~ msgid "hour"
+#~ msgstr "час"
+
+#~ msgid "minute"
+#~ msgstr "минута"
+
+#~ msgid "Class Details"
+#~ msgstr "Детали занятия"
+
+#~ msgid "Instructor"
+#~ msgstr "Преподаватель"
+
+#~ msgid "Enrolled Students"
+#~ msgstr "Зачисленные студенты"
+
+#~ msgid "Capacity"
+#~ msgstr "Вместимость"
+
+#~ msgid "Prerequisites"
+#~ msgstr "Предварительные требования"
+
+#~ msgid "Syllabus"
+#~ msgstr "Программа курса"
+
+#~ msgid "Office Hours"
+#~ msgstr "Часы приёма"
+
+#~ msgid "Contact"
+#~ msgstr "Контакт"
+
+#~ msgid "Website"
+#~ msgstr "Веб-сайт"
+
+#~ msgid "Office"
+#~ msgstr "Офис"
+
+#~ msgid "Room Number"
+#~ msgstr "Номер аудитории"
+
+#~ msgid "Building Name"
+#~ msgstr "Название корпуса"
+
+#~ msgid "Campus"
+#~ msgstr "Кампус"
+
+#~ msgid "Campus Location"
+#~ msgstr "Расположение кампуса"
+
+#~ msgid "Main Campus"
+#~ msgstr "Основной кампус"
+
+#~ msgid "Satellite Campus"
+#~ msgstr "Филиал"
+
+#~ msgid "Online"
+#~ msgstr "Онлайн"
+
+#~ msgid "Hybrid"
+#~ msgstr "Гибридный"
+
+#~ msgid "In-Person"
+#~ msgstr "Очно"
+
+#~ msgid "Lab"
+#~ msgstr "Лабораторная"
+
+#~ msgid "Tutorial"
+#~ msgstr "Практическое занятие"
+
+#~ msgid "Workshop"
+#~ msgstr "Мастер-класс"
+
+#~ msgid "Field Trip"
+#~ msgstr "Экскурсия"
+
+#~ msgid "Guest Lecture"
+#~ msgstr "Гостевая лекция"
+
+#~ msgid "Guest Speaker"
+#~ msgstr "Гостевой лектор"
+
+#~ msgid "Class Cancelled"
+#~ msgstr "Занятие отменено"
+
+#~ msgid "Class Rescheduled"
+#~ msgstr "Занятие перенесено"
+
+#~ msgid "Holiday"
+#~ msgstr "Праздник"
+
+#~ msgid "Study Week"
+#~ msgstr "Учебная неделя"
+
+#~ msgid "Finals Week"
+#~ msgstr "Неделя экзаменов"
+
+#~ msgid "Reading Week"
+#~ msgstr "Неделя чтения"
+
+#~ msgid "Midterm Break"
+#~ msgstr "Перерыв на середине семестра"
+
+#~ msgid "Winter Break"
+#~ msgstr "Зимние каникулы"
+
+#~ msgid "Summer Break"
+#~ msgstr "Летние каникулы"
+
+#~ msgid "Spring Break"
+#~ msgstr "Весенние каникулы"
+
+#~ msgid "Fall Break"
+#~ msgstr "Осенние каникулы"
+
+#~ msgid "Thanksgiving Break"
+#~ msgstr "Каникулы на День благодарения"
+
+#~ msgid "Christmas Break"
+#~ msgstr "Рождественские каникулы"
+
+#~ msgid "New Year Break"
+#~ msgstr "Новогодние каникулы"
+
+#~ msgid "Easter Break"
+#~ msgstr "Пасхальные каникулы"
+
+#~ msgid "Assignment"
+#~ msgstr "Задание"
+
+#~ msgid "Paper"
+#~ msgstr "Реферат"
+
+#~ msgid "Essay"
+#~ msgstr "Эссе"
+
+#~ msgid "Lab Report"
+#~ msgstr "Отчёт по лабораторной"
+
+#~ msgid "Group Project"
+#~ msgstr "Групповой проект"
+
+#~ msgid "Research Paper"
+#~ msgstr "Научная работа"
+
+#~ msgid "Thesis"
+#~ msgstr "Дипломная работа"
+
+#~ msgid "Dissertation"
+#~ msgstr "Диссертация"
+
+#~ msgid "Capstone"
+#~ msgstr "Выпускная работа"
+
+#~ msgid "Portfolio"
+#~ msgstr "Портфолио"
+
+#~ msgid "Analytical"
+#~ msgstr "Аналитическая"
+
+#~ msgid "Critical Thinking"
+#~ msgstr "Критическое мышление"
+
+#~ msgid "Problem Solving"
+#~ msgstr "Решение задач"
+
+#~ msgid "Group Work"
+#~ msgstr "Групповая работа"
+
+#~ msgid "Individual Work"
+#~ msgstr "Индивидуальная работа"
+
+#~ msgid "Team Work"
+#~ msgstr "Командная работа"
+
+#~ msgid "Research"
+#~ msgstr "Исследование"
+
+#~ msgid "Presentation Skills"
+#~ msgstr "Навыки презентации"
+
+#~ msgid "Communication Skills"
+#~ msgstr "Навыки коммуникации"
+
+#~ msgid "Leadership Skills"
+#~ msgstr "Навыки лидерства"
+
+#~ msgid "Time Management"
+#~ msgstr "Управление временем"
+
+#~ msgid "Study Skills"
+#~ msgstr "Навыки учёбы"
+
+#~ msgid "Critical Reading"
+#~ msgstr "Критическое чтение"
+
+#~ msgid "Academic Writing"
+#~ msgstr "Академическое письмо"
+
+#~ msgid "Data Analysis"
+#~ msgstr "Анализ данных"
+
+#~ msgid "Statistics"
+#~ msgstr "Статистика"
+
+#~ msgid "Mathematics"
+#~ msgstr "Математика"
+
+#~ msgid "Science"
+#~ msgstr "Наука"
+
+#~ msgid "Physics"
+#~ msgstr "Физика"
+
+#~ msgid "Chemistry"
+#~ msgstr "Химия"
+
+#~ msgid "Biology"
+#~ msgstr "Биология"
+
+#~ msgid "Computer Science"
+#~ msgstr "Информатика"
+
+#~ msgid "Engineering"
+#~ msgstr "Инженерия"
+
+#~ msgid "Business"
+#~ msgstr "Бизнес"
+
+#~ msgid "Economics"
+#~ msgstr "Экономика"
+
+#~ msgid "Psychology"
+#~ msgstr "Психология"
+
+#~ msgid "Sociology"
+#~ msgstr "Социология"
+
+#~ msgid "Philosophy"
+#~ msgstr "Философия"
+
+#~ msgid "History"
+#~ msgstr "История"
+
+#~ msgid "Geography"
+#~ msgstr "География"
+
+#~ msgid "Literature"
+#~ msgstr "Литература"
+
+#~ msgid "Art"
+#~ msgstr "Искусство"
+
+#~ msgid "Music"
+#~ msgstr "Музыка"
+
+#~ msgid "Languages"
+#~ msgstr "Языки"
+
+#~ msgid "Spanish"
+#~ msgstr "Испанский"
+
+#~ msgid "French"
+#~ msgstr "Французский"
+
+#~ msgid "German"
+#~ msgstr "Немецкий"
+
+#~ msgid "Chinese"
+#~ msgstr "Китайский"
+
+#~ msgid "Japanese"
+#~ msgstr "Японский"
+
+#~ msgid "Italian"
+#~ msgstr "Итальянский"
+
+#~ msgid "Korean"
+#~ msgstr "Корейский"
+
+#~ msgid "Hindi"
+#~ msgstr "Хинди"
+
+#~ msgid "Turkish"
+#~ msgstr "Турецкий"
+
+#~ msgid "Dutch"
+#~ msgstr "Голландский"
+
+#~ msgid "Swedish"
+#~ msgstr "Шведский"
+
+#~ msgid "Polish"
+#~ msgstr "Польский"
+
+#~ msgid "Czech"
+#~ msgstr "Чешский"
+
+#~ msgid "Romanian"
+#~ msgstr "Румынский"
+
+#~ msgid "Hungarian"
+#~ msgstr "Венгерский"
+
+#~ msgid "Greek"
+#~ msgstr "Греческий"
+
+#~ msgid "Hebrew"
+#~ msgstr "Иврит"
+
+#~ msgid "Thai"
+#~ msgstr "Тайский"
+
+#~ msgid "Vietnamese"
+#~ msgstr "Вьетнамский"
+
+#~ msgid "Indonesian"
+#~ msgstr "Индонезийский"
+
+#~ msgid "Malay"
+#~ msgstr "Малайский"
+
+#~ msgid "Tagalog"
+#~ msgstr "Тагальский"
+
+#~ msgid "Swahili"
+#~ msgstr "Суахили"
+
+#~ msgid "Urdu"
+#~ msgstr "Урду"
+
+#~ msgid "Bengali"
+#~ msgstr "Бенгальский"
+
+#~ msgid "Tamil"
+#~ msgstr "Тамильский"
+
+#~ msgid "Telugu"
+#~ msgstr "Телугу"
+
+#~ msgid "Marathi"
+#~ msgstr "Маратхи"
+
+#~ msgid "Gujarati"
+#~ msgstr "Гуджарати"
+
+#~ msgid "Kannada"
+#~ msgstr "Каннада"
+
+#~ msgid "Malayalam"
+#~ msgstr "Малаялам"
+
+#~ msgid "Punjabi"
+#~ msgstr "Панджаби"
+
+#~ msgid "Sinhala"
+#~ msgstr "Сингальский"
+
+#~ msgid "Burmese"
+#~ msgstr "Бирманский"
+
+#~ msgid "Khmer"
+#~ msgstr "Кхмерский"
+
+#~ msgid "Lao"
+#~ msgstr "Лаосский"
+
+#~ msgid "Mongolian"
+#~ msgstr "Монгольский"
+
+#~ msgid "Nepali"
+#~ msgstr "Непальский"
+
+#~ msgid "Tibetan"
+#~ msgstr "Тибетский"
+
+#~ msgid "Ukrainian"
+#~ msgstr "Украинский"
+
+#~ msgid "Belarusian"
+#~ msgstr "Белорусский"
+
+#~ msgid "Kazakh"
+#~ msgstr "Казахский"
+
+#~ msgid "Uzbek"
+#~ msgstr "Узбекский"
+
+#~ msgid "Azerbaijani"
+#~ msgstr "Азербайджанский"
+
+#~ msgid "Georgian"
+#~ msgstr "Грузинский"
+
+#~ msgid "Armenian"
+#~ msgstr "Армянский"
+
+#~ msgid "Persian"
+#~ msgstr "Персидский"
+
+#~ msgid "Afrikaans"
+#~ msgstr "Африкаанс"
+
+#~ msgid "Amharic"
+#~ msgstr "Амхарский"
+
+#~ msgid "Somali"
+#~ msgstr "Сомалийский"
+
+#~ msgid "Norwegian"
+#~ msgstr "Норвежский"
+
+#~ msgid "Danish"
+#~ msgstr "Датский"
+
+#~ msgid "Finnish"
+#~ msgstr "Финский"
+
+#~ msgid "Croatian"
+#~ msgstr "Хорватский"
+
+#~ msgid "Serbian"
+#~ msgstr "Сербский"
+
+#~ msgid "Bosnian"
+#~ msgstr "Боснийский"
+
+#~ msgid "Slovenian"
+#~ msgstr "Словенский"
+
+#~ msgid "Slovak"
+#~ msgstr "Словацкий"
+
+#~ msgid "Bulgarian"
+#~ msgstr "Болгарский"
+
+#~ msgid "Macedonian"
+#~ msgstr "Македонский"
+
+#~ msgid "Albanian"
+#~ msgstr "Албанский"
+
+#~ msgid "Icelandic"
+#~ msgstr "Исландский"
+
+#~ msgid "Latvian"
+#~ msgstr "Латышский"
+
+#~ msgid "Lithuanian"
+#~ msgstr "Литовский"
+
+#~ msgid "Estonian"
+#~ msgstr "Эстонский"
+
+#~ msgid "Maltese"
+#~ msgstr "Мальтийский"
+
+#~ msgid "Arabic"
+#~ msgstr "Арабский"
+
+#~ msgid "Portuguese"
+#~ msgstr "Португальский"
+
+#~ msgid "Yes"
+#~ msgstr "Да"
+
+#~ msgid "No"
+#~ msgstr "Нет"
+
+#~ msgid "Loading..."
+#~ msgstr "Загрузка..."
+
+#~ msgid "ago"
+#~ msgstr "назад"
+
+#~ msgid "No items"
+#~ msgstr "Нет элементов"
+
+#~ msgid "Updated"
+#~ msgstr "Обновлено"
+
+#~ msgid "Success"
+#~ msgstr "Успешно"
+
+#~ msgid "Error"
+#~ msgstr "Ошибка"
+
+#~ msgid "Warning"
+#~ msgstr "Предупреждение"
+
+#~ msgid "Info"
+#~ msgstr "Информация"
+
+#~ msgid "Confirm"
+#~ msgstr "Подтвердить"
+
+#~ msgid "Approve"
+#~ msgstr "Одобрить"
+
+#~ msgid "Reject"
+#~ msgstr "Отклонить"
+
+#~ msgid "Accept"
+#~ msgstr "Принять"
+
+#~ msgid "Apply"
+#~ msgstr "Применить"
+
+#~ msgid "Reset"
+#~ msgstr "Сбросить"
+
+#~ msgid "Refresh"
+#~ msgstr "Обновить"
+
+#~ msgid "Retry"
+#~ msgstr "Повторить"
+
+#~ msgid "Add"
+#~ msgstr "Добавить"
+
+#~ msgid "Remove"
+#~ msgstr "Удалить"
+
+#~ msgid "Select"
+#~ msgstr "Выбрать"
+
+#~ msgid "Choose"
+#~ msgstr "Выбрать"
+
+#~ msgid "None"
+#~ msgstr "Нет"
+
+#~ msgid "Custom"
+#~ msgstr "Пользовательский"
+
+#~ msgid "Default"
+#~ msgstr "По умолчанию"
+
+#~ msgid "Required"
+#~ msgstr "Обязательно"
+
+#~ msgid "Optional"
+#~ msgstr "Необязательно"
+
+#~ msgid "Enabled"
+#~ msgstr "Включено"
+
+#~ msgid "Disabled"
+#~ msgstr "Выключено"
+
+#~ msgid "On"
+#~ msgstr "Вкл"
+
+#~ msgid "Off"
+#~ msgstr "Выкл"
+
+#~ msgid "Inactive"
+#~ msgstr "Неактивный"
+
+#~ msgid "Public"
+#~ msgstr "Публичный"
+
+#~ msgid "Private"
+#~ msgstr "Приватный"
+
+#~ msgid "Shared"
+#~ msgstr "Общий"
+
+#~ msgid "Internal"
+#~ msgstr "Внутренний"
+
+#~ msgid "External"
+#~ msgstr "Внешний"
+
+#~ msgid "Local"
+#~ msgstr "Локальный"
+
+#~ msgid "Remote"
+#~ msgstr "Удалённый"
+
+#~ msgid "Up"
+#~ msgstr "Вверх"
+
+#~ msgid "Down"
+#~ msgstr "Вниз"
+
+#~ msgid "Left"
+#~ msgstr "Влево"
+
+#~ msgid "Right"
+#~ msgstr "Вправо"
+
+#~ msgid "First"
+#~ msgstr "Первый"
+
+#~ msgid "Last"
+#~ msgstr "Последний"
+
+#~ msgid "Prior"
+#~ msgstr "Предыдущий"
+
+#~ msgid "Following"
+#~ msgstr "Следующий"
+
+#~ msgid "Immediate"
+#~ msgstr "Немедленный"
+
+#~ msgid "Instant"
+#~ msgstr "Мгновенный"
+
+#~ msgid "Prompt"
+#~ msgstr "Быстрый"
+
+#~ msgid "Swift"
+#~ msgstr "Быстрый"
+
+#~ msgid "Rapid"
+#~ msgstr "Быстрый"
+
+#~ msgid "Quick"
+#~ msgstr "Быстрый"
+
+#~ msgid "Slow"
+#~ msgstr "Медленный"
+
+#~ msgid "Gradual"
+#~ msgstr "Постепенный"
+
+#~ msgid "Steady"
+#~ msgstr "Стабильный"
+
+#~ msgid "Constant"
+#~ msgstr "Постоянный"
+
+#~ msgid "Continual"
+#~ msgstr "Постоянный"
+
+#~ msgid "Continuous"
+#~ msgstr "Непрерывный"
+
+#~ msgid "Uninterrupted"
+#~ msgstr "Непрерывный"
+
+#~ msgid "Unbroken"
+#~ msgstr "Непрерывный"
+
+#~ msgid "Seamless"
+#~ msgstr "Бесшовный"
+
+#~ msgid "Smooth"
+#~ msgstr "Гладкий"
+
+#~ msgid "Even"
+#~ msgstr "Ровный"
+
+#~ msgid "Flat"
+#~ msgstr "Плоский"
+
+#~ msgid "Level"
+#~ msgstr "Ровный"
+
+#~ msgid "Straight"
+#~ msgstr "Прямой"
+
+#~ msgid "Crooked"
+#~ msgstr "Кривой"
+
+#~ msgid "Bent"
+#~ msgstr "Искривлённый"
+
+#~ msgid "Curved"
+#~ msgstr "Изогнутый"
+
+#~ msgid "Round"
+#~ msgstr "Круглый"
+
+#~ msgid "Circular"
+#~ msgstr "Круглый"
+
+#~ msgid "Square"
+#~ msgstr "Квадратный"
+
+#~ msgid "Rectangular"
+#~ msgstr "Прямоугольный"
+
+#~ msgid "Triangular"
+#~ msgstr "Треугольный"
+
+#~ msgid "Polygonal"
+#~ msgstr "Многоугольный"
+
+#~ msgid "Angular"
+#~ msgstr "Угловатый"
+
+#~ msgid "Sharp"
+#~ msgstr "Острый"
+
+#~ msgid "Blunt"
+#~ msgstr "Тупой"
+
+#~ msgid "Pointed"
+#~ msgstr "Острый"
+
+#~ msgid "Rounded"
+#~ msgstr "Закруглённый"
+
+#~ msgid "Rough"
+#~ msgstr "Шершавый"
+
+#~ msgid "Bumpy"
+#~ msgstr "Неровный"
+
+#~ msgid "Uneven"
+#~ msgstr "Неровный"
+
+#~ msgid "Irregular"
+#~ msgstr "Нерегулярный"
+
+#~ msgid "Normal"
+#~ msgstr "Нормальный"
+
+#~ msgid "Regular"
+#~ msgstr "Регулярный"
+
+#~ msgid "Standard"
+#~ msgstr "Стандартный"
+
+#~ msgid "Typical"
+#~ msgstr "Типичный"
+
+#~ msgid "Average"
+#~ msgstr "Средний"
+
+#~ msgid "Ordinary"
+#~ msgstr "Обычный"
+
+#~ msgid "Plain"
+#~ msgstr "Простой"
+
+#~ msgid "Simple"
+#~ msgstr "Простой"
+
+#~ msgid "Complex"
+#~ msgstr "Сложный"
+
+#~ msgid "Complicated"
+#~ msgstr "Сложный"
+
+#~ msgid "Intricate"
+#~ msgstr "Сложный"
+
+#~ msgid "Thorough"
+#~ msgstr "Тщательный"
+
+#~ msgid "Comprehensive"
+#~ msgstr "Исчерпывающий"
+
+#~ msgid "Exhaustive"
+#~ msgstr "Исчерпывающий"
+
+#~ msgid "Complete"
+#~ msgstr "Полный"
+
+#~ msgid "Full"
+#~ msgstr "Полный"
+
+#~ msgid "Whole"
+#~ msgstr "Целый"
+
+#~ msgid "Entire"
+#~ msgstr "Весь"
+
+#~ msgid "Partial"
+#~ msgstr "Частичный"
+
+#~ msgid "Incomplete"
+#~ msgstr "Неполный"
+
+#~ msgid "Fractional"
+#~ msgstr "Дробный"
+
+#~ msgid "Decimal"
+#~ msgstr "Десятичный"
+
+#~ msgid "Binary"
+#~ msgstr "Двоичный"
+
+#~ msgid "Hexadecimal"
+#~ msgstr "Шестнадцатеричный"
+
+#~ msgid "Octal"
+#~ msgstr "Восьмеричный"
+
+#~ msgid "Roman"
+#~ msgstr "Римский"
+
+#~ msgid "Cyrillic"
+#~ msgstr "Кириллический"
+
+#~ msgid "Latin"
+#~ msgstr "Латинский"
+
+#~ msgid "Coptic"
+#~ msgstr "Коптский"
+
+#~ msgid "Gothic"
+#~ msgstr "Готический"
+
+#~ msgid "Ethiopic"
+#~ msgstr "Эфиопский"
+
+#~ msgid "Runic"
+#~ msgstr "Рунический"
+
+#~ msgid "Ogham"
+#~ msgstr "Огамический"
+
+#~ msgid "Braille Patterns"
+#~ msgstr "Паттерны Брайля"
+
+#~ msgid "Cuneiform"
+#~ msgstr "Клинопись"
+
+#~ msgid "Egyptian Hieroglyphs"
+#~ msgstr "Египетские иероглифы"
+
+#~ msgid "Shavian"
+#~ msgstr "Шавиан"
+
+#~ msgid "Deseret"
+#~ msgstr "Дезерет"
+
+#~ msgid "Osmanya"
+#~ msgstr "Оссмания"
+
+#~ msgid "Cypriot Syllabary"
+#~ msgstr "Кипрская слоговая"
+
+#~ msgid "Linear B Syllabary"
+#~ msgstr "Линейная Б слоговая"
+
+#~ msgid "Lycian"
+#~ msgstr "Ликийский"
+
+#~ msgid "Carian"
+#~ msgstr "Карийский"
+
+#~ msgid "Old Persian"
+#~ msgstr "Древнеперсидский"
+
+#~ msgid "Avestan"
+#~ msgstr "Авестийский"
+
+#~ msgid "Inscriptional Parthian"
+#~ msgstr "Парфянская надписная"
+
+#~ msgid "Inscriptional Pahlavi"
+#~ msgstr "Пахлавийская надписная"
+
+#~ msgid "Old Turkic"
+#~ msgstr "Древнетюркский"
+
+#~ msgid "Rumi Numeral Symbols"
+#~ msgstr "Числовые символы Руми"
+
+#~ msgid "Old Hungarian"
+#~ msgstr "Древневенгерский"
+
+#~ msgid "Hanifi Rohingya"
+#~ msgstr "Ханифи рохинджа"
+
+#~ msgid "Old Italic"
+#~ msgstr "Древнеитальянский"
+
+#~ msgid "Old Permic"
+#~ msgstr "Древнепермский"
+
+#~ msgid "Glagolitic"
+#~ msgstr "Глаголица"
+
+#~ msgid "Brahmi"
+#~ msgstr "Брахми"
+
+#~ msgid "Kaithi"
+#~ msgstr "Кайтхи"
+
+#~ msgid "Sharada"
+#~ msgstr "Шарада"
+
+#~ msgid "Siddham"
+#~ msgstr "Сиддхам"
+
+#~ msgid "Grantha"
+#~ msgstr "Грантха"
+
+#~ msgid "Tirhuta"
+#~ msgstr "Тирхута"
+
+#~ msgid "Modi"
+#~ msgstr "Моди"
+
+#~ msgid "Takri"
+#~ msgstr "Такри"
+
+#~ msgid "Ahom"
+#~ msgstr "Ахом"
+
+#~ msgid "Bhaiksuki"
+#~ msgstr "Бхайкшуки"
+
+#~ msgid "Dzongkha"
+#~ msgstr "Дзонг-кэ"
+
+#~ msgid "Znamenny Musical Notation"
+#~ msgstr "Знаменное музыкальное письмо"
+
+#~ msgid "Nabataean"
+#~ msgstr "Набатейский"
+
+#~ msgid "Palmyrene"
+#~ msgstr "Пальмирский"
+
+#~ msgid "Mandaic"
+#~ msgstr "Мандейский"
+
+#~ msgid "Syriac"
+#~ msgstr "Сирийский"
+
+#~ msgid "Thaana"
+#~ msgstr "Таана"
+
+#~ msgid "NKo"
+#~ msgstr "Нко"
+
+#~ msgid "Samaritan"
+#~ msgstr "Самаритянский"
+
+#~ msgid "Mende Kikakui"
+#~ msgstr "Менде кикакуи"
+
+#~ msgid "Bamum"
+#~ msgstr "Бамум"
+
+#~ msgid "Kibu"
+#~ msgstr "Кибу"
+
+#~ msgid "Makassar"
+#~ msgstr "Макассар"
+
+#~ msgid "Lisu"
+#~ msgstr "Лису"
+
+#~ msgid "Kayah Li"
+#~ msgstr "Кая-Ли"
+
+#~ msgid "Meetei Mayek"
+#~ msgstr "Митей-Майек"
+
+#~ msgid "Cham"
+#~ msgstr "Чам"
+
+#~ msgid "Tai Viet"
+#~ msgstr "Тай-Вьет"
+
+#~ msgid "Rejang"
+#~ msgstr "Реджанг"
+
+#~ msgid "Hangul Jamo"
+#~ msgstr "Хангыль Джамо"
+
+#~ msgid "Unified Canadian Aboriginal Syllabics"
+#~ msgstr "Единые канадские слоговые"
+
+#~ msgid "Inuktitut"
+#~ msgstr "Инуктитут"
+
+#~ msgid "Cree"
+#~ msgstr "Кри"
+
+#~ msgid "Ojibwe"
+#~ msgstr "Оджибве"
+
+#~ msgid "Navajo"
+#~ msgstr "Навахо"
+
+#~ msgid "Cherokee"
+#~ msgstr "Чероки"
+
+#~ msgid "Quechua"
+#~ msgstr "Кечуа"
+
+#~ msgid "Guarani"
+#~ msgstr "Гуарани"
+
+#~ msgid "Aymara"
+#~ msgstr "Аймара"
+
+#~ msgid "Nahuatl"
+#~ msgstr "Натуатль"
+
+#~ msgid "Mayan"
+#~ msgstr "Майя"
+
+#~ msgid "Haitian Creole"
+#~ msgstr "Гаитянский креольский"
+
+#~ msgid "Kurdish"
+#~ msgstr "Курдский"
+
+#~ msgid "Sorani"
+#~ msgstr "Сорани"
+
+#~ msgid "Dari"
+#~ msgstr "Дари"
+
+#~ msgid "Pashto"
+#~ msgstr "Пушту"
+
+#~ msgid "Turkmen"
+#~ msgstr "Туркменский"
+
+#~ msgid "Tajik"
+#~ msgstr "Таджикский"
+
+#~ msgid "Kyrgyz"
+#~ msgstr "Кыргызский"
+
+#~ msgid "Moldovan"
+#~ msgstr "Молдавский"
+
+#~ msgid "Lingala"
+#~ msgstr "Лингала"
+
+#~ msgid "Wolof"
+#~ msgstr "Волоф"
+
+#~ msgid "Bambara"
+#~ msgstr "Бамбара"
+
+#~ msgid "Tswana"
+#~ msgstr "Тсвана"
+
+#~ msgid "Sotho"
+#~ msgstr "Сото"
+
+#~ msgid "Tsonga"
+#~ msgstr "Тсонга"
+
+#~ msgid "Swazi"
+#~ msgstr "Суази"
+
+#~ msgid "Venda"
+#~ msgstr "Венда"
+
+#~ msgid "Ndebele"
+#~ msgstr "Ндебеле"
+
+#~ msgid "Sepedi"
+#~ msgstr "Сепеди"
+
+#~ msgid "Kinyarwanda"
+#~ msgstr "Киньяруанда"
+
+#~ msgid "Kirundi"
+#~ msgstr "Кирунди"
+
+#~ msgid "Luganda"
+#~ msgstr "Луганда"
+
+#~ msgid "Faroese"
+#~ msgstr "Фарерский"
+
+#~ msgid "Greenlandic"
+#~ msgstr "Гренландский"
+
+#~ msgid "Shona"
+#~ msgstr "Шона"
+
+#~ msgid "Uyghur"
+#~ msgstr "Уйгурский"
+
+#~ msgid "Tigrinya"
+#~ msgstr "Тигринья"
+
+#~ msgid "Maori"
+#~ msgstr "Маори"
+
+#~ msgid "Hawaiian"
+#~ msgstr "Гавайский"
+
+#~ msgid "Samoan"
+#~ msgstr "Самоанский"
+
+#~ msgid "Tongan"
+#~ msgstr "Тонганский"
+
+#~ msgid "Fijian"
+#~ msgstr "Фиджийский"
+
+#~ msgid "Chamorro"
+#~ msgstr "Чаморро"
+
+#~ msgid "Palauan"
+#~ msgstr "Палауанский"
+
+#~ msgid "Marshallese"
+#~ msgstr "Маршалльский"
+
+#~ msgid "Gilbertese"
+#~ msgstr "Гибертский"
+
+#~ msgid "Yapese"
+#~ msgstr "Япский"
+
+#~ msgid "Chuukese"
+#~ msgstr "Чукский"
+
+#~ msgid "Pohnpeian"
+#~ msgstr "Понапейский"
+
+#~ msgid "Kiribati"
+#~ msgstr "Кирибати"
+
+#~ msgid "Nauruan"
+#~ msgstr "Науруанский"
+
+#~ msgid "Tuvaluan"
+#~ msgstr "Тувальский"
+
+#~ msgid "Tok Pisin"
+#~ msgstr "Ток-пisin"
+
+#~ msgid "Bislama"
+#~ msgstr "Бислама"
+
+#~ msgid "Solomon Islands Pijin"
+#~ msgstr "Пиджин Соломоновых островов"
+
+#~ msgid "Hiri Motu"
+#~ msgstr "Хири-моту"
+
+#~ msgid "Motu"
+#~ msgstr "Моту"
+
+#~ msgid "Year"
+#~ msgstr "Год"
+
+#~ msgid "Minute"
+#~ msgstr "Минута"
+
+#~ msgid "Second"
+#~ msgstr "Секунда"
+
+#~ msgid "Yesterday"
+#~ msgstr "Вчера"
+
+#~ msgid "This Month"
+#~ msgstr "В этом месяце"
+
+#~ msgid "Last Month"
+#~ msgstr "В прошлом месяце"
+
+#~ msgid "Next Month"
+#~ msgstr "В следующем месяце"
+
+#~ msgid "This Year"
+#~ msgstr "В этом году"
+
+#~ msgid "Last Year"
+#~ msgstr "В прошлом году"
+
+#~ msgid "Next Year"
+#~ msgstr "В следующем году"
+
+#~ msgid "January"
+#~ msgstr "Январь"
+
+#~ msgid "February"
+#~ msgstr "Февраль"
+
+#~ msgid "March"
+#~ msgstr "Март"
+
+#~ msgid "April"
+#~ msgstr "Апрель"
+
+#~ msgid "May"
+#~ msgstr "Май"
+
+#~ msgid "June"
+#~ msgstr "Июнь"
+
+#~ msgid "July"
+#~ msgstr "Июль"
+
+#~ msgid "August"
+#~ msgstr "Август"
+
+#~ msgid "September"
+#~ msgstr "Сентябрь"
+
+#~ msgid "October"
+#~ msgstr "Октябрь"
+
+#~ msgid "November"
+#~ msgstr "Ноябрь"
+
+#~ msgid "December"
+#~ msgstr "Декабрь"
+
+#~ msgid "am"
+#~ msgstr "утра"
+
+#~ msgid "pm"
+#~ msgstr "вечера"
+
+#~ msgid "AM"
+#~ msgstr "УТРА"
+
+#~ msgid "PM"
+#~ msgstr "ВЕЧЕРА"
+
+#~ msgid "Page"
+#~ msgstr "Страница"
+
+#~ msgid "of"
+#~ msgstr "из"
+
+#~ msgid "Showing"
+#~ msgstr "Показано"
+
+#~ msgid "to"
+#~ msgstr "до"
+
+#~ msgid "results"
+#~ msgstr "результатов"
+
+#~ msgid "Page size"
+#~ msgstr "Размер страницы"
+
+#~ msgid "per page"
+#~ msgstr "на страницу"
+
+#~ msgid "Go to page"
+#~ msgstr "Перейти к странице"
+
+#~ msgid "Next page"
+#~ msgstr "Следующая страница"
+
+#~ msgid "Previous page"
+#~ msgstr "Предыдущая страница"
+
+#~ msgid "Are you sure?"
+#~ msgstr "Вы уверены?"
+
+#~ msgid "Proceed"
+#~ msgstr "Продолжить"
+
+#~ msgid "Abort"
+#~ msgstr "Отмена"
+
+#~ msgid "Required field"
+#~ msgstr "Обязательное поле"
+
+#~ msgid "Optional field"
+#~ msgstr "Необязательное поле"
+
+#~ msgid "Enter value"
+#~ msgstr "Введите значение"
+
+#~ msgid "Select an option"
+#~ msgstr "Выберите вариант"
+
+#~ msgid "Choose an option"
+#~ msgstr "Выберите вариант"
+
+#~ msgid "No options available"
+#~ msgstr "Нет доступных вариантов"
+
+#~ msgid "Clear"
+#~ msgstr "Очистить"
+
+#~ msgid "Submit"
+#~ msgstr "Отправить"
+
+#~ msgid "Sort"
+#~ msgstr "Сортировка"
+
+#~ msgid "Sort by"
+#~ msgstr "Сортировать по"
+
+#~ msgid "Ascending"
+#~ msgstr "По возрастанию"
+
+#~ msgid "Descending"
+#~ msgstr "По убыванию"
+
+#~ msgid "Name"
+#~ msgstr "Название"
+
+#~ msgid "Category"
+#~ msgstr "Категория"
+
+#~ msgid "Label"
+#~ msgstr "Метка"
+
+#~ msgid "Tag"
+#~ msgstr "Тег"
+
+#~ msgid "Summary"
+#~ msgstr "Резюме"
+
+#~ msgid "Overview"
+#~ msgstr "Обзор"
+
+#~ msgid "Analytics"
+#~ msgstr "Аналитика"
+
+#~ msgid "Reports"
+#~ msgstr "Отчёты"
+
+#~ msgid "Configuration"
+#~ msgstr "Конфигурация"
+
+#~ msgid "Options"
+#~ msgstr "Параметры"
+
+#~ msgid "Advanced"
+#~ msgstr "Расширенные"
+
+#~ msgid "Basic"
+#~ msgstr "Основные"
+
+#~ msgid "General"
+#~ msgstr "Общие"
+
+#~ msgid "Specific"
+#~ msgstr "Конкретные"
+
+#~ msgid "Preset"
+#~ msgstr "Предустановленные"
+
+#~ msgid "Template"
+#~ msgstr "Шаблон"
+
+#~ msgid "Example"
+#~ msgstr "Пример"
+
+#~ msgid "Sample"
+#~ msgstr "Пример"
+
+#~ msgid "Demo"
+#~ msgstr "Демо"
+
+#~ msgid "Preview"
+#~ msgstr "Предпросмотр"
+
+#~ msgid "Draft"
+#~ msgstr "Черновик"
+
+#~ msgid "Published"
+#~ msgstr "Опубликовано"
+
+#~ msgid "Archived"
+#~ msgstr "В архиве"
+
+#~ msgid "Removed"
+#~ msgstr "Удалено"
+
+#~ msgid "Hidden"
+#~ msgstr "Скрыто"
+
+#~ msgid "Visible"
+#~ msgstr "Видимое"
+
+#~ msgid "Offline"
+#~ msgstr "Офлайн"
+
+#~ msgid "Connected"
+#~ msgstr "Подключено"
+
+#~ msgid "Disconnected"
+#~ msgstr "Отключено"
+
+#~ msgid "Synchronized"
+#~ msgstr "Синхронизировано"
+
+#~ msgid "Syncing"
+#~ msgstr "Синхронизация"
+
+#~ msgid "Pending"
+#~ msgstr "Ожидает"
+
+#~ msgid "Processing"
+#~ msgstr "Обработка"
+
+#~ msgid "Queued"
+#~ msgstr "В очереди"
+
+#~ msgid "Waiting"
+#~ msgstr "Ожидание"
+
+#~ msgid "Paused"
+#~ msgstr "Приостановлено"
+
+#~ msgid "Resumed"
+#~ msgstr "Возобновлено"
+
+#~ msgid "Cancelled"
+#~ msgstr "Отменено"
+
+#~ msgid "Debug"
+#~ msgstr "Отладка"
+
+#~ msgid "Trace"
+#~ msgstr "Трассировка"
+
+#~ msgid "Log"
+#~ msgstr "Журнал"
+
+#~ msgid "Audit"
+#~ msgstr "Аудит"
+
+#~ msgid "Permission"
+#~ msgstr "Разрешение"
+
+#~ msgid "Access"
+#~ msgstr "Доступ"
+
+#~ msgid "Auth"
+#~ msgstr "Авторизация"
+
+#~ msgid "User"
+#~ msgstr "Пользователь"
+
+#~ msgid "Admin"
+#~ msgstr "Администратор"
+
+#~ msgid "Guest"
+#~ msgstr "Гость"
+
+#~ msgid "Anonymous"
+#~ msgstr "Анонимный"
+
+#~ msgid "Role"
+#~ msgstr "Роль"
+
+#~ msgid "Group"
+#~ msgstr "Группа"
+
+#~ msgid "Team"
+#~ msgstr "Команда"
+
+#~ msgid "Organization"
+#~ msgstr "Организация"
+
+#~ msgid "Department"
+#~ msgstr "Отдел"
+
+#~ msgid "Division"
+#~ msgstr "Подразделение"
+
+#~ msgid "Unit"
+#~ msgstr "Подразделение"
+
+#~ msgid "Branch"
+#~ msgstr "Филиал"
+
+#~ msgid "Region"
+#~ msgstr "Регион"
+
+#~ msgid "Country"
+#~ msgstr "Страна"
+
+#~ msgid "State"
+#~ msgstr "Штат"
+
+#~ msgid "Province"
+#~ msgstr "Провинция"
+
+#~ msgid "City"
+#~ msgstr "Город"
+
+#~ msgid "Town"
+#~ msgstr "Город"
+
+#~ msgid "Village"
+#~ msgstr "Деревня"
+
+#~ msgid "District"
+#~ msgstr "Район"
+
+#~ msgid "Area"
+#~ msgstr "Район"
+
+#~ msgid "Zone"
+#~ msgstr "Зона"
+
+#~ msgid "Territory"
+#~ msgstr "Территория"
+
+#~ msgid "Area Code"
+#~ msgstr "Код региона"
+
+#~ msgid "UTC Offset"
+#~ msgstr "Смещение UTC"
+
+#~ msgid "DST"
+#~ msgstr "Летнее время"
+
+#~ msgid "Standard Time"
+#~ msgstr "Стандартное время"
+
+#~ msgid "Daylight Saving Time"
+#~ msgstr "Летнее время"
+
+#~ msgid "Number Format"
+#~ msgstr "Формат чисел"
+
+#~ msgid "Currency Format"
+#~ msgstr "Формат валюты"
+
+#~ msgid "Units"
+#~ msgstr "Единицы"
+
+#~ msgid "Metric"
+#~ msgstr "Метрическая"
+
+#~ msgid "Imperial"
+#~ msgstr "Имперская"
+
+#~ msgid "System Default"
+#~ msgstr "Системная по умолчанию"
+
+#~ msgid "User Preference"
+#~ msgstr "Пользовательские настройки"
+
+#~ msgid "Override"
+#~ msgstr "Переопределить"
+
+#~ msgid "Inherit"
+#~ msgstr "Наследовать"
+
+#~ msgid "Cascade"
+#~ msgstr "Каскад"
+
+#~ msgid "Merge"
+#~ msgstr "Объединить"
+
+#~ msgid "Replace"
+#~ msgstr "Заменить"
+
+#~ msgid "Append"
+#~ msgstr "Добавить"
+
+#~ msgid "Prepend"
+#~ msgstr "Добавить в начало"
+
+#~ msgid "Insert"
+#~ msgstr "Вставить"
+
+#~ msgid "Backup"
+#~ msgstr "Резервная копия"
+
+#~ msgid "Export"
+#~ msgstr "Экспорт"
+
+#~ msgid "Import"
+#~ msgstr "Импорт"
+
+#~ msgid "Transfer"
+#~ msgstr "Передача"
+
+#~ msgid "Sync"
+#~ msgstr "Синхронизация"
+
+#~ msgid "Push"
+#~ msgstr "Отправка"
+
+#~ msgid "Pull"
+#~ msgstr "Получение"
+
+#~ msgid "Fetch"
+#~ msgstr "Получение"
+
+#~ msgid "Reload"
+#~ msgstr "Перезагрузка"
+
+#~ msgid "Restart"
+#~ msgstr "Перезапуск"
+
+#~ msgid "Shutdown"
+#~ msgstr "Выключение"
+
+#~ msgid "Resume"
+#~ msgstr "Возобновление"
+
+#~ msgid "Ignore"
+#~ msgstr "Игнорирование"
+
+#~ msgid "Bypass"
+#~ msgstr "Обход"
+
+#~ msgid "Customize"
+#~ msgstr "Настройка"
+
+#~ msgid "Configure"
+#~ msgstr "Конфигурация"
+
+#~ msgid "Setup"
+#~ msgstr "Установка"
+
+#~ msgid "Install"
+#~ msgstr "Установка"
+
+#~ msgid "Uninstall"
+#~ msgstr "Удаление"
+
+#~ msgid "Upgrade"
+#~ msgstr "Обновление"
+
+#~ msgid "Downgrade"
+#~ msgstr "Понижение"
+
+#~ msgid "Update"
+#~ msgstr "Обновление"
+
+#~ msgid "Patch"
+#~ msgstr "Исправление"
+
+#~ msgid "Fix"
+#~ msgstr "Исправление"
+
+#~ msgid "Repair"
+#~ msgstr "Ремонт"
+
+#~ msgid "Rebuild"
+#~ msgstr "Пересборка"
+
+#~ msgid "Redo"
+#~ msgstr "Повтор"
+
+#~ msgid "Undo"
+#~ msgstr "Отмена"
+
+#~ msgid "Revert"
+#~ msgstr "Откат"
+
+#~ msgid "Rollback"
+#~ msgstr "Откат"
+
+#~ msgid "Terminate"
+#~ msgstr "Завершение"
+
+#~ msgid "Done"
+#~ msgstr "Готово"
+
+#~ msgid "OK"
+#~ msgstr "ОК"
+
+#~ msgid "Maybe"
+#~ msgstr "Возможно"
+
+#~ msgid "Perhaps"
+#~ msgstr "Возможно"
+
+#~ msgid "Possibly"
+#~ msgstr "Возможно"
+
+#~ msgid "Probably"
+#~ msgstr "Вероятно"
+
+#~ msgid "Likely"
+#~ msgstr "Вероятно"
+
+#~ msgid "Unlikely"
+#~ msgstr "Маловероятно"
+
+#~ msgid "Certainly"
+#~ msgstr "Конечно"
+
+#~ msgid "Definitely"
+#~ msgstr "Определённо"
+
+#~ msgid "Absolutely"
+#~ msgstr "Абсолютно"
+
+#~ msgid "Positively"
+#~ msgstr "Положительно"
+
+#~ msgid "Negatively"
+#~ msgstr "Отрицательно"
+
+#~ msgid "Neutral"
+#~ msgstr "Нейтрально"
+
+#~ msgid "Indifferent"
+#~ msgstr "Безразлично"
+
+#~ msgid "Unconcerned"
+#~ msgstr "Безразлично"
+
+#~ msgid "Apathetic"
+#~ msgstr "Безразлично"
+
+#~ msgid "Disinterested"
+#~ msgstr "Безразлично"
+
+#~ msgid "Impartial"
+#~ msgstr "Беспристрастно"
+
+#~ msgid "Objective"
+#~ msgstr "Объективно"
+
+#~ msgid "Subjective"
+#~ msgstr "Субъективно"
+
+#~ msgid "Personal"
+#~ msgstr "Лично"
+
+#~ msgid "Professional"
+#~ msgstr "Профессионально"
+
+#~ msgid "Official"
+#~ msgstr "Официально"
+
+#~ msgid "Unofficial"
+#~ msgstr "Неофициально"
+
+#~ msgid "Formal"
+#~ msgstr "Формально"
+
+#~ msgid "Informal"
+#~ msgstr "Неформально"
+
+#~ msgid "Casual"
+#~ msgstr "Неформально"
+
+#~ msgid "Serious"
+#~ msgstr "Серьёзно"
+
+#~ msgid "Humorous"
+#~ msgstr "Юмористически"
+
+#~ msgid "Sarcastic"
+#~ msgstr "Саркастически"
+
+#~ msgid "Ironic"
+#~ msgstr "Иронически"
+
+#~ msgid "Satirical"
+#~ msgstr "Сатирически"
+
+#~ msgid "Comical"
+#~ msgstr "Комично"
+
+#~ msgid "Funny"
+#~ msgstr "Забавно"
+
+#~ msgid "Hilarious"
+#~ msgstr "Весело"
+
+#~ msgid "Amusing"
+#~ msgstr "Забавно"
+
+#~ msgid "Entertaining"
+#~ msgstr "Развлекательно"
+
+#~ msgid "Boring"
+#~ msgstr "Скучно"
+
+#~ msgid "Dull"
+#~ msgstr "Скучно"
+
+#~ msgid "Tedious"
+#~ msgstr "Утомительно"
+
+#~ msgid "Monotonous"
+#~ msgstr "Монотонно"
+
+#~ msgid "Repetitive"
+#~ msgstr "Повторяюще"
+
+#~ msgid "Recurring"
+#~ msgstr "Повторяющийся"
+
+#~ msgid "Periodic"
+#~ msgstr "Периодический"
+
+#~ msgid "Sporadic"
+#~ msgstr "Спорадический"
+
+#~ msgid "Occasional"
+#~ msgstr "Эпизодический"
+
+#~ msgid "Frequent"
+#~ msgstr "Частый"
+
+#~ msgid "Rare"
+#~ msgstr "Редкий"
+
+#~ msgid "Usual"
+#~ msgstr "Обычный"
+
+#~ msgid "Outstanding"
+#~ msgstr "Выдающийся"
+
+#~ msgid "Excellent"
+#~ msgstr "Отличный"
+
+#~ msgid "Good"
+#~ msgstr "Хороший"
+
+#~ msgid "Fair"
+#~ msgstr "Удовлетворительный"
+
+#~ msgid "Poor"
+#~ msgstr "Плохой"
+
+#~ msgid "Bad"
+#~ msgstr "Плохой"
+
+#~ msgid "Terrible"
+#~ msgstr "Ужасный"
+
+#~ msgid "Awful"
+#~ msgstr "Ужасный"
+
+#~ msgid "Horrible"
+#~ msgstr "Ужасный"
+
+#~ msgid "Dreadful"
+#~ msgstr "Ужасный"
+
+#~ msgid "Atrocious"
+#~ msgstr "Ужасный"
+
+#~ msgid "Abysmal"
+#~ msgstr "Ужасный"
+
+#~ msgid "Incredible"
+#~ msgstr "Невероятный"
+
+#~ msgid "Unbelievable"
+#~ msgstr "Невероятный"
+
+#~ msgid "Amazing"
+#~ msgstr "Потрясающий"
+
+#~ msgid "Astonishing"
+#~ msgstr "Удивительный"
+
+#~ msgid "Astounding"
+#~ msgstr "Потрясающий"
+
+#~ msgid "Stunning"
+#~ msgstr "Потрясающий"
+
+#~ msgid "Breathtaking"
+#~ msgstr "Захватывающий дух"
+
+#~ msgid "Mind-boggling"
+#~ msgstr "Невероятный"
+
+#~ msgid "Mind-blowing"
+#~ msgstr "Потрясающий"
+
+#~ msgid "Spectacular"
+#~ msgstr "Зрелищный"
+
+#~ msgid "Magnificent"
+#~ msgstr "Великолепный"
+
+#~ msgid "Glorious"
+#~ msgstr "Славный"
+
+#~ msgid "Splendid"
+#~ msgstr "Великолепный"
+
+#~ msgid "Superb"
+#~ msgstr "Превосходный"
+
+#~ msgid "Wonderful"
+#~ msgstr "Замечательный"
+
+#~ msgid "Marvelous"
+#~ msgstr "Замечательный"
+
+#~ msgid "Fabulous"
+#~ msgstr "Великолепный"
+
+#~ msgid "Fantastic"
+#~ msgstr "Великолепный"
+
+#~ msgid "Terrific"
+#~ msgstr "Отличный"
+
+#~ msgid "Great"
+#~ msgstr "Отличный"
+
+#~ msgid "Perfect"
+#~ msgstr "Идеальный"
+
+#~ msgid "Flawless"
+#~ msgstr "Безупречный"
+
+#~ msgid "Impeccable"
+#~ msgstr "Безупречный"
+
+#~ msgid "Pristine"
+#~ msgstr "Безупречный"
+
+#~ msgid "Spotless"
+#~ msgstr "Безупречный"
+
+#~ msgid "Immaculate"
+#~ msgstr "Безупречный"
+
+#~ msgid "Clean"
+#~ msgstr "Чистый"
+
+#~ msgid "Dirty"
+#~ msgstr "Грязный"
+
+#~ msgid "Tidy"
+#~ msgstr "Опрятный"
+
+#~ msgid "Neat"
+#~ msgstr "Опрятный"
+
+#~ msgid "Organized"
+#~ msgstr "Организованный"
+
+#~ msgid "Disorganized"
+#~ msgstr "Неорганизованный"
+
+#~ msgid "Chaotic"
+#~ msgstr "Хаотичный"
+
+#~ msgid "Orderly"
+#~ msgstr "Упорядоченный"
+
+#~ msgid "Systematic"
+#~ msgstr "Систематический"
+
+#~ msgid "Methodical"
+#~ msgstr "Методичный"
+
+#~ msgid "Logical"
+#~ msgstr "Логичный"
+
+#~ msgid "Rational"
+#~ msgstr "Рациональный"
+
+#~ msgid "Irrational"
+#~ msgstr "Иррациональный"
+
+#~ msgid "Sensible"
+#~ msgstr "Разумный"
+
+#~ msgid "Insensible"
+#~ msgstr "Безрассудный"
+
+#~ msgid "Wise"
+#~ msgstr "Мудрый"
+
+#~ msgid "Foolish"
+#~ msgstr "Глупый"
+
+#~ msgid "Clever"
+#~ msgstr "Умный"
+
+#~ msgid "Smart"
+#~ msgstr "Умный"
+
+#~ msgid "Intelligent"
+#~ msgstr "Интеллигентный"
+
+#~ msgid "Brilliant"
+#~ msgstr "Блестящий"
+
+#~ msgid "Genius"
+#~ msgstr "Гений"
+
+#~ msgid "Gifted"
+#~ msgstr "Одарённый"
+
+#~ msgid "Talented"
+#~ msgstr "Талантливый"
+
+#~ msgid "Skilled"
+#~ msgstr "Умелый"
+
+#~ msgid "Adept"
+#~ msgstr "Умелый"
+
+#~ msgid "Proficient"
+#~ msgstr "Квалифицированный"
+
+#~ msgid "Expert"
+#~ msgstr "Эксперт"
+
+#~ msgid "Masterful"
+#~ msgstr "Мастерский"
+
+#~ msgid "Impressive"
+#~ msgstr "Впечатляющий"
+
+#~ msgid "Remarkable"
+#~ msgstr "Замечательный"
+
+#~ msgid "Notable"
+#~ msgstr "Примечательный"
+
+#~ msgid "Noteworthy"
+#~ msgstr "Заслуживающий внимания"
+
+#~ msgid "Memorable"
+#~ msgstr "Запоминающийся"
+
+#~ msgid "Unforgettable"
+#~ msgstr "Незабываемый"
+
+#~ msgid "Indelible"
+#~ msgstr "Неизгладимый"
+
+#~ msgid "Lasting"
+#~ msgstr "Долговечный"
+
+#~ msgid "Enduring"
+#~ msgstr "Долговечный"
+
+#~ msgid "Permanent"
+#~ msgstr "Постоянный"
+
+#~ msgid "Temporary"
+#~ msgstr "Временный"
+
+#~ msgid "Transient"
+#~ msgstr "Кратковременный"
+
+#~ msgid "Fleeting"
+#~ msgstr "Мимолётный"
+
+#~ msgid "Ephemeral"
+#~ msgstr "Эфемерный"
+
+#~ msgid "Momentary"
+#~ msgstr "Мимолётный"
+
+#~ msgid "Brief"
+#~ msgstr "Краткий"
+
+#~ msgid "Short"
+#~ msgstr "Короткий"
+
+#~ msgid "Long"
+#~ msgstr "Длинный"
+
+#~ msgid "Extended"
+#~ msgstr "Расширенный"
+
+#~ msgid "Expanded"
+#~ msgstr "Расширенный"
+
+#~ msgid "Enlarged"
+#~ msgstr "Увеличенный"
+
+#~ msgid "Increased"
+#~ msgstr "Увеличенный"
+
+#~ msgid "Decreased"
+#~ msgstr "Уменьшенный"
+
+#~ msgid "Reduced"
+#~ msgstr "Уменьшенный"
+
+#~ msgid "Diminished"
+#~ msgstr "Уменьшенный"
+
+#~ msgid "Minimized"
+#~ msgstr "Минимизированный"
+
+#~ msgid "Maximized"
+#~ msgstr "Максимизированный"
+
+#~ msgid "Optimized"
+#~ msgstr "Оптимизированный"
+
+#~ msgid "Improved"
+#~ msgstr "Улучшенный"
+
+#~ msgid "Enhanced"
+#~ msgstr "Улучшенный"
+
+#~ msgid "Upgraded"
+#~ msgstr "Обновлённый"
+
+#~ msgid "Modern"
+#~ msgstr "Современный"
+
+#~ msgid "Contemporary"
+#~ msgstr "Современный"
+
+#~ msgid "Past"
+#~ msgstr "Прошлый"
+
+#~ msgid "Future"
+#~ msgstr "Будущий"
+
+#~ msgid "Ancient"
+#~ msgstr "Древний"
+
+#~ msgid "Old"
+#~ msgstr "Старый"
+
+#~ msgid "New"
+#~ msgstr "Новый"
+
+#~ msgid "Latest"
+#~ msgstr "Последний"
+
+#~ msgid "Former"
+#~ msgstr "Бывший"
+
+#~ msgid "Subsequent"
+#~ msgstr "Последующий"

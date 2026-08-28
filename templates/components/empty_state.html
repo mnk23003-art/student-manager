@@ -1,0 +1,14 @@
+{% load i18n %}
+<div class="empty-state">
+    <div class="empty-state-icon-wrapper">
+        <i class="fas fa-{{ icon|default:'inbox' }} empty-state-icon"></i>
+    </div>
+    <h3 class="empty-state-title">{{ title|default:"Nothing here yet" }}</h3>
+    <p class="empty-state-text">{{ text|default:"Get started by adding your first item." }}</p>
+    {% if action_url and action_text %}
+    <a href="{{ action_url }}" class="btn btn-primary btn-with-icon">
+        <i class="fas fa-plus"></i>
+        {{ action_text }}
+    </a>
+    {% endif %}
+</div>

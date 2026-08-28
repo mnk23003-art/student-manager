@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Предметы" %} - Student Manager{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h1>{% trans "Предметы" %}</h1>
+    <a href="{% url 'subjects:create' %}" class="btn btn-primary"><i class="fas fa-plus"></i> {% trans "Новый предмет" %}</a>
+</div>
+{% if semester %}
+<div class="card">
+    <div class="card-body">
+        {% if subjects %}
+        <div class="grid-3">
+            {% for subject in subjects %}
+            <a href="{% url 'subjects:detail' subject.pk %}" class="subject-card" style="border-left: 4px solid {{ subject.color }}">
+                <h3>{{ subject.name }}</h3>
+                {% if subject.teacher %}<p class="text-muted"><i class="fas fa-user"></i> {{ subject.teacher }}</p>{% endif %}
+                <div class="subject-meta">
+                    {% if subject.credits %}<span class="badge badge-info">{{ subject.credits }} {% trans "кредитов" %}</span>{% endif %}
+                    {% if subject.room %}<span><i class="fas fa-location-dot"></i> {{ subject.room }}</span>{% endif %}
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+        {% else %}
+        {% include 'components/empty_state.html' with icon='book' title='Нет предметов' text='Добавьте первый предмет.' action_url='/subjects/create/' action_text='Добавить предмет' %}
+        {% endif %}
+    </div>
+</div>
+{% else %}
+<div class="card"><div class="card-body">
+    {% include 'components/empty_state.html' with icon='calendar-plus' title='Нет активного семестра' text='Сначала создайте семестр.' action_url='/semesters/create/' action_text='Создать семестр' %}
+</div></div>
+{% endif %}
+{% endblock %}

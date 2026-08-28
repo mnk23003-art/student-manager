@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{{ task.title }} - Student Manager{% endblock %}
+{% block content %}
+<div class="page-header">
+    <div>
+        <h1>{{ task.title }}</h1>
+        <div class="task-meta">
+            <span class="badge badge-{{ task.priority }}">{{ task.get_priority_display }}</span>
+            <span class="badge badge-{{ task.status }}">{{ task.get_status_display }}</span>
+            {% if task.subject %}<span class="badge" style="background: {{ task.subject.color }}20; color: {{ task.subject.color }}">{{ task.subject.name }}</span>{% endif %}
+        </div>
+    </div>
+    <div class="page-actions">
+        <a href="{% url 'tasks:update' task.pk %}" class="btn btn-outline"><i class="fas fa-edit"></i> {% trans "Edit" %}</a>
+        <a href="{% url 'tasks:delete' task.pk %}" class="btn btn-danger"><i class="fas fa-trash"></i> {% trans "Delete" %}</a>
+    </div>
+</div>
+<div class="detail-grid">
+    <div class="card">
+        <div class="card-header"><h3>{% trans "Details" %}</h3></div>
+        <div class="card-body">
+            {% if task.description %}<p>{{ task.description }}</p>{% endif %}
+            <dl class="detail-list">
+                <dt>{% trans "Deadline" %}</dt><dd>{% if task.deadline %}{{ task.deadline|date:"M d, Y H:i" }}{% else %}—{% endif %}</dd>
+                <dt>{% trans "Estimated Time" %}</dt><dd>{% if task.estimated_time %}{{ task.get_estimated_hours }}{% else %}—{% endif %}</dd>
+                <dt>{% trans "Actual Time" %}</dt><dd>{% if task.actual_time %}{{ task.actual_time }}min{% else %}—{% endif %}</dd>
+                <dt>{% trans "Created" %}</dt><dd>{{ task.created_at|date:"M d, Y" }}</dd>
+                {% if task.completed_at %}<dt>{% trans "Completed" %}</dt><dd>{{ task.completed_at|date:"M d, Y H:i" }}</dd>{% endif %}
+            </dl>
+        </div>
+    </div>
+</div>
+{% endblock %}

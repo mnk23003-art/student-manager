@@ -1,0 +1,95 @@
+{% load i18n %}
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <a href="{% url 'dashboard:index' %}" class="sidebar-logo">
+            <div class="logo-icon">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <span class="logo-text">Student Manager</span>
+        </a>
+    </div>
+    
+    <nav class="sidebar-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-section">
+            <span class="nav-section-title">{% trans "Главное" %}</span>
+            <a href="{% url 'dashboard:index' %}" class="nav-item {% if request.resolver_match.app_name == 'dashboard' %}active{% endif %}" data-tooltip="{% trans "Панель управления" %}">
+                <i class="fas fa-house"></i>
+                <span class="nav-label">{% trans "Панель управления" %}</span>
+            </a>
+            <a href="{% url 'schedule:view' %}" class="nav-item {% if request.resolver_match.app_name == 'schedule' %}active{% endif %}" data-tooltip="{% trans "Расписание" %}">
+                <i class="fas fa-calendar-days"></i>
+                <span class="nav-label">{% trans "Расписание" %}</span>
+            </a>
+            <a href="{% url 'tasks:list' %}" class="nav-item {% if request.resolver_match.app_name == 'tasks' %}active{% endif %}" data-tooltip="{% trans "Задачи" %}">
+                <i class="fas fa-circle-check"></i>
+                <span class="nav-label">{% trans "Задачи" %}</span>
+            </a>
+            <a href="{% url 'subjects:list' %}" class="nav-item {% if request.resolver_match.app_name == 'subjects' %}active{% endif %}" data-tooltip="{% trans "Предметы" %}">
+                <i class="fas fa-book-open"></i>
+                <span class="nav-label">{% trans "Предметы" %}</span>
+            </a>
+        </div>
+        
+        <div class="nav-section">
+            <span class="nav-section-title">{% trans "Учёба" %}</span>
+            <a href="{% url 'grades:list' %}" class="nav-item {% if request.resolver_match.app_name == 'grades' %}active{% endif %}" data-tooltip="{% trans "Оценки" %}">
+                <i class="fas fa-star"></i>
+                <span class="nav-label">{% trans "Оценки" %}</span>
+            </a>
+            <a href="{% url 'attendance:list' %}" class="nav-item {% if request.resolver_match.app_name == 'attendance' %}active{% endif %}" data-tooltip="{% trans "Посещаемость" %}">
+                <i class="fas fa-user-check"></i>
+                <span class="nav-label">{% trans "Посещаемость" %}</span>
+            </a>
+            <a href="{% url 'exams:list' %}" class="nav-item {% if request.resolver_match.app_name == 'exams' %}active{% endif %}" data-tooltip="{% trans "Экзамены" %}">
+                <i class="fas fa-file-lines"></i>
+                <span class="nav-label">{% trans "Экзамены" %}</span>
+            </a>
+        </div>
+        
+        <div class="nav-section">
+            <span class="nav-section-title">{% trans "Инструменты" %}</span>
+            <a href="{% url 'calendar:view' %}" class="nav-item {% if request.resolver_match.app_name == 'calendar' %}active{% endif %}" data-tooltip="{% trans "Календарь" %}">
+                <i class="fas fa-calendar"></i>
+                <span class="nav-label">{% trans "Календарь" %}</span>
+            </a>
+            <a href="{% url 'notes:list' %}" class="nav-item {% if request.resolver_match.app_name == 'notes' %}active{% endif %}" data-tooltip="{% trans "Заметки" %}">
+                <i class="fas fa-note-sticky"></i>
+                <span class="nav-label">{% trans "Заметки" %}</span>
+            </a>
+            <a href="{% url 'goals:list' %}" class="nav-item {% if request.resolver_match.app_name == 'goals' %}active{% endif %}" data-tooltip="{% trans "Цели" %}">
+                <i class="fas fa-bullseye"></i>
+                <span class="nav-label">{% trans "Цели" %}</span>
+            </a>
+            <a href="{% url 'productivity:view' %}" class="nav-item {% if request.resolver_match.app_name == 'productivity' %}active{% endif %}" data-tooltip="{% trans "Фокус" %}">
+                <i class="fas fa-brain"></i>
+                <span class="nav-label">{% trans "Фокус" %}</span>
+            </a>
+        </div>
+        
+        <div class="nav-section">
+            <span class="nav-section-title">{% trans "Система" %}</span>
+            <a href="{% url 'semesters:list' %}" class="nav-item {% if request.resolver_match.app_name == 'semesters' %}active{% endif %}" data-tooltip="{% trans "Семестры" %}">
+                <i class="fas fa-layer-group"></i>
+                <span class="nav-label">{% trans "Семестры" %}</span>
+            </a>
+            <a href="{% url 'accounts:settings' %}" class="nav-item {% if request.resolver_match.url_name == 'settings' %}active{% endif %}" data-tooltip="{% trans "Настройки" %}">
+                <i class="fas fa-gear"></i>
+                <span class="nav-label">{% trans "Настройки" %}</span>
+            </a>
+        </div>
+    </nav>
+    
+    <div class="sidebar-footer">
+        <a href="{% url 'accounts:profile' %}" class="sidebar-user">
+            {% if user.profile.avatar %}
+            <img src="{{ user.profile.avatar.url }}" alt="" class="sidebar-avatar">
+            {% else %}
+            <div class="sidebar-avatar-initials">{{ user.profile.get_initials }}</div>
+            {% endif %}
+            <div class="sidebar-user-info">
+                <span class="sidebar-user-name">{{ user.get_full_name_display }}</span>
+                <span class="sidebar-user-email">{{ user.email }}</span>
+            </div>
+        </a>
+    </div>
+</aside>

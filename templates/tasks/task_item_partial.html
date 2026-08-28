@@ -1,0 +1,16 @@
+<div class="task-item {% if task.is_overdue %}overdue{% endif %} {% if task.status == 'completed' %}completed{% endif %}" hx-target="closest .task-item" hx-swap="outerHTML">
+    <div class="task-check">
+        <form method="post" action="{% url 'tasks:toggle_status' task.pk %}" hx-post="{% url 'tasks:toggle_status' task.pk %}">
+            {% csrf_token %}
+            <input type="checkbox" {% if task.status == 'completed' %}checked{% endif %} onchange="this.form.requestSubmit()">
+        </form>
+    </div>
+    <div class="task-info">
+        <a href="{% url 'tasks:detail' task.pk %}" class="task-title">{{ task.title }}</a>
+        <div class="task-meta">
+            {% if task.subject %}<span class="badge badge-sm" style="background: {{ task.subject.color }}20; color: {{ task.subject.color }}">{{ task.subject.name }}</span>{% endif %}
+            {% if task.deadline %}<span class="text-muted"><i class="fas fa-clock"></i> {{ task.deadline|date:"M d, H:i" }}</span>{% endif %}
+        </div>
+    </div>
+    <span class="badge badge-{{ task.priority }}">{{ task.get_priority_display }}</span>
+</div>

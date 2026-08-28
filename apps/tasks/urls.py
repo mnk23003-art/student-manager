@@ -1,0 +1,16 @@
+from django.urls import path
+from . import views
+
+app_name = 'tasks'
+
+urlpatterns = [
+    path('', views.task_list, name='list'),
+    path('create/', views.task_create, name='create'),
+    path('<int:pk>/', views.task_detail, name='detail'),
+    path('<int:pk>/update/', views.task_update, name='update'),
+    path('<int:pk>/delete/', views.task_delete, name='delete'),
+    path('<int:pk>/complete/', views.task_complete, name='complete'),
+    path('<int:pk>/toggle/', views.task_toggle_status, name='toggle_status'),
+    path('quick-add/', views.quick_task_create, name='quick_add'),
+    path('workload/', views.task_workload, name='workload'),
+]

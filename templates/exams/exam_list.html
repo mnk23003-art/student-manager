@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Экзамены" %} - Student Manager{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h1>{% trans "Экзамены" %}</h1>
+    <a href="{% url 'exams:create' %}" class="btn btn-primary"><i class="fas fa-plus"></i> {% trans "Новый экзамен" %}</a>
+</div>
+<div class="card">
+    <div class="card-header"><h3>{% trans "Ближайшие экзамены" %}</h3></div>
+    <div class="card-body">
+        {% if upcoming %}
+        {% for exam in upcoming %}
+        <div class="exam-item">
+            <div class="exam-info">
+                <a href="{% url 'exams:detail' exam.pk %}" class="exam-title">{{ exam.title }}</a>
+                <span class="text-muted">{{ exam.subject.name }} · {{ exam.date|date:"M d, Y" }}{% if exam.time %} {{ exam.time|time:"H:i" }}{% endif %}</span>
+                {% if exam.location %}<span class="text-muted"><i class="fas fa-location-dot"></i> {{ exam.location }}</span>{% endif %}
+            </div>
+            <span class="badge {% if exam.days_until <= 3 %}badge-danger{% elif exam.days_until <= 7 %}badge-warning{% else %}badge-info{% endif %}">
+                {% if exam.days_until == 0 %}{% trans "Сегодня!" %}{% elif exam.days_until == 1 %}{% trans "Завтра" %}{% else %}{{ exam.days_until }} {% trans "дн." %}{% endif %}
+            </span>
+        </div>
+        {% endfor %}
+        {% else %}
+        {% include 'components/empty_state.html' with icon='clipboard' title='Нет ближайших экзаменов' text='Добавьте экзамен.' action_url='/exams/create/' action_text='Добавить экзамен' %}
+        {% endif %}
+    </div>
+</div>
+{% if past %}
+<div class="card">
+    <div class="card-header"><h3>{% trans "Прошедшие экзамены" %}</h3></div>
+    <div class="card-body">
+        {% for exam in past %}
+        <div class="exam-item">
+            <div class="exam-info">
+                <span class="exam-title text-muted">{{ exam.title }}</span>
+                <span class="text-muted">{{ exam.subject.name }} · {{ exam.date|date:"M d, Y" }}</span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+{% endblock %}

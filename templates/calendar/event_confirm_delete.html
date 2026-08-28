@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Delete Event" %}{% endblock %}
+{% block content %}
+<div class="page-header"><h1>{% trans "Delete Event" %}</h1></div>
+<div class="card"><div class="card-body">
+    <p>{% trans "Delete" %} <strong>{{ event.title }}</strong>?</p>
+    <div class="form-actions">
+        <a href="{% url 'calendar:view' %}" class="btn btn-secondary">{% trans "Cancel" %}</a>
+        <form method="post" style="display:inline">{% csrf_token %}<button type="submit" class="btn btn-danger">{% trans "Delete" %}</button></form>
+    </div>
+</div></div>
+{% endblock %}

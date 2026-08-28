@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Режим фокусировки" %} - Student Manager{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h1>{% trans "Режим фокусировки" %}</h1>
+    <a href="{% url 'productivity:settings' %}" class="btn btn-outline"><i class="fas fa-cog"></i></a>
+</div>
+<div class="stats-grid">
+    {% include 'components/stat_card.html' with icon='clock' value=today_focus label='Сегодня' color='#8B5CF6' %}
+    {% include 'components/stat_card.html' with icon='calendar-week' value=week_focus label='На этой неделе' color='#3B82F6' %}
+    {% include 'components/stat_card.html' with icon='stopwatch' value=today_sessions label='Сессий сегодня' color='#10B981' %}
+    {% include 'components/stat_card.html' with icon='layers' value=week_sessions label='Сессий за неделю' color='#F59E0B' %}
+</div>
+
+<div class="card pomodoro-card">
+    <div class="card-body pomodoro-body">
+        <div class="focus-duration-picker">
+            <label class="focus-duration-label">{% trans "Время фокусировки" %}</label>
+            <select id="focusDurationSelect" class="form-select focus-duration-select" onchange="onDurationChange(this)">
+                <option value="5">5 {% trans "мин" %}</option>
+                <option value="10">10 {% trans "мин" %}</option>
+                <option value="15">15 {% trans "мин" %}</option>
+                <option value="20">20 {% trans "мин" %}</option>
+                <option value="25" selected>25 {% trans "мин" %}</option>
+                <option value="30">30 {% trans "мин" %}</option>
+                <option value="45">45 {% trans "мин" %}</option>
+                <option value="60">60 {% trans "мин" %}</option>
+                <option value="90">90 {% trans "мин" %}</option>
+            </select>
+        </div>
+
+        <div class="pomodoro-timer">
+            <svg class="timer-svg" viewBox="0 0 100 100">
+                <circle class="timer-bg" cx="50" cy="50" r="45"/>
+                <circle class="timer-progress" id="timer-progress" cx="50" cy="50" r="45"/>
+            </svg>
+            <div class="timer-display" id="timer-display">25:00</div>
+        </div>
+
+        <div class="pomodoro-controls">
+            <button class="btn btn-primary btn-lg" id="startBtn" onclick="startFocusTimer()">
+                <i class="fas fa-play"></i> {% trans "Старт" %}
+            </button>
+            <button class="btn btn-secondary btn-lg" id="pauseBtn" onclick="pauseFocusTimer()" style="display:none">
+                <i class="fas fa-pause"></i> {% trans "Пауза" %}
+            </button>
+            <button class="btn btn-danger btn-lg" id="stopBtn" onclick="stopFocusTimer()" style="display:none">
+                <i class="fas fa-stop"></i> {% trans "Стоп" %}
+            </button>
+            <button class="btn btn-outline" onclick="resetFocusTimer()"><i class="fas fa-arrow-rotate-right"></i></button>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header"><h3>{% trans "Последние сессии" %}</h3></div>
+    <div class="card-body">
+        {% for session in recent_sessions %}
+        <div class="list-item">
+            <span>{{ session.task.title|default:"Без задачи" }}</span>
+            <span class="text-muted">{{ session.get_duration_display }} · {{ session.start_time|date:"M d H:i" }}</span>
+        </div>
+        {% empty %}<p class="text-muted">{% trans "Пока нет сессий." %}</p>{% endfor %}
+    </div>
+</div>
+{% endblock %}

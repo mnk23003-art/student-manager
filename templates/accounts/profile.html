@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Profile" %} - Student Manager{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h1>{% trans "Profile" %}</h1>
+</div>
+<div class="profile-layout">
+    <div class="card">
+        <div class="card-header"><h3>{% trans "Personal Information" %}</h3></div>
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="profile-avatar-section">
+                    {% if profile.avatar %}
+                    <img src="{{ profile.avatar.url }}" alt="Avatar" class="avatar-large">
+                    {% else %}
+                    <div class="avatar-initials avatar-large">{{ profile.get_initials }}</div>
+                    {% endif %}
+                </div>
+                {% for field in user_form %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.errors %}<span class="form-error">{{ field.errors.0 }}</span>{% endif %}
+                </div>
+                {% endfor %}
+                <h3 class="mt-4">{% trans "Student Details" %}</h3>
+                {% for field in profile_form %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.errors %}<span class="form-error">{{ field.errors.0 }}</span>{% endif %}
+                </div>
+                {% endfor %}
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">{% trans "Save Changes" %}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header"><h3>{% trans "Security" %}</h3></div>
+        <div class="card-body">
+            <a href="{% url 'accounts:password_change' %}" class="btn btn-outline">{% trans "Change Password" %}</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

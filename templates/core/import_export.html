@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Импорт / Экспорт" %} - Student Manager{% endblock %}
+{% block content %}
+<div class="page-header"><h1>{% trans "Импорт / Экспорт" %}</h1></div>
+<div class="grid-2">
+    <div class="card">
+        <div class="card-header"><h3><i class="fas fa-file-export"></i> {% trans "Экспорт данных" %}</h3></div>
+        <div class="card-body">
+            <p class="text-muted">{% trans "Экспортируйте данные в CSV, XLSX или PDF." %}</p>
+            <div class="export-options">
+                <a href="{% url 'core:export_data' %}?type=tasks&format=csv" class="btn btn-outline"><i class="fas fa-file-csv"></i> {% trans "Задачи (CSV)" %}</a>
+                <a href="{% url 'core:export_data' %}?type=tasks&format=xlsx" class="btn btn-outline"><i class="fas fa-file-excel"></i> {% trans "Задачи (XLSX)" %}</a>
+                <a href="{% url 'core:export_data' %}?type=grades&format=csv" class="btn btn-outline"><i class="fas fa-file-csv"></i> {% trans "Оценки (CSV)" %}</a>
+                <a href="{% url 'core:export_data' %}?type=grades&format=xlsx" class="btn btn-outline"><i class="fas fa-file-excel"></i> {% trans "Оценки (XLSX)" %}</a>
+                <a href="{% url 'core:export_data' %}?type=grades&format=pdf" class="btn btn-outline"><i class="fas fa-file-pdf"></i> {% trans "Оценки (PDF)" %}</a>
+                <a href="{% url 'core:export_data' %}?type=attendance&format=csv" class="btn btn-outline"><i class="fas fa-file-csv"></i> {% trans "Посещаемость (CSV)" %}</a>
+                <a href="{% url 'core:export_data' %}?type=schedule&format=csv" class="btn btn-outline"><i class="fas fa-file-csv"></i> {% trans "Расписание (CSV)" %}</a>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header"><h3><i class="fas fa-file-import"></i> {% trans "Импорт данных" %}</h3></div>
+        <div class="card-body">
+            <p class="text-muted">{% trans "Импортируйте данные из CSV файлов." %}</p>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label>{% trans "Тип данных" %}</label>
+                    <select name="import_type" class="form-select" required>
+                        <option value="tasks">{% trans "Задачи" %}</option>
+                        <option value="grades">{% trans "Оценки" %}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>{% trans "CSV файл" %}</label>
+                    <input type="file" name="file" class="form-control" accept=".csv" required>
+                </div>
+                <button type="submit" class="btn btn-primary"><i class="fas fa-upload"></i> {% trans "Импортировать" %}</button>
+            </form>
+            <div class="import-help mt-4">
+                <h4>{% trans "Формат CSV" %}</h4>
+                <p class="text-sm text-muted">{% trans "Задачи: title, subject, deadline (YYYY-MM-DD HH:MM), priority, status, estimated_time" %}</p>
+                <p class="text-sm text-muted">{% trans "Оценки: title, subject, grade_type, score, max_score, weight, date (YYYY-MM-DD)" %}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

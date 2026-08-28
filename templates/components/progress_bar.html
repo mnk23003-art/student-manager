@@ -1,0 +1,6 @@
+<div class="progress-wrapper">
+    <div class="progress-bar">
+        <div class="progress-fill" style="width: {{ value|default:0 }}%; background: {{ color|default:'#6366F1' }};"></div>
+    </div>
+    <span class="progress-text">{{ value|default:0 }}%</span>
+</div>

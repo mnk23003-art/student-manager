@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Посещаемость" %} - Student Manager{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h1>{% trans "Посещаемость" %}</h1>
+    <a href="{% url 'attendance:create' %}" class="btn btn-primary"><i class="fas fa-plus"></i> {% trans "Отметить посещаемость" %}</a>
+</div>
+{% if stats %}
+<div class="stats-grid">
+    {% include 'components/stat_card.html' with icon='percentage' value=stats.percentage label='Процент посещений' color='#10B981' %}
+    {% include 'components/stat_card.html' with icon='check' value=stats.present label='Присутствовал' color='#3B82F6' %}
+    {% include 'components/stat_card.html' with icon='times' value=stats.absent label='Отсутствовал' color='#EF4444' %}
+    {% include 'components/stat_card.html' with icon='clock' value=stats.late label='Опоздал' color='#F59E0B' %}
+</div>
+{% endif %}
+{% if subject_stats %}
+<div class="card">
+    <div class="card-header"><h3>{% trans "По предметам" %}</h3></div>
+    <div class="card-body">
+        {% for ss in subject_stats %}
+        {% if ss.stats %}
+        <div class="list-item">
+            <span>{{ ss.subject.name }}</span>
+            <span class="badge {% if ss.stats.percentage >= 90 %}badge-success{% elif ss.stats.percentage >= 75 %}badge-warning{% else %}badge-danger{% endif %}">{{ ss.stats.percentage }}%</span>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+<div class="card">
+    <div class="card-header"><h3>{% trans "Записи" %}</h3></div>
+    <div class="card-body">
+        {% if attendances %}
+        <div class="table-responsive">
+            <table class="table">
+                <thead><tr><th>{% trans "Предмет" %}</th><th>{% trans "Дата" %}</th><th>{% trans "Статус" %}</th><th></th></tr></thead>
+                <tbody>
+                {% for att in attendances %}
+                <tr>
+                    <td>{{ att.subject.name }}</td>
+                    <td>{{ att.date|date:"M d, Y" }}</td>
+                    <td><span class="badge badge-{{ att.status }}">{{ att.get_status_display }}</span></td>
+                    <td>
+                        <a href="{% url 'attendance:update' att.pk %}" class="btn btn-sm btn-outline"><i class="fas fa-edit"></i></a>
+                        <a href="{% url 'attendance:delete' att.pk %}" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        {% include 'components/empty_state.html' with icon='user-check' title='Нет записей посещаемости' text='Начните отслеживать посещаемость.' action_url='/attendance/create/' action_text='Отметить посещаемость' %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

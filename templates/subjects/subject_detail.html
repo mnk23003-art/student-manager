@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{{ subject.name }} - Student Manager{% endblock %}
+{% block content %}
+<div class="page-header">
+    <div>
+        <h1 style="color: {{ subject.color }}">{{ subject.name }}</h1>
+        {% if subject.teacher %}<p class="text-muted">{{ subject.teacher }}</p>{% endif %}
+    </div>
+    <div class="page-actions">
+        <a href="{% url 'subjects:update' subject.pk %}" class="btn btn-outline"><i class="fas fa-edit"></i> {% trans "Edit" %}</a>
+        <a href="{% url 'subjects:delete' subject.pk %}" class="btn btn-danger"><i class="fas fa-trash"></i> {% trans "Delete" %}</a>
+    </div>
+</div>
+<div class="stats-grid">
+    {% include 'components/stat_card.html' with icon='award' value=avg_grade|default:'—' label='Avg Grade' color='#3B82F6' %}
+    {% include 'components/stat_card.html' with icon='user-check' value=attendance_pct|default:'—' label='Attendance' color='#10B981' %}
+    {% include 'components/stat_card.html' with icon='tasks' value=tasks.count label='Tasks' color='#F59E0B' %}
+    {% include 'components/stat_card.html' with icon='exclamation' value=overdue_count label='Overdue' color='#EF4444' %}
+</div>
+<div class="detail-grid">
+    <div class="card">
+        <div class="card-header"><h3>{% trans "Recent Tasks" %}</h3></div>
+        <div class="card-body">
+            {% for task in tasks %}
+            <div class="list-item"><span>{{ task.title }}</span><span class="badge badge-{{ task.priority }}">{{ task.get_priority_display }}</span></div>
+            {% empty %}<p class="text-muted">{% trans "No tasks" %}</p>{% endfor %}
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header"><h3>{% trans "Recent Grades" %}</h3></div>
+        <div class="card-body">
+            {% for grade in grades %}
+            <div class="list-item"><span>{{ grade.title }}</span><span class="badge badge-info">{{ grade.score }}/{{ grade.max_score }}</span></div>
+            {% empty %}<p class="text-muted">{% trans "No grades" %}</p>{% endfor %}
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header"><h3>{% trans "Notes" %}</h3></div>
+        <div class="card-body">
+            {% for note in notes %}
+            <div class="list-item"><a href="{% url 'notes:detail' note.pk %}">{{ note.title }}</a></div>
+            {% empty %}<p class="text-muted">{% trans "No notes" %}</p>{% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

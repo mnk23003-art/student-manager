@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Резервные копии" %} - Student Manager{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h1>{% trans "Резервные копии базы данных" %}</h1>
+    <form method="post" action="{% url 'core:backup_create' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary"><i class="fas fa-download"></i> {% trans "Создать резервную копию" %}</button>
+    </form>
+</div>
+<div class="card">
+    <div class="card-body">
+        {% if backups %}
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>{% trans "Файл" %}</th>
+                        <th>{% trans "Создан" %}</th>
+                        <th>{% trans "Размер" %}</th>
+                        <th>{% trans "Действия" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for backup in backups %}
+                    <tr>
+                        <td><code>{{ backup.filename }}</code></td>
+                        <td>{{ backup.created_at|date:"M d, Y H:i:s" }}</td>
+                        <td>{{ backup.size_display }}</td>
+                        <td>
+                            <form method="post" action="{% url 'core:backup_restore' backup.filename %}" style="display:inline" onsubmit="return confirm('Восстановить эту резервную копию? Текущие данные будут автоматически сохранены.')">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-sm btn-outline"><i class="fas fa-arrow-rotate-left"></i> {% trans "Восстановить" %}</button>
+                            </form>
+                            <form method="post" action="{% url 'core:backup_delete' backup.filename %}" style="display:inline" onsubmit="return confirm('Удалить эту резервную копию навсегда?')">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> {% trans "Удалить" %}</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        {% include 'components/empty_state.html' with icon='database' title='Нет резервных копий' text='Создайте первую резервную копию для защиты данных.' %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

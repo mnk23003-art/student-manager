@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Поиск" %} - Student Manager{% endblock %}
+{% block content %}
+<div class="page-header"><h1>{% trans "Поиск" %}</h1></div>
+<div class="card">
+    <div class="card-body">
+        <form class="filter-bar" method="get">
+            <input type="text" name="q" class="form-control" value="{{ query }}" placeholder="{% trans 'Поиск по всему...' %}" autofocus>
+            <button type="submit" class="btn btn-primary">{% trans "Поиск" %}</button>
+        </form>
+        {% if results %}
+        <div class="search-results">
+            {% for result in results %}
+            <a href="{{ result.url }}" class="search-result">
+                <i class="fas fa-{{ result.icon }}"></i>
+                <div><strong>{{ result.title }}</strong><span class="badge badge-sm">{{ result.type }}</span></div>
+            </a>
+            {% endfor %}
+        </div>
+        {% elif query %}
+        <div class="empty-state-sm"><p>{% trans "Ничего не найдено." %}</p></div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

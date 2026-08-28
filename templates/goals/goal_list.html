@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Цели" %} - Student Manager{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h1>{% trans "Цели" %}</h1>
+    <a href="{% url 'goals:create' %}" class="btn btn-primary"><i class="fas fa-plus"></i> {% trans "Новая цель" %}</a>
+</div>
+<div class="stats-grid">
+    <div class="stat-pill"><a href="?status=in_progress">{% trans "В процессе" %}: {{ in_progress_count }}</a></div>
+    <div class="stat-pill"><a href="?status=completed">{% trans "Выполнено" %}: {{ completed_count }}</a></div>
+</div>
+<div class="card">
+    <div class="card-body">
+        {% if goals %}
+        {% for goal in goals %}
+        <div class="goal-item">
+            <div class="goal-info">
+                <a href="{% url 'goals:detail' goal.pk %}"><h3>{{ goal.title }}</h3></a>
+                {% if goal.target %}<p class="text-muted">{{ goal.target }}</p>{% endif %}
+                {% include 'components/progress_bar.html' with value=goal.progress color='#3B82F6' %}
+            </div>
+            <div class="goal-badges">
+                <span class="badge badge-{{ goal.status }}">{{ goal.get_status_display }}</span>
+                {% if goal.deadline %}<span class="text-muted text-sm">{{ goal.deadline|date:"M d" }}</span>{% endif %}
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        {% include 'components/empty_state.html' with icon='bullseye' title='Нет целей' text='Поставьте первую цель на семестр.' action_url='/goals/create/' action_text='Создать цель' %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

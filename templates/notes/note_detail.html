@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{{ note.title }} - Student Manager{% endblock %}
+{% block content %}
+<div class="page-header">
+    <div>
+        <h1>{{ note.title }}</h1>
+        <div class="note-meta">
+            {% if note.subject %}<span class="badge" style="background: {{ note.subject.color }}20; color: {{ note.subject.color }}">{{ note.subject.name }}</span>{% endif %}
+            <span class="text-muted">{{ note.created_at|date:"M d, Y H:i" }}</span>
+        </div>
+    </div>
+    <div class="page-actions">
+        <a href="{% url 'notes:update' note.pk %}" class="btn btn-outline"><i class="fas fa-edit"></i></a>
+        <a href="{% url 'notes:delete' note.pk %}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+    </div>
+</div>
+<div class="card"><div class="card-body note-content">
+    {{ note.content|linebreaksbr }}
+    {% if note.tags %}
+    <div class="tag-cloud mt-4">
+        {% for tag in note.get_tags_list %}
+        <span class="badge badge-outline">{{ tag }}</span>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div></div>
+{% endblock %}

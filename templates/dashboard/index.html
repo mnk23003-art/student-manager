@@ -1,0 +1,298 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Панель управления" %} - Student Manager{% endblock %}
+{% block content %}
+<div class="dashboard">
+    <div class="page-header">
+        <div>
+            <h1 class="page-title">{{ greeting }}, {{ user.get_full_name_display }} 👋</h1>
+            <p class="page-subtitle">{% trans "Вот что происходит с вашими учёбой сегодня." %}</p>
+        </div>
+    </div>
+
+    {% if not has_semester %}
+    <div class="card">
+        <div class="card-body">
+            {% include 'components/empty_state.html' with icon='rocket' title='Добро пожаловать в Student Manager!' text='Создайте первый семестр, чтобы начать.' action_url='/semesters/create/' action_text='Создать семестр' %}
+        </div>
+    </div>
+    {% else %}
+
+    <div class="stats-grid animate-in" style="animation-delay: 50ms">
+        {% include 'components/stat_card.html' with icon='star' value=avg_grade|default:'—' label='Средний балл' color='#6366F1' %}
+        {% include 'components/stat_card.html' with icon='user-check' value=attendance_stats.percentage|default:'—' label='Посещаемость' color='#10B981' %}
+        {% include 'components/stat_card.html' with icon='clock' value=today_focus label='Фокус сегодня' color='#8B5CF6' %}
+        {% include 'components/stat_card.html' with icon='layer-group' value=semester_days_left label='Дней осталось' color='#F59E0B' %}
+    </div>
+
+    <div class="dashboard-grid animate-in" style="animation-delay: 100ms">
+        <div class="dashboard-main">
+            {% if today_classes %}
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-calendar-days" style="color: #6366F1"></i> {% trans "Расписание на сегодня" %}</h3>
+                </div>
+                <div class="card-body">
+                    <div class="timeline">
+                        {% for item in today_classes %}
+                        <div class="timeline-item">
+                            <div class="timeline-marker" style="background: {{ item.subject.color }}"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-time">{{ item.start_time|time:"H:i" }} — {{ item.end_time|time:"H:i" }}</div>
+                                <div class="timeline-title">{{ item.subject.name }}</div>
+                                <div class="timeline-meta">
+                                    {% if item.room %}<span><i class="fas fa-location-dot"></i> {{ item.room }}</span>{% endif %}
+                                    {% if item.teacher %}<span><i class="fas fa-user"></i> {{ item.teacher }}</span>{% endif %}
+                                    <span class="badge badge-sm">{{ item.get_lesson_type_display }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="card">
+                <div class="card-body">
+                    <div class="empty-state-inline">
+                        <i class="fas fa-mug-hot"></i>
+                        <p>{% trans "Сегодня нет занятий. Наслаждайтесь свободным временем!" %}</p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if overdue_tasks %}
+            <div class="card card-accent-danger animate-in" style="animation-delay: 150ms">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-triangle-exclamation" style="color: #EF4444"></i> {% trans "Просроченные задачи" %} <span class="badge badge-danger">{{ overdue_tasks|length }}</span></h3>
+                </div>
+                <div class="card-body">
+                    <div class="task-compact-list">
+                        {% for task in overdue_tasks %}
+                        <div class="task-compact-item">
+                            <div class="task-compact-info">
+                                <span class="task-compact-title">{{ task.title }}</span>
+                                {% if task.subject %}<span class="badge badge-sm" style="background: {{ task.subject.color }}15; color: {{ task.subject.color }}">{{ task.subject.name }}</span>{% endif %}
+                            </div>
+                            <span class="badge badge-danger badge-sm">{% trans "Просрочено" %}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="card animate-in" style="animation-delay: 200ms">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-circle-check" style="color: #6366F1"></i> {% trans "Ближайшие задачи" %}</h3>
+                    <a href="{% url 'tasks:list' %}" class="btn btn-ghost btn-sm">{% trans "Все задачи" %} <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="card-body">
+                    {% if upcoming_tasks %}
+                    <div class="task-compact-list">
+                        {% for task in upcoming_tasks %}
+                        <div class="task-compact-item">
+                            <div class="task-compact-info">
+                                <span class="task-compact-title">{{ task.title }}</span>
+                                {% if task.subject %}<span class="badge badge-sm" style="background: {{ task.subject.color }}15; color: {{ task.subject.color }}">{{ task.subject.name }}</span>{% endif %}
+                            </div>
+                            <span class="text-muted text-sm">
+                                {% if task.deadline %}
+                                {% if task.is_due_today %}{% trans "Сегодня" %}
+                                {% elif task.is_due_tomorrow %}{% trans "Завтра" %}
+                                {% else %}{{ task.deadline|date:"M d" }}{% endif %}
+                                {% endif %}
+                            </span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    <div class="empty-state-inline">
+                        <p>{% trans "Нет ближайших задач. Отличная работа!" %}</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="card animate-in" style="animation-delay: 250ms">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-chart-line" style="color: #6366F1"></i> {% trans "Динамика оценок" %}</h3>
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="gradesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-side">
+            {% if upcoming_exams %}
+            <div class="card animate-in" style="animation-delay: 300ms">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-file-lines" style="color: #F59E0B"></i> {% trans "Ближайшие экзамены" %}</h3>
+                </div>
+                <div class="card-body">
+                    <div class="exam-compact-list">
+                        {% for exam in upcoming_exams %}
+                        <a href="{% url 'exams:detail' exam.pk %}" class="exam-compact-item">
+                            <div class="exam-compact-info">
+                                <span class="exam-compact-title">{{ exam.title }}</span>
+                                <span class="text-muted text-sm">{{ exam.subject.name }}</span>
+                            </div>
+                            <div class="exam-countdown {% if exam.days_until <= 3 %}countdown-urgent{% elif exam.days_until <= 7 %}countdown-warning{% endif %}">
+                                <span class="countdown-number">{{ exam.days_until }}</span>
+                                <span class="countdown-label">{% trans "дн." %}</span>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="card animate-in" style="animation-delay: 350ms">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-chart-pie" style="color: #10B981"></i> {% trans "Выполнение задач" %}</h3>
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="tasksChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card animate-in" style="animation-delay: 400ms">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-layer-group" style="color: #F59E0B"></i> {% trans "Семестр" %}</h3>
+                </div>
+                <div class="card-body">
+                    <div class="semester-info-card">
+                        <strong>{{ semester.name }}</strong>
+                        <span class="text-muted text-sm">{{ semester.academic_year }}</span>
+                    </div>
+                    {% include 'components/progress_bar.html' with value=semester_progress color='#10B981' %}
+                    <p class="text-sm text-muted mt-2">{{ semester_days_left }} {% trans "дней осталось" %}</p>
+                </div>
+            </div>
+
+            <div class="card animate-in" style="animation-delay: 450ms">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-bolt" style="color: #6366F1"></i> {% trans "Быстрые действия" %}</h3>
+                </div>
+                <div class="card-body">
+                    <div class="quick-actions-grid">
+                        <a href="{% url 'tasks:create' %}" class="quick-action-item">
+                            <div class="quick-action-icon" style="background: #EEF2FF; color: #6366F1"><i class="fas fa-plus"></i></div>
+                            <span>{% trans "Задача" %}</span>
+                        </a>
+                        <a href="{% url 'grades:create' %}" class="quick-action-item">
+                            <div class="quick-action-icon" style="background: #ECFDF5; color: #10B981"><i class="fas fa-plus"></i></div>
+                            <span>{% trans "Оценка" %}</span>
+                        </a>
+                        <a href="{% url 'subjects:create' %}" class="quick-action-item">
+                            <div class="quick-action-icon" style="background: #FEF3C7; color: #F59E0B"><i class="fas fa-plus"></i></div>
+                            <span>{% trans "Предмет" %}</span>
+                        </a>
+                        <a href="{% url 'exams:create' %}" class="quick-action-item">
+                            <div class="quick-action-icon" style="background: #FEE2E2; color: #EF4444"><i class="fas fa-plus"></i></div>
+                            <span>{% trans "Экзамен" %}</span>
+                        </a>
+                        <a href="{% url 'notes:create' %}" class="quick-action-item">
+                            <div class="quick-action-icon" style="background: #F0F9FF; color: #3B82F6"><i class="fas fa-plus"></i></div>
+                            <span>{% trans "Заметка" %}</span>
+                        </a>
+                        <a href="{% url 'calendar:event_create' %}" class="quick-action-item">
+                            <div class="quick-action-icon" style="background: #FFF7ED; color: #F97316"><i class="fas fa-plus"></i></div>
+                            <span>{% trans "Событие" %}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+{% if has_semester %}
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const chartData = {{ chart_data|safe }};
+    
+    // Grades Chart
+    const gradesCtx = document.getElementById('gradesChart');
+    if (gradesCtx && chartData.months) {
+        new Chart(gradesCtx, {
+            type: 'line',
+            data: {
+                labels: chartData.months,
+                datasets: [{
+                    label: '{% trans "Средний балл" %}',
+                    data: chartData.avg_scores,
+                    borderColor: '#6366F1',
+                    backgroundColor: 'rgba(99, 102, 241, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    borderWidth: 2,
+                    pointRadius: 4,
+                    pointBackgroundColor: '#6366F1',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        grid: { color: 'rgba(0,0,0,0.05)' },
+                        ticks: { font: { size: 11 } }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { font: { size: 11 } }
+                    }
+                }
+            }
+        });
+    }
+    
+    // Tasks Pie Chart
+    const tasksCtx = document.getElementById('tasksChart');
+    if (tasksCtx && chartData.task_completed !== undefined) {
+        new Chart(tasksCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['{% trans "Выполнено" %}', '{% trans "В процессе" %}', '{% trans "К выполнению" %}'],
+                datasets: [{
+                    data: [chartData.task_completed, chartData.task_in_progress, chartData.task_todo],
+                    backgroundColor: ['#10B981', '#6366F1', '#E5E7EB'],
+                    borderWidth: 0,
+                    borderRadius: 4,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '70%',
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { padding: 12, usePointStyle: true, font: { size: 11 } }
+                    }
+                }
+            }
+        });
+    }
+});
+</script>
+{% endblock %}
+{% endif %}
+{% endblock %}

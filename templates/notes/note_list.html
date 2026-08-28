@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Заметки" %} - Student Manager{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h1>{% trans "Заметки" %}</h1>
+    <a href="{% url 'notes:create' %}" class="btn btn-primary"><i class="fas fa-plus"></i> {% trans "Новая заметка" %}</a>
+</div>
+<div class="card">
+    <div class="card-body">
+        <form class="filter-bar" method="get">
+            <input type="text" name="q" class="form-control" placeholder="{% trans 'Поиск заметок...' %}" value="{{ search_query }}">
+            <button type="submit" class="btn btn-outline">{% trans "Поиск" %}</button>
+        </form>
+        {% if all_tags %}
+        <div class="tag-cloud">
+            {% for tag in all_tags %}
+            <a href="?tag={{ tag }}" class="badge badge-outline">{{ tag }}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% if notes %}
+        <div class="grid-3">
+            {% for note in notes %}
+            <a href="{% url 'notes:detail' note.pk %}" class="note-card card-link">
+                <h3>{{ note.title }}</h3>
+                <p class="text-muted text-sm">{{ note.get_safe_content|truncatechars:150 }}</p>
+                <div class="note-meta">
+                    {% if note.subject %}<span class="badge badge-sm" style="background: {{ note.subject.color }}20; color: {{ note.subject.color }}">{{ note.subject.name }}</span>{% endif %}
+                    <span class="text-muted text-sm">{{ note.created_at|date:"M d" }}</span>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+        {% else %}
+        {% include 'components/empty_state.html' with icon='sticky-note' title='Нет заметок' text='Создайте первую заметку.' action_url='/notes/create/' action_text='Создать заметку' %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

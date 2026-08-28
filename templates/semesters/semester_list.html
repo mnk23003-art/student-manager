@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Семестры" %} - Student Manager{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h1>{% trans "Семестры" %}</h1>
+    <a href="{% url 'semesters:create' %}" class="btn btn-primary"><i class="fas fa-plus"></i> {% trans "Новый семестр" %}</a>
+</div>
+<div class="card">
+    <div class="card-body">
+        {% if semesters %}
+        <div class="semester-grid">
+            {% for semester in semesters %}
+            <div class="semester-card {% if semester.is_active %}active{% endif %}">
+                <div class="semester-card-header">
+                    <h3>{{ semester.name }}</h3>
+                    {% if semester.is_active %}<span class="badge badge-success">{% trans "Активный" %}</span>{% endif %}
+                </div>
+                <p class="text-muted">{{ semester.academic_year }}</p>
+                <p>{{ semester.start_date|date:"M d, Y" }} - {{ semester.end_date|date:"M d, Y" }}</p>
+                {% include 'components/progress_bar.html' with value=semester.get_progress color='#3B82F6' %}
+                <p class="text-sm text-muted">{{ semester.days_left }} {% trans "дней осталось" %}</p>
+                <div class="semester-card-actions">
+                    {% if not semester.is_active %}
+                    <a href="{% url 'semesters:set_active' semester.pk %}" class="btn btn-sm btn-outline">{% trans "Сделать активным" %}</a>
+                    {% endif %}
+                    <a href="{% url 'semesters:update' semester.pk %}" class="btn btn-sm btn-outline"><i class="fas fa-edit"></i></a>
+                    <a href="{% url 'semesters:delete' semester.pk %}" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        {% include 'components/empty_state.html' with icon='calendar-plus' title='Нет семестров' text='Создайте первый семестр, чтобы начать.' action_url='/semesters/create/' action_text='Создать семестр' %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

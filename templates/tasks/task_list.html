@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Задачи" %} - Student Manager{% endblock %}
+{% block content %}
+<div class="page-header animate-in">
+    <div>
+        <h1 class="page-title">{% trans "Задачи" %}</h1>
+        <p class="page-subtitle">{% trans "Управляйте своими заданиями и делами" %}</p>
+    </div>
+    <a href="{% url 'tasks:create' %}" class="btn btn-primary btn-with-icon">
+        <i class="fas fa-plus"></i> {% trans "Новая задача" %}
+    </a>
+</div>
+
+<div class="filter-pills animate-in" style="animation-delay: 50ms">
+    <a href="{% url 'tasks:list' %}" class="filter-pill {% if not current_filter %}active{% endif %}">{% trans "Все" %}</a>
+    <a href="?filter=overdue" class="filter-pill {% if current_filter == 'overdue' %}active{% endif %}">{% trans "Просроченные" %}</a>
+    <a href="?status=todo" class="filter-pill {% if current_status == 'todo' %}active{% endif %}">{% trans "К выполнению" %}</a>
+    <a href="?status=in_progress" class="filter-pill {% if current_status == 'in_progress' %}active{% endif %}">{% trans "В процессе" %}</a>
+    <a href="?status=completed" class="filter-pill {% if current_status == 'completed' %}active{% endif %}">{% trans "Выполнено" %}</a>
+</div>
+
+<div class="card animate-in" style="animation-delay: 100ms">
+    <div class="card-body">
+        <form class="search-filter-bar" method="get">
+            <div class="search-filter-input">
+                <i class="fas fa-search"></i>
+                <input type="text" name="q" class="form-input" placeholder="{% trans 'Поиск задач...' %}" value="{{ search_query }}">
+            </div>
+            <select name="priority" class="form-select">
+                <option value="">{% trans "Все приоритеты" %}</option>
+                <option value="low" {% if current_priority == 'low' %}selected{% endif %}>{% trans "Низкий" %}</option>
+                <option value="medium" {% if current_priority == 'medium' %}selected{% endif %}>{% trans "Средний" %}</option>
+                <option value="high" {% if current_priority == 'high' %}selected{% endif %}>{% trans "Высокий" %}</option>
+                <option value="urgent" {% if current_priority == 'urgent' %}selected{% endif %}>{% trans "Срочный" %}</option>
+            </select>
+            <button type="submit" class="btn btn-secondary">{% trans "Фильтр" %}</button>
+        </form>
+
+        {% if tasks %}
+        <div class="task-list">
+            {% for task in tasks %}
+            <div class="task-row {% if task.is_overdue %}task-overdue{% endif %} {% if task.status == 'completed' %}task-completed{% endif %}" hx-target="closest .task-row" hx-swap="outerHTML">
+                <div class="task-checkbox-wrapper">
+                    <form method="post" action="{% url 'tasks:toggle_status' task.pk %}" hx-post="{% url 'tasks:toggle_status' task.pk %}">
+                        {% csrf_token %}
+                        <label class="task-checkbox">
+                            <input type="checkbox" {% if task.status == 'completed' %}checked{% endif %} onchange="this.form.requestSubmit()">
+                            <span class="checkmark"></span>
+                        </label>
+                    </form>
+                </div>
+                <div class="task-content">
+                    <a href="{% url 'tasks:detail' task.pk %}" class="task-title-link">{{ task.title }}</a>
+                    <div class="task-meta-row">
+                        {% if task.subject %}<span class="badge badge-sm" style="background: {{ task.subject.color }}15; color: {{ task.subject.color }}">{{ task.subject.name }}</span>{% endif %}
+                        {% if task.deadline %}
+                        <span class="task-deadline {% if task.is_overdue %}text-danger{% endif %}">
+                            <i class="fas fa-clock"></i> {{ task.deadline|date:"M d, H:i" }}
+                        </span>
+                        {% endif %}
+                        {% if task.estimated_time %}<span class="text-muted text-sm"><i class="fas fa-hourglass-half"></i> {{ task.get_estimated_hours }}</span>{% endif %}
+                    </div>
+                </div>
+                <div class="task-badges">
+                    <span class="badge badge-{{ task.priority }}">{{ task.get_priority_display }}</span>
+                    {% if task.is_overdue %}<span class="badge badge-danger">{% trans "Просрочено" %}</span>{% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        {% include 'components/empty_state.html' with icon='circle-check' title='Нет задач' text='Создайте первую задачу, чтобы начать.' action_url='/tasks/create/' action_text='Создать задачу' %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

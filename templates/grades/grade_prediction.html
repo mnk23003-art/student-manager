@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Grade Prediction" %} - Student Manager{% endblock %}
+{% block content %}
+<div class="page-header"><h1>{% trans "Grade Prediction" %}</h1></div>
+<div class="card"><div class="card-body">
+    <p>{% trans "Calculate what grade you need on your next assignment to reach your target." %}</p>
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="form-group">
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {% if field.errors %}<span class="form-error">{{ field.errors.0 }}</span>{% endif %}
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">{% trans "Calculate" %}</button>
+    </form>
+    {% if result %}
+    <div class="prediction-result mt-4">
+        {% if result.possible %}
+        <div class="alert alert-success">
+            <i class="fas fa-circle-check"></i>
+            {% trans "You need" %} <strong>{{ result.needed }}%</strong> {% trans "on your next assessment." %}
+        </div>
+        {% else %}
+        <div class="alert alert-danger">
+            <i class="fas fa-exclamation-circle"></i>
+            {{ result.message }}
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+</div></div>
+{% endblock %}

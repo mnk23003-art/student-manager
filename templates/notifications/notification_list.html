@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Уведомления" %} - Student Manager{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h1>{% trans "Уведомления" %}</h1>
+    {% if unread_count > 0 %}
+    <form method="post" action="{% url 'notifications:mark_all_read' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-outline">{% trans "Отметить все как прочитанные" %}</button>
+    </form>
+    {% endif %}
+</div>
+<div class="card">
+    <div class="card-body">
+        {% if notifications %}
+        {% for notification in notifications %}
+        <div class="notification-item {% if not notification.is_read %}unread{% endif %}">
+            <div class="notification-icon">
+                <i class="fas fa-{% if notification.notification_type == 'task_deadline' %}clock{% elif notification.notification_type == 'exam_reminder' %}clipboard{% elif notification.notification_type == 'overdue_task' %}triangle-exclamation{% else %}circle-info{% endif %}"></i>
+            </div>
+            <div class="notification-info">
+                <h4>{{ notification.title }}</h4>
+                <p class="text-muted text-sm">{{ notification.message }}</p>
+                <span class="text-muted text-sm">{{ notification.created_at|timesince }} {% trans "назад" %}</span>
+            </div>
+            <div class="notification-actions">
+                {% if not notification.is_read %}
+                <a href="{% url 'notifications:mark_read' notification.pk %}" class="btn btn-sm btn-outline" hx-get="{% url 'notifications:mark_read' notification.pk %}" hx-swap="outerHTML"><i class="fas fa-check"></i></a>
+                {% endif %}
+                <form method="post" action="{% url 'notifications:delete' notification.pk %}" style="display:inline">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        {% include 'components/empty_state.html' with icon='bell' title='Нет уведомлений' text='Все прочитано!' %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

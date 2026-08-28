@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Welcome" %} - Student Manager{% endblock %}
+{% block content %}
+<div class="onboarding">
+    <div class="onboarding-card">
+        <div class="onboarding-steps">
+            {% for s in "123456" %}
+            <div class="step {% if forloop.counter <= step %}active{% endif %}">{{ forloop.counter }}</div>
+            {% endfor %}
+        </div>
+        {% if step == 1 %}
+        <div class="onboarding-content">
+            <h2>{% trans "Welcome to Student Manager!" %}</h2>
+            <p>{% trans "Your personal academic management system." %}</p>
+            <p>{% trans "Let's set up your profile in a few simple steps." %}</p>
+        </div>
+        {% elif step == 2 %}
+        <div class="onboarding-content">
+            <h2>{% trans "Student Profile" %}</h2>
+            <p>{% trans "Tell us about yourself." %}</p>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group"><label>{% trans "University" %}</label><input type="text" name="university" class="form-control" value="{{ profile.university }}"></div>
+                <div class="form-group"><label>{% trans "Faculty" %}</label><input type="text" name="faculty" class="form-control" value="{{ profile.faculty }}"></div>
+                <div class="form-group"><label>{% trans "Specialization" %}</label><input type="text" name="specialization" class="form-control" value="{{ profile.specialization }}"></div>
+                <div class="form-group"><label>{% trans "Course" %}</label><input type="number" name="course" class="form-control" value="{{ profile.course|default:'' }}"></div>
+                <div class="form-group"><label>{% trans "Academic Year" %}</label><input type="text" name="academic_year" class="form-control" placeholder="e.g. 2026/2027" value="{{ profile.academic_year }}"></div>
+                <button type="submit" class="btn btn-primary">{% trans "Continue" %}</button>
+            </form>
+        </div>
+        {% elif step == 3 %}
+        <div class="onboarding-content">
+            <h2>{% trans "Academic Year" %}</h2>
+            <p>{% trans "This helps organize your semesters." %}</p>
+            <form method="post">{% csrf_token %}
+                <p>{% trans "You can set this up later in Semesters." %}</p>
+                <button type="submit" class="btn btn-primary">{% trans "Continue" %}</button>
+            </form>
+        </div>
+        {% elif step == 4 %}
+        <div class="onboarding-content">
+            <h2>{% trans "Create First Semester" %}</h2>
+            <p><a href="{% url 'semesters:create' %}" class="btn btn-primary">{% trans "Create Semester" %}</a></p>
+            <form method="post">{% csrf_token %}<button type="submit" class="btn btn-outline mt-2">{% trans "Skip for now" %}</button></form>
+        </div>
+        {% elif step == 5 %}
+        <div class="onboarding-content">
+            <h2>{% trans "Add Subjects" %}</h2>
+            <p><a href="{% url 'subjects:create' %}" class="btn btn-primary">{% trans "Add Subject" %}</a></p>
+            <form method="post">{% csrf_token %}<button type="submit" class="btn btn-outline mt-2">{% trans "Skip for now" %}</button></form>
+        </div>
+        {% elif step == 6 %}
+        <div class="onboarding-content">
+            <h2>{% trans "You're All Set!" %}</h2>
+            <p>{% trans "Welcome aboard! Let's start managing your academic life." %}</p>
+            <form method="post">{% csrf_token %}<button type="submit" class="btn btn-primary">{% trans "Go to Dashboard" %}</button></form>
+        </div>
+        {% endif %}
+        {% if step > 1 and step < 6 %}
+        <div class="onboarding-nav">
+            <a href="?step={{ step|add:'-1' }}" class="btn btn-secondary">{% trans "Back" %}</a>
+            <a href="?step={{ step|add:'1' }}" class="btn btn-outline">{% trans "Skip" %}</a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

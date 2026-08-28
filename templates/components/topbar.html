@@ -1,0 +1,131 @@
+{% load i18n %}
+<header class="topbar">
+    <div class="topbar-left">
+        {% if active_semester %}
+        <div class="semester-indicator">
+            <span class="semester-dot"></span>
+            <span>{{ active_semester.name }}</span>
+            <span class="text-muted">{{ active_semester.academic_year }}</span>
+        </div>
+        {% endif %}
+    </div>
+    
+    <div class="topbar-center">
+        <div class="search-bar-wrapper">
+            <i class="fas fa-search search-bar-icon"></i>
+            <input type="text" id="globalSearch" class="search-bar-input" placeholder="{% trans 'Поиск...' %}" autocomplete="off">
+            <kbd class="search-bar-shortcut">⌘K</kbd>
+            <div class="search-bar-results" id="searchResults"></div>
+        </div>
+    </div>
+    
+    <div class="topbar-right">
+        <div class="topbar-action-btn-group">
+            <button class="topbar-action-btn quick-add-trigger" onclick="toggleQuickAdd()" aria-label="{% trans 'Быстрое добавление' %}">
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+        
+        <div class="topbar-action-btn-group">
+            <a href="{% url 'notifications:list' %}" class="topbar-action-btn" aria-label="{% trans 'Уведомления' %}">
+                <i class="fas fa-bell"></i>
+                {% if unread_notifications > 0 %}
+                <span class="notification-dot"></span>
+                {% endif %}
+            </a>
+        </div>
+
+        <div class="topbar-divider"></div>
+
+        <div class="topbar-action-btn-group">
+            <button class="topbar-action-btn theme-toggle-btn" onclick="toggleThemeAndSave()" aria-label="{% trans 'Тема' %}">
+                <i class="fas fa-moon" id="themeIcon"></i>
+            </button>
+            <button class="topbar-action-btn lang-toggle-btn" onclick="toggleLanguage()" aria-label="{% trans 'Язык' %}">
+                <span class="lang-label" id="langLabel">{{ LANGUAGE_CODE|upper }}</span>
+            </button>
+        </div>
+        
+        <div class="topbar-divider"></div>
+        
+        <div class="user-menu-wrapper">
+            <button class="user-menu-trigger" onclick="toggleUserMenu()" aria-label="{% trans 'Меню пользователя' %}">
+                {% if user.profile.avatar %}
+                <img src="{{ user.profile.avatar.url }}" alt="" class="user-avatar-sm">
+                {% else %}
+                <div class="user-avatar-sm-initials">{{ user.profile.get_initials }}</div>
+                {% endif %}
+                <i class="fas fa-chevron-down user-chevron"></i>
+            </button>
+            <div class="dropdown-menu" id="userDropdown">
+                <div class="dropdown-header">
+                    <span class="dropdown-user-name">{{ user.get_full_name_display }}</span>
+                    <span class="dropdown-user-email">{{ user.email }}</span>
+                </div>
+                <div class="dropdown-divider"></div>
+                <a href="{% url 'accounts:profile' %}" class="dropdown-item">
+                    <i class="fas fa-user"></i>{% trans "Профиль" %}
+                </a>
+                <a href="{% url 'accounts:settings' %}" class="dropdown-item">
+                    <i class="fas fa-gear"></i>{% trans "Настройки" %}
+                </a>
+                <div class="dropdown-divider"></div>
+                <form method="post" action="{% url 'accounts:logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="dropdown-item dropdown-item-danger" style="width:100%;border:none;background:none;text-align:left;cursor:pointer;">
+                        <i class="fas fa-right-from-bracket"></i>{% trans "Выйти" %}
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="quick-add-menu" id="quickAddMenu">
+    <div class="quick-add-overlay" onclick="toggleQuickAdd()"></div>
+    <div class="quick-add-content">
+        <h3>{% trans "Быстрое добавление" %}</h3>
+        <a href="{% url 'tasks:create' %}" class="quick-add-item">
+            <div class="quick-add-icon" style="background: #EEF2FF; color: #6366F1"><i class="fas fa-circle-check"></i></div>
+            <div class="quick-add-text">
+                <span class="quick-add-title">{% trans "Новая задача" %}</span>
+                <span class="quick-add-desc">{% trans "Добавить задачу в список" %}</span>
+            </div>
+        </a>
+        <a href="{% url 'grades:create' %}" class="quick-add-item">
+            <div class="quick-add-icon" style="background: #ECFDF5; color: #10B981"><i class="fas fa-star"></i></div>
+            <div class="quick-add-text">
+                <span class="quick-add-title">{% trans "Новая оценка" %}</span>
+                <span class="quick-add-desc">{% trans "Добавить оценку за работу" %}</span>
+            </div>
+        </a>
+        <a href="{% url 'subjects:create' %}" class="quick-add-item">
+            <div class="quick-add-icon" style="background: #FEF3C7; color: #F59E0B"><i class="fas fa-book-open"></i></div>
+            <div class="quick-add-text">
+                <span class="quick-add-title">{% trans "Новый предмет" %}</span>
+                <span class="quick-add-desc">{% trans "Добавить предмет в расписание" %}</span>
+            </div>
+        </a>
+        <a href="{% url 'exams:create' %}" class="quick-add-item">
+            <div class="quick-add-icon" style="background: #FEE2E2; color: #EF4444"><i class="fas fa-file-lines"></i></div>
+            <div class="quick-add-text">
+                <span class="quick-add-title">{% trans "Новый экзамен" %}</span>
+                <span class="quick-add-desc">{% trans "Добавить экзамен или зачёт" %}</span>
+            </div>
+        </a>
+        <a href="{% url 'notes:create' %}" class="quick-add-item">
+            <div class="quick-add-icon" style="background: #F0F9FF; color: #3B82F6"><i class="fas fa-note-sticky"></i></div>
+            <div class="quick-add-text">
+                <span class="quick-add-title">{% trans "Новая заметка" %}</span>
+                <span class="quick-add-desc">{% trans "Быстрая заметка или идея" %}</span>
+            </div>
+        </a>
+        <a href="{% url 'calendar:event_create' %}" class="quick-add-item">
+            <div class="quick-add-icon" style="background: #FFF7ED; color: #F97316"><i class="fas fa-calendar-plus"></i></div>
+            <div class="quick-add-text">
+                <span class="quick-add-title">{% trans "Новое событие" %}</span>
+                <span class="quick-add-desc">{% trans "Добавить событие в календарь" %}</span>
+            </div>
+        </a>
+    </div>
+</div>

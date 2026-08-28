@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{{ goal.title }} - Student Manager{% endblock %}
+{% block content %}
+<div class="page-header">
+    <div>
+        <h1>{{ goal.title }}</h1>
+        <span class="badge badge-{{ goal.status }}">{{ goal.get_status_display }}</span>
+    </div>
+    <div class="page-actions">
+        <a href="{% url 'goals:update' goal.pk %}" class="btn btn-outline"><i class="fas fa-edit"></i></a>
+        <a href="{% url 'goals:delete' goal.pk %}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+    </div>
+</div>
+<div class="card"><div class="card-body">
+    {% if goal.description %}<p>{{ goal.description }}</p>{% endif %}
+    {% if goal.target %}<p><strong>{% trans "Target:" %}</strong> {{ goal.target }}</p>{% endif %}
+    {% include 'components/progress_bar.html' with value=goal.progress color='#3B82F6' %}
+    {% if goal.deadline %}<p class="text-muted">{% trans "Deadline:" %} {{ goal.deadline|date:"M d, Y" }} ({% trans "left" %} {{ goal.days_until_deadline }} {% trans "days" %})</p>{% endif %}
+</div></div>
+{% endblock %}

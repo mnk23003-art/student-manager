@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Расписание" %} - Student Manager{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h1>{% trans "Расписание" %}</h1>
+    <a href="{% url 'schedule:create' %}" class="btn btn-primary"><i class="fas fa-plus"></i> {% trans "Добавить занятие" %}</a>
+</div>
+{% if semester %}
+<div class="card">
+    <div class="card-body">
+        <div class="schedule-grid">
+            {% for day_num, day_items in days.items %}
+            <div class="schedule-day">
+                <h3 class="schedule-day-header">{{ day_items.name }}</h3>
+                {% if day_items.items %}
+                {% for item in day_items.items %}
+                <div class="schedule-slot" style="border-left: 3px solid {{ item.subject.color }}">
+                    <div class="schedule-time">{{ item.start_time|time:"H:i" }} - {{ item.end_time|time:"H:i" }}</div>
+                    <div class="schedule-info">
+                        <strong>{{ item.subject.name }}</strong>
+                        <span class="text-sm text-muted">{{ item.get_lesson_type_display }}</span>
+                        {% if item.room %}<span class="text-sm"><i class="fas fa-location-dot"></i> {{ item.room }}</span>{% endif %}
+                        {% if item.teacher %}<span class="text-sm text-muted">{{ item.teacher }}</span>{% endif %}
+                    </div>
+                    <div class="schedule-actions">
+                        <a href="{% url 'schedule:update' item.pk %}" class="btn btn-sm btn-outline"><i class="fas fa-edit"></i></a>
+                        <a href="{% url 'schedule:delete' item.pk %}" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <div class="empty-state-sm"><p class="text-muted">{% trans "Нет занятий" %}</p></div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="card"><div class="card-body">
+    {% include 'components/empty_state.html' with icon='calendar-plus' title='Нет активного семестра' text='Сначала создайте семестр.' action_url='/semesters/create/' action_text='Создать семестр' %}
+</div></div>
+{% endif %}
+{% endblock %}
