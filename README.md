@@ -58,14 +58,7 @@ student_manager/
 ```
 
 
-## Features Detail
 
-### Grade Calculation
-Supports multiple grading systems:
-- Percentage (0-100)
-- 5-Point scale
-- 10-Point scale
-- GPA 4.0
 
 ### Schedule Conflict Detection
 Automatically detects when classes overlap and prevents double-booking.
