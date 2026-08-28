@@ -2289,6 +2289,29 @@ textarea.form-control {
   color: var(--danger-dark);
 }
 
+.calendar-day-header {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-xs);
+  margin-bottom: var(--sp-xs);
+}
+
+.calendar-date {
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+}
+
+.calendar-weekday-short {
+  font-size: var(--fs-2xs);
+  font-weight: var(--fw-medium);
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+}
+
+.calendar-day.weekend .calendar-weekday-short {
+  color: var(--danger-dark);
+}
+
 .calendar-day-number {
   font-size: var(--fs-sm);
   font-weight: var(--fw-medium);

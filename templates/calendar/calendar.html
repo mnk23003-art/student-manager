@@ -23,7 +23,10 @@
             <div class="calendar-body">
                 {% for day in calendar_days %}
                 <div class="calendar-day {% if not day.is_current_month %}other-month{% endif %} {% if day.is_today %}today{% endif %} {% if day.is_weekend %}weekend{% endif %}">
-                    <div class="calendar-date">{{ day.date|date:"d" }}</div>
+                    <div class="calendar-day-header">
+                        <span class="calendar-date">{{ day.date|date:"d" }}</span>
+                        <span class="calendar-weekday-short">{{ day.date|date:"D" }}</span>
+                    </div>
                     {% for event in day.events %}
                     <div class="calendar-event" style="background: {{ event.color }}20; color: {{ event.color }}">{{ event.title|truncatechars:15 }}</div>
                     {% endfor %}
